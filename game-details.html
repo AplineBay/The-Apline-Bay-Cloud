@@ -1,785 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Details - The Apline Bay</title>
-    
-    <style>
-        /*
-        *****************************************************
-        * START OF CSS STYLES (COPY FROM YOUR HOMEPAGE) *
-        *****************************************************
-        */
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details - The Apline Bay</title>
+    
+    <style>
+        /*
+        *****************************************************
+        * START OF CSS STYLES (COPY FROM YOUR HOMEPAGE) *
+        *****************************************************
+        */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        :root {
-            /* Core Colors */
-            --background: 240 10% 3.9%;
-            --foreground: 0 0% 98%;
-            --card: 240 10% 6%;
-            --card-foreground: 0 0% 98%;
-            
-            /* Brand Colors */
-            --primary: 267 85% 65%;
-            --primary-foreground: 240 10% 3.9%;
-            --primary-glow: 267 100% 85%;
-            
-            --secondary: 240 3.7% 15.9%;
-            --secondary-foreground: 0 0% 98%;
-            
-            /* Interactive Colors */
-            --accent: 197 71% 73%;
-            --accent-foreground: 240 10% 3.9%;
-            --accent-glow: 197 85% 85%;
-            
-            /* Semantic Colors */
-            --muted: 240 3.7% 15.9%;
-            --muted-foreground: 240 5% 64.9%;
-            --success: 142 69% 58%;
-            --warning: 38 92% 50%;
-            --destructive: 0 84.2% 60.2%;
-            
-            /* Interface Colors */
-            --border: 240 3.7% 15.9%;
-            --input: 240 3.7% 15.9%;
-            --ring: 267 85% 65%;
-        }
+        :root {
+            /* Core Colors */
+            --background: 240 10% 3.9%;
+            --foreground: 0 0% 98%;
+            --card: 240 10% 6%;
+            --card-foreground: 0 0% 98%;
+            
+            /* Brand Colors */
+            --primary: 267 85% 65%;
+            --primary-foreground: 240 10% 3.9%;
+            --primary-glow: 267 100% 85%;
+            
+            --secondary: 240 3.7% 15.9%;
+            --secondary-foreground: 0 0% 98%;
+            
+            /* Interactive Colors */
+            --accent: 197 71% 73%;
+            --accent-foreground: 240 10% 3.9%;
+            --accent-glow: 197 85% 85%;
+            
+            /* Semantic Colors */
+            --muted: 240 3.7% 15.9%;
+            --muted-foreground: 240 5% 64.9%;
+            --success: 142 69% 58%;
+            --warning: 38 92% 50%;
+            --destructive: 0 84.2% 60.2%;
+            
+            /* Interface Colors */
+            --border: 240 3.7% 15.9%;
+            --input: 240 3.7% 15.9%;
+            --ring: 267 85% 65%;
+        }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: hsl(var(--background));
-            color: hsl(var(--foreground));
-            min-height: 100vh;
-            line-height: 1.5;
-            position: relative;
-            overflow-x: hidden;
-        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            min-height: 100vh;
+            line-height: 1.5;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-        /* Background Effects */
-        .bg-effects {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
+        /* Background Effects */
+        .bg-effects {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-        .bg-glow-1 {
-            position: absolute;
-            top: 80px;
-            left: 40px;
-            width: 128px;
-            height: 128px;
-            background: hsl(var(--primary) / 0.2);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
-        }
+        .bg-glow-1 {
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 128px;
+            height: 128px;
+            background: hsl(var(--primary) / 0.2);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
 
-        .bg-glow-2 {
-            position: absolute;
-            bottom: 160px;
-            right: 40px;
-            width: 192px;
-            height: 192px;
-            background: hsl(var(--accent) / 0.2);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 8s ease-in-out infinite reverse;
-        }
+        .bg-glow-2 {
+            position: absolute;
+            bottom: 160px;
+            right: 40px;
+            width: 192px;
+            height: 192px;
+            background: hsl(var(--accent) / 0.2);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 8s ease-in-out infinite reverse;
+        }
 
-        .bg-glow-3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: hsl(var(--primary) / 0.1);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: float 10s ease-in-out infinite;
-        }
-        
-        .bg-gradient {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, hsl(var(--primary) / 0.1), transparent 70%);
-            opacity: 0.3;
-        }
+        .bg-glow-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: hsl(var(--primary) / 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, hsl(var(--primary) / 0.1), transparent 70%);
+            opacity: 0.3;
+        }
 
-        /* Top Bar */
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 48px;
-            background: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid hsl(var(--border) / 0.5);
-            z-index: 40;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .top-bar-content {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* Back Button */
-        .back-btn {
-            position: fixed;
-            top: 64px;
-            left: 16px;
-            z-index: 30;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: hsl(var(--card) / 0.8);
-            backdrop-filter: blur(8px);
-            border: 1px solid hsl(var(--border) / 0.5);
-            border-radius: 8px;
-            color: hsl(var(--foreground));
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
+        /* Top Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 48px;
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid hsl(var(--border) / 0.5);
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .top-bar-content {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 64px;
+            left: 16px;
+            z-index: 30;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: hsl(var(--card) / 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 8px;
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
 
-        .back-btn:hover {
-            background: hsl(var(--card));
-            border-color: hsl(var(--primary) / 0.5);
-            transform: translateY(-1px);
-        }
+        .back-btn:hover {
+            background: hsl(var(--card));
+            border-color: hsl(var(--primary) / 0.5);
+            transform: translateY(-1px);
+        }
 
-        .back-btn:active {
-            transform: translateY(0);
-        }
+        .back-btn:active {
+            transform: translateY(0);
+        }
 
-        /* Main Container */
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            padding: 96px 16px 64px;
-            position: relative;
-            z-index: 10;
-        }
+        /* Main Container */
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 96px 16px 64px;
+            position: relative;
+            z-index: 10;
+        }
 
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 48px;
-            animation: fadeIn 0.8s ease-out;
-        }
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            animation: fadeIn 0.8s ease-out;
+        }
 
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 24px;
-            position: relative;
-        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
 
-        .logo-glow {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            border-radius: 50%;
-            filter: blur(24px);
-            opacity: 0.3;
-            animation: glowPulse 3s ease-in-out infinite;
-        }
+        .logo-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            border-radius: 50%;
+            filter: blur(24px);
+            opacity: 0.3;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
 
-        .logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            border: 2px solid hsl(var(--primary) / 0.3);
-            position: relative;
-            box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+        .logo {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            border: 2px solid hsl(var(--primary) / 0.3);
+            position: relative;
+            box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .title {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
-            max-width: 512px;
-            margin: 0 auto 12px;
-            font-weight: 400;
-        }
-        
-        .version-label {
-            font-size: 0.875rem;
-            color: hsl(var(--accent));
-            font-family: 'JetBrains Mono', monospace;
-            background: hsl(var(--muted) / 0.3);
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
-        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+            max-width: 512px;
+            margin: 0 auto 12px;
+            font-weight: 400;
+        }
+        
+        .version-label {
+            font-size: 0.875rem;
+            color: hsl(var(--accent));
+            font-family: 'JetBrains Mono', monospace;
+            background: hsl(var(--muted) / 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
 
-        /* Search */
-        .search-container {
-            margin-bottom: 40px;
-            animation: slideUp 0.8s ease-out;
-            animation-delay: 0.2s;
-            animation-fill-mode: both;
-            position: relative;
-            max-width: 512px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* Search */
+        .search-container {
+            margin-bottom: 40px;
+            animation: slideUp 0.8s ease-out;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+            position: relative;
+            max-width: 512px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        .search-glow {
-            position: absolute;
-            inset: -4px;
-            background: linear-gradient(90deg, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.5));
-            border-radius: 16px;
-            filter: blur(8px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+        .search-glow {
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(90deg, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.5));
+            border-radius: 16px;
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-        .search-wrapper {
-            position: relative;
-            background: hsl(var(--card));
-            border-radius: 12px;
-            border: 1px solid hsl(var(--border) / 0.5);
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
+        .search-wrapper {
+            position: relative;
+            background: hsl(var(--card));
+            border-radius: 12px;
+            border: 1px solid hsl(var(--border) / 0.5);
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
 
-        .search-wrapper:focus-within {
-            border-color: hsl(var(--primary) / 0.5);
-        }
+        .search-wrapper:focus-within {
+            border-color: hsl(var(--primary) / 0.5);
+        }
 
-        .search-wrapper:focus-within .search-glow {
-            opacity: 1;
-        }
+        .search-wrapper:focus-within .search-glow {
+            opacity: 1;
+        }
 
-        .search-input {
-            width: 100%;
-            padding: 16px 48px;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: hsl(var(--foreground));
-            font-size: 16px;
-            font-family: inherit;
-        }
+        .search-input {
+            width: 100%;
+            padding: 16px 48px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: hsl(var(--foreground));
+            font-size: 16px;
+            font-family: inherit;
+        }
 
-        .search-input::placeholder {
-            color: hsl(var(--muted-foreground));
-        }
+        .search-input::placeholder {
+            color: hsl(var(--muted-foreground));
+        }
 
-        .search-icon, .clear-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: hsl(var(--muted-foreground));
-        }
+        .search-icon, .clear-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: hsl(var(--muted-foreground));
+        }
 
-        .search-icon {
-            left: 16px;
-        }
+        .search-icon {
+            left: 16px;
+        }
 
-        .clear-btn {
-            right: 16px;
-            opacity: 0;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
+        .clear-btn {
+            right: 16px;
+            opacity: 0;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
 
-        .clear-btn.visible {
-            opacity: 1;
-        }
-        
-        /* Game Grid */
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-        }
-        
-        .game-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: hsl(var(--card));
-            border-radius: 12px;
-            border: 1px solid hsl(var(--border) / 0.5);
-            padding: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeIn 0.8s ease-out backwards;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-4px);
-            border-color: hsl(var(--primary) / 0.5);
-            box-shadow: 0 8px 30px hsl(var(--primary) / 0.15);
-        }
+        .clear-btn.visible {
+            opacity: 1;
+        }
+        
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .game-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: hsl(var(--card));
+            border-radius: 12px;
+            border: 1px solid hsl(var(--border) / 0.5);
+            padding: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-4px);
+            border-color: hsl(var(--primary) / 0.5);
+            box-shadow: 0 8px 30px hsl(var(--primary) / 0.15);
+        }
 
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-        .card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
 
-        .card-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .card-info {
-            flex-grow: 1;
-        }
+        .card-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .card-info {
+            flex-grow: 1;
+        }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            border-radius: 8px;
-            background: hsl(var(--primary) / 0.1);
-            color: hsl(var(--primary));
-            display: grid;
-            place-items: center;
-            font-size: 24px;
-        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 8px;
+            background: hsl(var(--primary) / 0.1);
+            color: hsl(var(--primary));
+            display: grid;
+            place-items: center;
+            font-size: 24px;
+        }
 
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            margin-bottom: 4px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
-        .card-description {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .card-description {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-        .card-platform {
-            font-size: 0.875rem;
-            color: hsl(var(--accent));
-            font-weight: 500;
-        }
+        .card-platform {
+            font-size: 0.875rem;
+            color: hsl(var(--accent));
+            font-weight: 500;
+        }
 
-        .card-arrow {
-            color: hsl(var(--muted-foreground));
-            transition: transform 0.3s ease;
-        }
+        .card-arrow {
+            color: hsl(var(--muted-foreground));
+            transition: transform 0.3s ease;
+        }
 
-        .game-card:hover .card-arrow {
-            transform: translateX(4px);
-        }
+        .game-card:hover .card-arrow {
+            transform: translateX(4px);
+        }
 
-        .card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 12px;
-        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
 
-        .tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 16px;
-            background: hsl(var(--muted));
-            color: hsl(var(--muted-foreground));
-            white-space: nowrap;
-            display: inline-block;
-        }
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 16px;
+            background: hsl(var(--muted));
+            color: hsl(var(--muted-foreground));
+            white-space: nowrap;
+            display: inline-block;
+        }
 
-        /* Status and Fallback */
-        .status-message {
-            text-align: center;
-            font-size: 1rem;
-            color: hsl(var(--muted-foreground));
-            padding: 40px;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
+        /* Status and Fallback */
+        .status-message {
+            text-align: center;
+            font-size: 1rem;
+            color: hsl(var(--muted-foreground));
+            padding: 40px;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
 
-        /*
-        *****************************************************
-        * NEW CSS STYLES FOR GAME DETAILS PAGE              *
-        *****************************************************
-        */
+        /*
+        *****************************************************
+        * NEW CSS STYLES FOR GAME DETAILS PAGE              *
+        *****************************************************
+        */
 
-        .game-details-content {
-            background: hsl(var(--card));
-            border-radius: 12px;
-            border: 1px solid hsl(var(--border) / 0.5);
-            padding: 40px;
-            text-align: left;
-            animation: fadeIn 0.8s ease-out;
-        }
+        .game-details-content {
+            background: hsl(var(--card));
+            border-radius: 12px;
+            border: 1px solid hsl(var(--border) / 0.5);
+            padding: 40px;
+            text-align: left;
+            animation: fadeIn 0.8s ease-out;
+        }
 
-        .game-details-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
+        .game-details-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
 
-        .game-details-description {
-            font-size: 1.125rem;
-            color: hsl(var(--muted-foreground));
-            margin-bottom: 24px;
-        }
-        
-        .version-list-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            margin-bottom: 16px;
-        }
-        
-        .game-versions-grid {
-            display: grid;
-            gap: 16px;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        }
+        .game-details-description {
+            font-size: 1.125rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 24px;
+        }
+        
+        .version-list-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 16px;
+        }
+        
+        .game-versions-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
 
-        .version-card {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            background: hsl(var(--muted) / 0.5);
-            border: 1px solid hsl(var(--border) / 0.5);
-            border-radius: 10px;
-            padding: 16px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .version-card:hover {
-            transform: translateY(-2px);
-            border-color: hsl(var(--primary) / 0.5);
-            box-shadow: 0 4px 16px hsl(var(--primary) / 0.1);
-        }
-        
-        .version-card-platform {
-            font-size: 1rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            margin-bottom: 8px;
-        }
+        .version-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: hsl(var(--muted) / 0.5);
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 10px;
+            padding: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .version-card:hover {
+            transform: translateY(-2px);
+            border-color: hsl(var(--primary) / 0.5);
+            box-shadow: 0 4px 16px hsl(var(--primary) / 0.1);
+        }
+        
+        .version-card-platform {
+            font-size: 1rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: 8px;
+        }
 
-        .version-card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 10px;
-        }
+        .version-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
 
-        .version-card-url {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            font-family: 'JetBrains Mono', monospace;
-            margin-top: 8px;
-        }
-        
-        /* Loading Spinner */
-        #loading {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 50;
-        }
-        
-        .loading-content {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: hsl(var(--card));
-            border: 1px solid hsl(var(--border));
-            padding: 24px 32px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px hsl(var(--background) / 0.5);
-        }
+        .version-card-url {
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 8px;
+        }
+        
+        /* Loading Spinner */
+        #loading {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 50;
+        }
+        
+        .loading-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border));
+            padding: 24px 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px hsl(var(--background) / 0.5);
+        }
 
-        .loading-spinner {
-            width: 32px;
-            height: 32px;
-            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        }
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
 
-        .spinner-icon {
-            color: hsl(var(--primary));
-        }
-        
-        .loading-text {
-            font-size: 1rem;
-            color: hsl(var(--muted-foreground));
-            margin-bottom: 4px;
-        }
-        
-        .loading-dots {
-            display: flex;
-            gap: 6px;
-        }
-        
-        .loading-dot {
-            width: 8px;
-            height: 8px;
-            background-color: hsl(var(--primary));
-            border-radius: 50%;
-            animation: bounce 1.4s ease-in-out infinite;
-        }
+        .spinner-icon {
+            color: hsl(var(--primary));
+        }
+        
+        .loading-text {
+            font-size: 1rem;
+            color: hsl(var(--muted-foreground));
+            margin-bottom: 4px;
+        }
+        
+        .loading-dots {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background-color: hsl(var(--primary));
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite;
+        }
 
-        .loading-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
+        .loading-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
 
-        .loading-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
+        .loading-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
 
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
-        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
 
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-        
-        /* Media Queries (from your homepage) */
-        @media (max-width: 768px) {
-            .container { padding: 80px 16px 48px; }
-            .header { margin-bottom: 32px; }
-            .title { font-size: 2rem; }
-            .subtitle { font-size: 1rem; }
-            .game-grid { gap: 16px; }
-        }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+        
+        /* Media Queries (from your homepage) */
+        @media (max-width: 768px) {
+            .container { padding: 80px 16px 48px; }
+            .header { margin-bottom: 32px; }
+            .title { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .game-grid { gap: 16px; }
+        }
 
-        /*
-        *****************************************************
-        * END OF CSS STYLES (FROM YOUR HOMEPAGE)            *
-        *****************************************************
-        */
-    </style>
+        /*
+        *****************************************************
+        * END OF CSS STYLES (FROM YOUR HOMEPAGE)            *
+        *****************************************************
+        */
+    </style>
 </head>
 <body>
-    <div class="bg-effects">
-        <div class="bg-gradient"></div>
-        <div class="bg-glow-1"></div>
-        <div class="bg-glow-2"></div>
-        <div class="bg-glow-3"></div>
-    </div>
+    <div class="bg-effects">
+        <div class="bg-gradient"></div>
+        <div class="bg-glow-1"></div>
+        <div class="bg-glow-2"></div>
+        <div class="bg-glow-3"></div>
+    </div>
 
-    <div class="top-bar">
-        <div class="top-bar-content">The Apline Bay • Game Details</div>
-    </div>
+    <div class="top-bar">
+        <div class="top-bar-content">The Apline Bay • Game Details</div>
+    </div>
 
-    <a href="index.html" class="back-btn" aria-label="Go back to home">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="m12 19-7-7 7-7"/>
-            <path d="M19 12H5"/>
-        </svg>
-        Back to Home
-    </a>
+    <a href="index.html" class="back-btn" aria-label="Go back to home">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="m12 19-7-7 7-7"/>
+            <path d="M19 12H5"/>
+        </svg>
+        Back to Home
+    </a>
 
-    <div id="loading" class="loading">
-        <div class="loading-content">
-            <div class="loading-spinner">
-                <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
-                </svg>
-            </div>
-            <div>
-                <p class="loading-text">Loading game data...</p>
-                <div class="loading-dots" aria-hidden="true">
-                    <div class="loading-dot"></div>
-                    <div class="loading-dot"></div>
-                    <div class="loading-dot"></div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="loading" class="loading">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                </svg>
+            </div>
+            <div>
+                <p class="loading-text">Loading game data...</p>
+                <div class="loading-dots" aria-hidden="true">
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div id="content" class="container hidden">
-        <header class="header">
-            <div class="logo-container">
-                <div class="logo-glow" aria-hidden="true"></div>
-                <img
-                    src="https://files.catbox.moe/mjmm60.png"
-                    alt="The Apline Bay Logo"
-                    class="logo"
-                    onerror="this.src='https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2'"
-                />
-            </div>
-        </header>
+    <div id="content" class="container hidden">
+        <main id="game-details-main">
+        </main>
+    </div>
 
-        <main id="game-details-main">
-            </main>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading');
+            const content = document.getElementById('content');
+            const mainContent = document.getElementById('game-details-main');
+            
+            const params = new URLSearchParams(window.location.search);
+            const slug = params.get('slug');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const loadingScreen = document.getElementById('loading');
-            const content = document.getElementById('content');
-            const mainContent = document.getElementById('game-details-main');
-            
-            const params = new URLSearchParams(window.location.search);
-            const slug = params.get('slug');
+            if (!slug) {
+                // Display an error message if no slug is provided
+                mainContent.innerHTML = '<p class="status-message">Game not found. Please go back to the homepage.</p>';
+                loadingScreen.classList.add('hidden');
+                content.classList.remove('hidden');
+                return;
+            }
 
-            if (!slug) {
-                // Display an error message if no slug is provided
-                mainContent.innerHTML = '<p class="status-message">Game not found. Please go back to the homepage.</p>';
-                loadingScreen.classList.add('hidden');
-                content.classList.remove('hidden');
-                return;
-            }
+            fetch('games.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(games => {
+                    const game = games.find(g => g.slug === slug);
 
-            fetch('games.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(games => {
-                    const game = games.find(g => g.slug === slug);
+                    if (game) {
+                        // Set the page title and populate the main content
+                        document.title = `${game.name} - The Apline Bay`;
+                        mainContent.innerHTML = createGameDetailsHTML(game);
+                    } else {
+                        // Display an error message if the game is not found
+                        mainContent.innerHTML = '<p class="status-message">Game not found. Please go back to the homepage.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading game data:', error);
+                    mainContent.innerHTML = '<p class="status-message" style="color:hsl(var(--destructive))">Error loading game data. Please try again later.</p>';
+                })
+                .finally(() => {
+                    // Hide the loading screen and show the main content
+                    loadingScreen.classList.add('hidden');
+                    content.classList.remove('hidden');
+                });
+            
+            function createGameDetailsHTML(game) {
+                const description = game.description || 'No description available.';
+                
+                const versionsHTML = game.versions.map(version => {
+                    const tagsHtml = (version.tags && version.tags.length > 0)
+                        ? `<div class="card-tags">${version.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>`
+                        : '';
+                    
+                    return `
+                        <a href="${escapeHtml(version.url)}" class="version-card" target="_blank" rel="noopener noreferrer">
+                            <div class="version-card-platform">${escapeHtml(version.platform)}</div>
+                            ${tagsHtml}
+                            <div class="version-card-url">${escapeHtml(getDomain(version.url))}</div>
+                        </a>
+                    `;
+                }).join('');
 
-                    if (game) {
-                        // Set the page title and populate the main content
-                        document.title = `${game.name} - The Apline Bay`;
-                        mainContent.innerHTML = createGameDetailsHTML(game);
-                    } else {
-                        // Display an error message if the game is not found
-                        mainContent.innerHTML = '<p class="status-message">Game not found. Please go back to the homepage.</p>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading game data:', error);
-                    mainContent.innerHTML = '<p class="status-message" style="color:hsl(var(--destructive))">Error loading game data. Please try again later.</p>';
-                })
-                .finally(() => {
-                    // Hide the loading screen and show the main content
-                    loadingScreen.classList.add('hidden');
-                    content.classList.remove('hidden');
-                });
-            
-            function createGameDetailsHTML(game) {
-                const description = game.description || 'No description available.';
-                
-                const versionsHTML = game.versions.map(version => {
-                    const tagsHtml = (version.tags && version.tags.length > 0)
-                        ? `<div class="card-tags">${version.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}</div>`
-                        : '';
-                    
-                    return `
-                        <a href="${escapeHtml(version.url)}" class="version-card" target="_blank" rel="noopener noreferrer">
-                            <div class="version-card-platform">${escapeHtml(version.platform)}</div>
-                            ${tagsHtml}
-                            <div class="version-card-url">${escapeHtml(getDomain(version.url))}</div>
-                        </a>
-                    `;
-                }).join('');
+                return `
+                    <div class="game-details-content">
+                        <header class="header">
+                            <div class="logo-container">
+                                <div class="logo-glow" aria-hidden="true"></div>
+                                <img
+                                    src="${escapeHtml(game.icon)}"
+                                    alt="${escapeHtml(game.name)} icon"
+                                    class="logo"
+                                    onerror="this.src='https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2'"
+                                />
+                            </div>
+                        </header>
+                        <h1 class="game-details-title">${escapeHtml(game.name)}</h1>
+                        <p class="game-details-description">${escapeHtml(description)}</p>
+                        <h2 class="version-list-title">Available Versions</h2>
+                        <div class="game-versions-grid">${versionsHTML}</div>
+                    </div>
+                `;
+            }
 
-                return `
-                    <div class="game-details-content">
-                        <h1 class="game-details-title">${escapeHtml(game.name)}</h1>
-                        <p class="game-details-description">${escapeHtml(description)}</p>
-                        <h2 class="version-list-title">Available Versions</h2>
-                        <div class="game-versions-grid">${versionsHTML}</div>
-                    </div>
-                `;
-            }
+            function getDomain(url) {
+                try {
+                    return new URL(url).hostname;
+                } catch {
+                    return url;
+                }
+            }
 
-            function getDomain(url) {
-                try {
-                    return new URL(url).hostname;
-                } catch {
-                    return url;
-                }
-            }
-
-            function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-        });
-    </script>
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        });
+    </script>
 </body>
 </html>
