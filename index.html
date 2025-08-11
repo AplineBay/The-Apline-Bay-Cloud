@@ -7,7 +7,7 @@
     <meta name="description" content="The Apline Bay - A curated library of games and interactive experiences">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -17,389 +17,384 @@
         }
 
         :root {
-            /* Core Colors */
-            --background: 240 10% 3.9%;
-            --foreground: 0 0% 98%;
-            --card: 240 10% 6%;
-            --card-foreground: 0 0% 98%;
+            /* Vision OS Dark Theme */
+            --background: 0 0% 8%;
+            --background-secondary: 0 0% 12%;
+            --background-tertiary: 0 0% 16%;
+            --foreground: 0 0% 95%;
+            --foreground-secondary: 0 0% 80%;
+            --foreground-tertiary: 0 0% 65%;
             
-            /* Brand Colors */
-            --primary: 267 85% 65%;
-            --primary-foreground: 240 10% 3.9%;
-            --primary-glow: 267 100% 85%;
+            /* Purple Accent System */
+            --purple-50: 270 100% 98%;
+            --purple-100: 269 100% 95%;
+            --purple-200: 269 100% 92%;
+            --purple-300: 269 100% 86%;
+            --purple-400: 270 91% 65%;
+            --purple-500: 270 91% 55%;
+            --purple-600: 271 81% 56%;
+            --purple-700: 272 72% 47%;
+            --purple-800: 272 69% 38%;
+            --purple-900: 273 69% 32%;
             
-            --secondary: 240 3.7% 15.9%;
-            --secondary-foreground: 0 0% 98%;
+            /* Glass Effects */
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: rgba(0, 0, 0, 0.3);
             
-            /* Interactive Colors */
-            --accent: 197 71% 73%;
-            --accent-foreground: 240 10% 3.9%;
-            --accent-glow: 197 85% 85%;
+            /* Spacing System */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
             
-            --muted: 240 3.7% 15.9%;
-            --muted-foreground: 240 5% 64.9%;
-            
-            /* Semantic Colors */
-            --success: 142 69% 58%;
-            --warning: 38 92% 50%;
-            --destructive: 0 84.2% 60.2%;
-            
-            /* Interface Colors */
-            --border: 240 3.7% 15.9%;
-            --input: 240 3.7% 15.9%;
-            --ring: 267 85% 65%;
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: hsl(var(--background));
             color: hsl(var(--foreground));
             min-height: 100vh;
             line-height: 1.5;
             position: relative;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Background Effects */
-        .bg-effects {
+        /* Vision OS Background Effects */
+        .vision-bg {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, hsl(var(--purple-600) / 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, hsl(var(--purple-500) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, hsl(var(--purple-700) / 0.08) 0%, transparent 50%);
         }
 
-        .bg-glow-1 {
+        .vision-orb {
             position: absolute;
-            top: 80px;
-            left: 40px;
-            width: 128px;
-            height: 128px;
-            background: hsl(var(--primary) / 0.2);
             border-radius: 50%;
             filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
 
-        .bg-glow-2 {
-            position: absolute;
-            bottom: 160px;
-            right: 40px;
-            width: 192px;
-            height: 192px;
-            background: hsl(var(--accent) / 0.2);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 8s ease-in-out infinite reverse;
+        .vision-orb-1 {
+            top: 10%;
+            left: 15%;
+            width: 200px;
+            height: 200px;
+            background: hsl(var(--purple-500) / 0.2);
+            animation-delay: 0s;
         }
 
-        .bg-glow-3 {
-            position: absolute;
+        .vision-orb-2 {
+            bottom: 20%;
+            right: 20%;
+            width: 300px;
+            height: 300px;
+            background: hsl(var(--purple-600) / 0.15);
+            animation-delay: -4s;
+        }
+
+        .vision-orb-3 {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: hsl(var(--primary) / 0.1);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: float 10s ease-in-out infinite;
+            width: 400px;
+            height: 400px;
+            background: hsl(var(--purple-400) / 0.1);
+            animation-delay: -2s;
         }
 
-        .bg-gradient {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, hsl(var(--primary) / 0.1), transparent 70%);
-            opacity: 0.3;
-        }
-
-        /* Top Bar */
-        .top-bar {
+        /* Glass Navigation Bar */
+        .nav-bar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 48px;
-            background: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid hsl(var(--border) / 0.5);
+            top: var(--spacing-md);
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 40;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            box-shadow: 0 8px 32px var(--glass-shadow);
         }
 
-        .top-bar-content {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Back Button */
-        .back-btn {
-            position: fixed;
-            top: 64px;
-            left: 16px;
-            z-index: 30;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: hsl(var(--card) / 0.8);
-            backdrop-filter: blur(8px);
-            border: 1px solid hsl(var(--border) / 0.5);
-            border-radius: 8px;
-            color: hsl(var(--foreground));
-            text-decoration: none;
+        .nav-content {
             font-size: 14px;
             font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .back-btn:hover {
-            background: hsl(var(--card));
-            border-color: hsl(var(--primary) / 0.5);
-            transform: translateY(-1px);
-        }
-
-        .back-btn:active {
-            transform: translateY(0);
+            color: hsl(var(--foreground-secondary));
+            letter-spacing: 0.5px;
         }
 
         /* Main Container */
         .container {
-            max-width: 1024px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 96px 16px 64px;
+            padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-2xl);
             position: relative;
             z-index: 10;
         }
 
-        /* Header */
+        /* Vision OS Header */
         .header {
             text-align: center;
-            margin-bottom: 48px;
-            animation: fadeIn 0.8s ease-out;
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 1s ease-out;
         }
 
         .logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: var(--spacing-xl);
             position: relative;
         }
 
         .logo-glow {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            inset: -20px;
+            background: radial-gradient(circle, hsl(var(--purple-500) / 0.4) 0%, transparent 70%);
             border-radius: 50%;
-            filter: blur(24px);
-            opacity: 0.3;
-            animation: glowPulse 3s ease-in-out infinite;
+            filter: blur(30px);
+            animation: pulse 3s ease-in-out infinite;
         }
 
         .logo {
-            width: 96px;
-            height: 96px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 2px solid hsl(var(--primary) / 0.3);
+            border: 2px solid var(--glass-border);
             position: relative;
-            box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+            box-shadow: 
+                0 0 0 1px var(--glass-border),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
         }
 
         .logo:hover {
             transform: scale(1.05);
+            box-shadow: 
+                0 0 0 1px hsl(var(--purple-400) / 0.5),
+                0 12px 48px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .title {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-300)), 
+                hsl(var(--purple-400)), 
+                hsl(var(--purple-500)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
-            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.1;
             letter-spacing: -0.02em;
         }
 
         .subtitle {
             font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
-            max-width: 512px;
-            margin: 0 auto 12px;
             font-weight: 400;
+            color: hsl(var(--foreground-secondary));
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            line-height: 1.6;
         }
 
-        .version-label {
-            font-size: 0.875rem;
-            color: hsl(var(--accent));
-            font-family: 'JetBrains Mono', monospace;
-            background: hsl(var(--muted) / 0.3);
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 14px;
+            font-weight: 500;
+            color: hsl(var(--purple-300));
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Search */
+        /* Vision OS Search */
         .search-container {
-            margin-bottom: 40px;
-            animation: slideUp 0.8s ease-out;
-            animation-delay: 0.2s;
-            animation-fill-mode: both;
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeInUp 1s ease-out 0.2s both;
             position: relative;
-            max-width: 512px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .search-glow {
-            position: absolute;
-            inset: -4px;
-            background: linear-gradient(90deg, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.5));
-            border-radius: 16px;
-            filter: blur(8px);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
         .search-wrapper {
             position: relative;
-            background: hsl(var(--card));
-            border-radius: 12px;
-            border: 1px solid hsl(var(--border) / 0.5);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
             overflow: hidden;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         .search-wrapper:focus-within {
-            border-color: hsl(var(--primary) / 0.5);
-        }
-
-        .search-wrapper:focus-within .search-glow {
-            opacity: 1;
+            border-color: hsl(var(--purple-400) / 0.5);
+            box-shadow: 
+                0 0 0 4px hsl(var(--purple-400) / 0.1),
+                0 12px 48px rgba(0, 0, 0, 0.3);
         }
 
         .search-input {
             width: 100%;
-            padding: 16px 48px;
+            padding: var(--spacing-lg) var(--spacing-2xl);
             background: transparent;
             border: none;
             outline: none;
             color: hsl(var(--foreground));
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 400;
             font-family: inherit;
+            letter-spacing: 0.3px;
         }
 
         .search-input::placeholder {
-            color: hsl(var(--muted-foreground));
+            color: hsl(var(--foreground-tertiary));
         }
 
         .search-icon, .clear-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: hsl(var(--muted-foreground));
+            color: hsl(var(--foreground-tertiary));
+            transition: all 0.3s ease;
         }
 
         .search-icon {
-            left: 16px;
+            left: var(--spacing-lg);
             width: 20px;
             height: 20px;
             pointer-events: none;
         }
 
         .clear-btn {
-            right: 16px;
+            right: var(--spacing-lg);
             background: none;
             border: none;
             cursor: pointer;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            display: none;
-            color: hsl(var(--muted-foreground));
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: hsl(var(--foreground-tertiary));
         }
 
         .clear-btn:hover {
-            background: hsl(var(--muted) / 0.5);
+            background: var(--glass-bg);
             color: hsl(var(--foreground));
         }
 
         .clear-btn.visible {
-            display: block;
+            opacity: 1;
         }
 
-        /* Content */
+        /* Content Section */
         .content {
-            animation: slideUp 0.8s ease-out;
-            animation-delay: 0.4s;
-            animation-fill-mode: both;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .content-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: var(--spacing-xl);
             flex-wrap: wrap;
-            gap: 12px;
+            gap: var(--spacing-md);
         }
 
         .content-title {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: hsl(var(--foreground));
+            letter-spacing: -0.01em;
         }
 
         .game-count {
-            font-size: 0.875rem;
-            color: hsl(var(--muted-foreground));
-            background: hsl(var(--muted) / 0.3);
-            padding: 6px 14px;
-            border-radius: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 14px;
             font-weight: 500;
+            color: hsl(var(--purple-300));
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
-        /* Game Cards */
+        /* Vision OS Game Cards */
         .games-grid {
             display: grid;
-            gap: 16px;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         }
 
         .game-card {
             position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid hsl(var(--border) / 0.5);
-            background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--muted) / 0.5));
-            backdrop-filter: blur(8px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-xl);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             cursor: pointer;
-            animation: slideUp 0.6s ease-out;
-            animation-fill-mode: both;
             text-decoration: none;
             color: inherit;
             display: block;
-        }
-
-        .game-card:hover {
-            border-color: hsl(var(--primary) / 0.5);
-            box-shadow: 0 12px 40px hsl(var(--primary) / 0.15);
-            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease-out both;
+            overflow: hidden;
         }
 
         .game-card::before {
             content: '';
             position: absolute;
             inset: 0;
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-500) / 0.05) 0%, 
+                transparent 50%);
             opacity: 0;
-            background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            border-radius: var(--radius-2xl);
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: hsl(var(--purple-400) / 0.3);
+            box-shadow: 
+                0 0 0 1px hsl(var(--purple-400) / 0.2),
+                0 20px 64px rgba(0, 0, 0, 0.4),
+                0 0 80px hsl(var(--purple-500) / 0.1);
         }
 
         .game-card:hover::before {
@@ -408,87 +403,101 @@
 
         .card-content {
             position: relative;
-            padding: 20px;
+            z-index: 2;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            z-index: 1;
-            gap: 16px;
+            gap: var(--spacing-lg);
         }
-        
-        /* The container for the name and platforms */
-        .card-top {
+
+        .card-header {
             display: flex;
-            flex-direction: column;
             align-items: flex-start;
-            gap: 10px;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+        }
+
+        .card-info {
             flex: 1;
             min-width: 0;
         }
 
-        .card-name-platforms {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
         .card-title {
-            font-weight: 600;
+            font-size: 1.375rem;
+            font-weight: 700;
             color: hsl(var(--foreground));
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+            letter-spacing: -0.01em;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .game-card:hover .card-title {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-300)), 
+                hsl(var(--purple-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-            
-        .card-platform {
-            font-size: 0.875rem;
+
+        .card-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: hsl(var(--background-tertiary));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 12px;
             font-weight: 500;
-            color: hsl(var(--accent));
+            color: hsl(var(--purple-300));
+            transition: all 0.3s ease;
+        }
+
+        .platform-badge:hover {
+            background: hsl(var(--purple-500) / 0.1);
+            border-color: hsl(var(--purple-400) / 0.3);
         }
 
         .card-arrow {
-            color: hsl(var(--muted-foreground));
-            transition: all 0.3s ease;
+            color: hsl(var(--foreground-tertiary));
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             flex-shrink: 0;
-            align-self: center;
         }
 
         .game-card:hover .card-arrow {
-            color: hsl(var(--accent));
-            transform: translateX(2px);
+            color: hsl(var(--purple-400));
+            transform: translateX(4px);
         }
 
-        /* Tags */
         .card-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: var(--spacing-sm);
         }
 
         .tag {
-            font-size: 0.75rem;
+            font-size: 12px;
             font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 12px;
-            background: hsl(var(--muted) / 0.5);
-            color: hsl(var(--muted-foreground));
-            border: 1px solid hsl(var(--border) / 0.5);
-            transition: all 0.2s ease;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: hsl(var(--background-secondary));
+            color: hsl(var(--foreground-secondary));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
         }
-        
+
         .tag:hover {
-            background: hsl(var(--primary) / 0.1);
-            color: hsl(var(--primary));
-            border-color: hsl(var(--primary) / 0.5);
+            background: hsl(var(--purple-500) / 0.1);
+            color: hsl(var(--purple-300));
+            border-color: hsl(var(--purple-400) / 0.3);
         }
 
         /* Empty State */
@@ -497,33 +506,38 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 16px;
+            padding: var(--spacing-3xl) var(--spacing-md);
             text-align: center;
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeInUp 1s ease-out;
         }
 
         .empty-icon {
-            margin-bottom: 20px;
-            padding: 20px;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-xl);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 50%;
-            background: hsl(var(--muted) / 0.3);
-            color: hsl(var(--muted-foreground));
+            color: hsl(var(--foreground-tertiary));
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
         .empty-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: hsl(var(--foreground));
-            margin-bottom: 12px;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.01em;
         }
 
         .empty-description {
-            color: hsl(var(--muted-foreground));
-            max-width: 400px;
+            color: hsl(var(--foreground-secondary));
+            max-width: 480px;
             line-height: 1.6;
+            font-size: 1.125rem;
         }
 
-        /* Loading */
+        /* Loading State */
         .loading {
             position: fixed;
             inset: 0;
@@ -531,7 +545,7 @@
             align-items: center;
             justify-content: center;
             background: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(20px);
             z-index: 50;
         }
 
@@ -539,41 +553,37 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: var(--spacing-xl);
             text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.4);
         }
 
         .loading-spinner {
             position: relative;
-            background: hsl(var(--card));
-            border-radius: 50%;
-            padding: 20px;
-            box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+            width: 60px;
+            height: 60px;
         }
 
-        .loading-spinner::before {
-            content: '';
+        .spinner-ring {
             position: absolute;
             inset: 0;
+            border: 3px solid transparent;
+            border-top: 3px solid hsl(var(--purple-400));
             border-radius: 50%;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            opacity: 0.2;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-
-        .spinner-icon {
-            width: 36px;
-            height: 36px;
-            color: hsl(var(--primary));
             animation: spin 1s linear infinite;
-            position: relative;
-            z-index: 1;
         }
 
         .loading-text {
             font-size: 1.25rem;
             font-weight: 600;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-300)), 
+                hsl(var(--purple-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -581,14 +591,13 @@
 
         .loading-dots {
             display: flex;
-            gap: 6px;
-            justify-content: center;
+            gap: var(--spacing-sm);
         }
 
         .loading-dot {
-            width: 10px;
-            height: 10px;
-            background: hsl(var(--primary));
+            width: 8px;
+            height: 8px;
+            background: hsl(var(--purple-400));
             border-radius: 50%;
             animation: bounce 1.4s ease-in-out infinite both;
         }
@@ -598,63 +607,95 @@
         .loading-dot:nth-child(3) { animation-delay: 0s; }
 
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes ping {
-            75%, 100% { transform: scale(2); opacity: 0; }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
         }
 
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .title { font-size: 2.5rem; }
-            .subtitle { font-size: 1.125rem; }
-            .container { padding: 80px 16px 48px; }
-            .back-btn { top: 56px; left: 12px; }
-            .games-grid { grid-template-columns: 1fr; }
-            .content-header { flex-direction: column; align-items: flex-start; }
-            .card-top { flex-direction: row; align-items: center; gap: 16px; }
+            .container {
+                padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-xl);
+            }
+            
+            .nav-bar {
+                top: var(--spacing-sm);
+                left: var(--spacing-sm);
+                right: var(--spacing-sm);
+                transform: none;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
         }
 
         @media (max-width: 480px) {
-            .title { font-size: 2rem; }
-            .card-content { padding: 16px; }
-            .search-input { padding: 14px 44px; }
+            .game-card {
+                padding: var(--spacing-lg);
+            }
+            
+            .search-input {
+                padding: var(--spacing-md) var(--spacing-xl);
+                font-size: 16px;
+            }
         }
 
         /* Utility Classes */
         .hidden { display: none !important; }
         .visible { display: block !important; }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .w-full { width: 100%; }
 
         /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
@@ -665,12 +706,11 @@
             }
         }
 
-        /* Focus styles */
+        /* Focus Styles */
         .game-card:focus,
-        .back-btn:focus,
         .clear-btn:focus,
         .tag:focus {
-            outline: 2px solid hsl(var(--primary));
+            outline: 2px solid hsl(var(--purple-400));
             outline-offset: 2px;
         }
 
@@ -680,35 +720,24 @@
     </style>
 </head>
 <body>
-    <div class="bg-effects">
-        <div class="bg-gradient"></div>
-        <div class="bg-glow-1"></div>
-        <div class="bg-glow-2"></div>
-        <div class="bg-glow-3"></div>
+    <div class="vision-bg">
+        <div class="vision-orb vision-orb-1"></div>
+        <div class="vision-orb vision-orb-2"></div>
+        <div class="vision-orb vision-orb-3"></div>
     </div>
 
-    <div class="top-bar">
-        <div class="top-bar-content">The Apline Bay • Games Library</div>
+    <div class="nav-bar">
+        <div class="nav-content">The Apline Bay • Games Library</div>
     </div>
-
-    <button class="back-btn" onclick="history.back()" aria-label="Go back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="m12 19-7-7 7-7"/>
-            <path d="M19 12H5"/>
-        </svg>
-        Back
-    </button>
 
     <div id="loading" class="loading">
         <div class="loading-content">
             <div class="loading-spinner">
-                <svg class="spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
-                </svg>
+                <div class="spinner-ring"></div>
             </div>
             <div>
                 <p class="loading-text">Loading games library...</p>
-                <div class="loading-dots" aria-hidden="true">
+                <div class="loading-dots">
                     <div class="loading-dot"></div>
                     <div class="loading-dot"></div>
                     <div class="loading-dot"></div>
@@ -720,7 +749,7 @@
     <div id="content" class="container hidden">
         <header class="header">
             <div class="logo-container">
-                <div class="logo-glow" aria-hidden="true"></div>
+                <div class="logo-glow"></div>
                 <img
                     src="https://files.catbox.moe/mjmm60.png"
                     alt="The Apline Bay Logo"
@@ -730,13 +759,18 @@
             </div>
             <h1 class="title">The Apline Bay</h1>
             <p class="subtitle">A curated library of games and interactive experiences</p>
-            <div class="version-label" aria-label="Version">Version 2.0 INDEV</div>
+            <div class="version-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+                Version 2.0 • Vision OS
+            </div>
         </header>
 
         <div class="search-container">
-            <div class="search-glow" aria-hidden="true"></div>
             <div class="search-wrapper">
-                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
                 </svg>
@@ -744,11 +778,10 @@
                     type="text"
                     id="searchInput"
                     class="search-input"
-                    placeholder="Search for games..."
-                    aria-label="Search games"
+                    placeholder="Search for games, platforms, or tags..."
                 />
-                <button id="clearBtn" class="clear-btn" aria-label="Clear search">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <button id="clearBtn" class="clear-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 6 6 18"/>
                         <path d="m6 6 12 12"/>
                     </svg>
@@ -766,8 +799,10 @@
             
             <div id="emptyState" class="empty-state hidden">
                 <div class="empty-icon">
-                    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M8 21l8-11-8-11"/>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                        <circle cx="9" cy="9" r="2"/>
+                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
                     </svg>
                 </div>
                 <h3 id="emptyTitle" class="empty-title">No Games Available</h3>
@@ -777,267 +812,349 @@
     </div>
 
     <script>
-    class AplineBayGames {
-        constructor() {
-            this.games = [];
-            this.filteredGames = [];
-            this.searchQuery = '';
-            
-            this.init();
-        }
-
-        init() {
-            this.setupEventListeners();
-            this.loadGames();
-        }
-        
-        setupEventListeners() {
-            const searchInput = document.getElementById('searchInput');
-            const clearBtn = document.getElementById('clearBtn');
-            
-            searchInput.addEventListener('input', (e) => {
-                this.searchQuery = e.target.value;
-                this.updateSearch();
-                this.filterGames();
-            });
-            
-            clearBtn.addEventListener('click', () => {
-                searchInput.value = '';
+        class VisionOSGamesLibrary {
+            constructor() {
+                this.games = [];
+                this.filteredGames = [];
                 this.searchQuery = '';
-                this.updateSearch();
-                this.filterGames();
-                searchInput.focus();
-            });
-            
-            searchInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (this.searchQuery) {
-                        searchInput.value = '';
-                        this.searchQuery = '';
-                        this.updateSearch();
-                        this.filterGames();
-                    }
-                }
-            });
-        }
-        
-        updateSearch() {
-            const clearBtn = document.getElementById('clearBtn');
-            if (this.searchQuery.trim()) {
-                clearBtn.classList.add('visible');
-            } else {
-                clearBtn.classList.remove('visible');
+                this.init();
             }
-        }
-        
-        async loadGames() {
-            const loadingEl = document.getElementById('loading');
-            const contentEl = document.getElementById('content');
+
+            init() {
+                this.setupEventListeners();
+                this.loadGames();
+            }
             
-            try {
-                loadingEl.classList.remove('hidden');
-                contentEl.classList.add('hidden');
+            setupEventListeners() {
+                const searchInput = document.getElementById('searchInput');
+                const clearBtn = document.getElementById('clearBtn');
                 
-                // Add a small delay to show the loading screen
-                await new Promise(resolve => setTimeout(resolve, 500));
+                searchInput.addEventListener('input', (e) => {
+                    this.searchQuery = e.target.value;
+                    this.updateSearch();
+                    this.filterGames();
+                });
                 
-                try {
-                    const response = await fetch('games.json', { cache: 'no-store' });
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (Array.isArray(data) && data.length > 0) {
-                            this.games = this.addSlugsToGames(data); // Add slugs to external data
+                clearBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    this.searchQuery = '';
+                    this.updateSearch();
+                    this.filterGames();
+                    searchInput.focus();
+                });
+                
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        if (this.searchQuery) {
+                            searchInput.value = '';
+                            this.searchQuery = '';
+                            this.updateSearch();
                             this.filterGames();
-                            return;
                         }
                     }
-                } catch (fetchError) {
-                    console.log('External games.json not found or failed to load, using demo data');
-                }
-                
-                this.games = this.getDemoGames();
-                this.filterGames();
-                
-            } catch (error) {
-                console.error('Failed to load games:', error);
-                this.showEmptyState('error', 'Failed to load games library. Please try refreshing the page.');
-            } finally {
-                loadingEl.classList.add('hidden');
-                contentEl.classList.remove('hidden');
+                });
             }
-        }
-
-        // Helper function to create a slug from a game name
-        createSlug(name) {
-            return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-        }
-
-        // Helper to add slugs to games fetched from a JSON file that might not have them
-        addSlugsToGames(games) {
-            return games.map(game => {
-                if (!game.slug) {
-                    game.slug = this.createSlug(game.name);
+            
+            updateSearch() {
+                const clearBtn = document.getElementById('clearBtn');
+                if (this.searchQuery.trim()) {
+                    clearBtn.classList.add('visible');
+                } else {
+                    clearBtn.classList.remove('visible');
                 }
-                return game;
-            });
-        }
-        
-        getDemoGames() {
-            return [
-                {
-                    "name": "NFS Hot Pursuit",
-                    "slug": "nfs-hot-pursuit",
-                    "versions": [
-                        { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
-                        { "platform": "Android", "url": "https://example.com/nfs-hot-pursuit-android", "tags": ["Racing", "Mobile", "Touch-Controls"] }
-                    ]
-                },
-                {
-                    "name": "Space Explorer",
-                    "slug": "space-explorer",
-                    "versions": [
-                        { "platform": "Windows", "url": "https://example.com/space-explorer-windows", "tags": ["Singleplayer", "Adventure", "Sci-Fi"] },
-                        { "platform": "iOS", "url": "https://example.com/space-explorer-ios", "tags": ["Singleplayer", "Adventure", "Mobile"] }
-                    ]
-                },
-                {
-                    "name": "City Builder 2025",
-                    "slug": "city-builder-2025",
-                    "versions": [
-                        { "platform": "Windows", "url": "https://example.com/city-builder", "tags": ["Strategy", "Simulation"] }
-                    ]
-                }
-            ];
-        }
-        
-        filterGames() {
-            const query = this.searchQuery.toLowerCase().trim();
-
-            this.filteredGames = this.games.filter(game => {
-                const gameName = game.name.toLowerCase();
-                const gameSlug = (game.slug || '').toLowerCase();
+            }
+            
+            async loadGames() {
+                const loadingEl = document.getElementById('loading');
+                const contentEl = document.getElementById('content');
                 
-                if (gameName.includes(query) || gameSlug.includes(query)) {
-                    return true;
-                }
-
-                const versionMatches = game.versions.some(version => {
-                    const platform = (version.platform || '').toLowerCase();
-                    const tags = (version.tags || []).map(tag => tag.toLowerCase());
-                    const url = (version.url || '').toLowerCase();
+                try {
+                    loadingEl.classList.remove('hidden');
+                    contentEl.classList.add('hidden');
                     
-                    return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    
+                    try {
+                        const response = await fetch('games.json', { cache: 'no-store' });
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (Array.isArray(data) && data.length > 0) {
+                                this.games = this.addSlugsToGames(data);
+                                this.filterGames();
+                                return;
+                            }
+                        }
+                    } catch (fetchError) {
+                        console.log('External games.json not found, using demo data');
+                    }
+                    
+                    this.games = this.getDemoGames();
+                    this.filterGames();
+                    
+                } catch (error) {
+                    console.error('Failed to load games:', error);
+                    this.showEmptyState('error', 'Failed to load games library. Please try refreshing the page.');
+                } finally {
+                    loadingEl.classList.add('hidden');
+                    contentEl.classList.remove('hidden');
+                }
+            }
+
+            createSlug(name) {
+                return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            }
+
+            addSlugsToGames(games) {
+                return games.map(game => {
+                    if (!game.slug) {
+                        game.slug = this.createSlug(game.name);
+                    }
+                    return game;
+                });
+            }
+            
+            getDemoGames() {
+                return [
+                    {
+                        "name": "NFS Hot Pursuit",
+                        "slug": "nfs-hot-pursuit",
+                        "description": "High-speed racing action with stunning visual effects and intense police chases.",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
+                            { "platform": "Android", "url": "https://example.com/nfs-hot-pursuit-android", "tags": ["Racing", "Mobile", "Touch-Controls"] },
+                            { "platform": "iOS", "url": "https://example.com/nfs-hot-pursuit-ios", "tags": ["Racing", "Mobile", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Asphalt 8",
+                        "slug": "asphalt-8",
+                        "description": "High Speed racing action with stunts and stunning gameplay across multiple versions.",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://example.com/asphalt-8-windows", "tags": ["Racing", "SinglePlayer", "Offline"] },
+                            { "platform": "Android", "url": "https://example.com/asphalt-8-android", "tags": ["Racing", "SinglePlayer", "Offline", "Modded"] }
+                        ]
+                    },
+                    {
+                        "name": "Cyberpunk Runner",
+                        "slug": "cyberpunk-runner",
+                        "description": "Fast-paced endless runner set in a neon-lit cyberpunk world.",
+                        "versions": [
+                            { "platform": "Web", "url": "#", "tags": ["Action", "Endless Runner", "Cyberpunk"] },
+                            { "platform": "Mobile", "url": "#", "tags": ["Action", "Endless Runner", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Space Odyssey",
+                        "slug": "space-odyssey", 
+                        "description": "Epic space exploration adventure with stunning visuals and immersive gameplay.",
+                        "versions": [
+                            { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
+                            { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
+                        ]
+                    }
+                ];
+            }
+            
+            filterGames() {
+                const query = this.searchQuery.toLowerCase().trim();
+
+                this.filteredGames = this.games.filter(game => {
+                    const gameName = game.name.toLowerCase();
+                    const gameSlug = (game.slug || '').toLowerCase();
+                    const gameDescription = (game.description || '').toLowerCase();
+                    
+                    if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
+                        return true;
+                    }
+
+                    const versionMatches = game.versions.some(version => {
+                        const platform = (version.platform || '').toLowerCase();
+                        const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                        const url = (version.url || '').toLowerCase();
+                        
+                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                    });
+                    
+                    return versionMatches;
                 });
                 
-                return versionMatches;
-            });
+                this.render();
+            }
             
-            this.render();
-        }
-        
-        render() {
-            const gamesGrid = document.getElementById('gamesGrid');
-            const emptyState = document.getElementById('emptyState');
-            const gameCount = document.getElementById('gameCount');
-            const contentHeader = document.getElementById('contentHeader');
+            render() {
+                const gamesGrid = document.getElementById('gamesGrid');
+                const emptyState = document.getElementById('emptyState');
+                const gameCount = document.getElementById('gameCount');
+                const contentHeader = document.getElementById('contentHeader');
 
-            gamesGrid.innerHTML = '';
+                gamesGrid.innerHTML = '';
+                
+                if (this.filteredGames.length > 0) {
+                    this.filteredGames.forEach((game, index) => {
+                        const card = this.createGameCard(game, index);
+                        gamesGrid.appendChild(card);
+                    });
+                    emptyState.classList.add('hidden');
+                    contentHeader.classList.remove('hidden');
+                    gameCount.textContent = `${this.filteredGames.length} ${this.filteredGames.length === 1 ? 'game' : 'games'}`;
+                } else {
+                    emptyState.classList.remove('hidden');
+                    contentHeader.classList.add('hidden');
+                    
+                    const emptyTitle = document.getElementById('emptyTitle');
+                    const emptyDescription = document.getElementById('emptyDescription');
+                    
+                    if (this.searchQuery.trim()) {
+                        emptyTitle.textContent = 'No results found';
+                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms or browse all available games.`;
+                    } else {
+                        emptyTitle.textContent = 'No Games Available';
+                        emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
+                    }
+                }
+            }
             
-            if (this.filteredGames.length > 0) {
-                this.filteredGames.forEach((game, index) => {
-                    const card = this.createGameCard(game, index);
-                    gamesGrid.appendChild(card);
+            createGameCard(game, index) {
+                const cardLink = document.createElement('a');
+                cardLink.href = `game-details.html?slug=${game.slug}`;
+                cardLink.className = 'game-card';
+                cardLink.style.animationDelay = `${index * 0.1}s`;
+
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+
+                const cardHeader = document.createElement('div');
+                cardHeader.className = 'card-header';
+
+                const cardInfo = document.createElement('div');
+                cardInfo.className = 'card-info';
+
+                const title = document.createElement('h3');
+                title.className = 'card-title';
+                title.textContent = game.name;
+
+                const platforms = document.createElement('div');
+                platforms.className = 'card-platforms';
+                
+                const uniquePlatforms = [...new Set(game.versions.map(v => v.platform))];
+                uniquePlatforms.slice(0, 3).forEach(platform => {
+                    const badge = document.createElement('div');
+                    badge.className = 'platform-badge';
+                    badge.innerHTML = `
+                        ${this.getPlatformIcon(platform)}
+                        <span>${platform}</span>
+                    `;
+                    platforms.appendChild(badge);
                 });
-                emptyState.classList.add('hidden');
-                contentHeader.classList.remove('hidden');
-                gameCount.textContent = `${this.filteredGames.length} games`;
-            } else {
+
+                if (uniquePlatforms.length > 3) {
+                    const moreBadge = document.createElement('div');
+                    moreBadge.className = 'platform-badge';
+                    moreBadge.textContent = `+${uniquePlatforms.length - 3} more`;
+                    platforms.appendChild(moreBadge);
+                }
+
+                cardInfo.appendChild(title);
+                cardInfo.appendChild(platforms);
+
+                const arrow = document.createElement('div');
+                arrow.className = 'card-arrow';
+                arrow.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                `;
+
+                cardHeader.appendChild(cardInfo);
+                cardHeader.appendChild(arrow);
+                cardContent.appendChild(cardHeader);
+
+                if (game.description) {
+                    const description = document.createElement('p');
+                    description.style.color = 'hsl(var(--foreground-secondary))';
+                    description.style.fontSize = '14px';
+                    description.style.lineHeight = '1.5';
+                    description.style.marginBottom = 'var(--spacing-md)';
+                    description.textContent = game.description;
+                    cardContent.appendChild(description);
+                }
+
+                const allTags = new Set();
+                game.versions.forEach(version => {
+                    if (version.tags) {
+                        version.tags.forEach(tag => allTags.add(tag));
+                    }
+                });
+
+                if (allTags.size > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.className = 'card-tags';
+                    Array.from(allTags).slice(0, 6).forEach(tagText => {
+                        const tag = document.createElement('span');
+                        tag.className = 'tag';
+                        tag.textContent = tagText;
+                        tagsContainer.appendChild(tag);
+                    });
+                    cardContent.appendChild(tagsContainer);
+                }
+
+                cardLink.appendChild(cardContent);
+                return cardLink;
+            }
+
+            getPlatformIcon(platform) {
+                const platformLower = platform.toLowerCase();
+                if (platformLower.includes('windows') || platformLower.includes('mac')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                        <line x1="8" x2="16" y1="21" y2="21"/>
+                        <line x1="12" x2="12" y1="17" y2="21"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('android') || platformLower.includes('ios') || platformLower.includes('mobile')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                        <line x1="12" x2="12.01" y1="18" y2="18"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('web')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" x2="22" y1="12" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>`;
+                }
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="6" x2="10" y1="12" y2="12"/>
+                    <line x1="8" x2="8" y1="10" y2="14"/>
+                    <line x1="15" x2="15.01" y1="13" y2="13"/>
+                    <line x1="18" x2="18.01" y1="11" y2="11"/>
+                    <rect width="20" height="12" x="2" y="6" rx="2"/>
+                </svg>`;
+            }
+
+            showEmptyState(type, message) {
+                const emptyState = document.getElementById('emptyState');
+                const emptyTitle = document.getElementById('emptyTitle');
+                const emptyDescription = document.getElementById('emptyDescription');
+                const contentHeader = document.getElementById('contentHeader');
+
                 emptyState.classList.remove('hidden');
                 contentHeader.classList.add('hidden');
                 
-                const emptyTitle = document.getElementById('emptyTitle');
-                const emptyDescription = document.getElementById('emptyDescription');
-                
-                if (this.searchQuery.trim()) {
-                    emptyTitle.textContent = 'No results found';
-                    emptyDescription.textContent = `There were no games matching your search for "${this.searchQuery}". Try a different query.`;
-                } else {
+                if (type === 'error') {
+                    emptyTitle.textContent = 'Something went wrong';
+                    emptyDescription.textContent = message;
+                } else if (type === 'no-games') {
                     emptyTitle.textContent = 'No Games Available';
                     emptyDescription.textContent = 'There are currently no games available in the library.';
                 }
             }
         }
-        
-        createGameCard(game, index) {
-            const cardLink = document.createElement('a');
-            cardLink.href = `game-details.html?slug=${game.slug}`;
-            cardLink.className = 'game-card';
-            cardLink.style.animationDelay = `${index * 0.1}s`;
 
-            const cardContent = document.createElement('div');
-            cardContent.className = 'card-content';
-
-            const cardTop = document.createElement('div');
-            cardTop.className = 'card-top';
-
-            const cardNameAndArrow = document.createElement('div');
-            cardNameAndArrow.className = 'flex items-center justify-between w-full';
-            cardNameAndArrow.innerHTML = `
-                <div class="card-name-platforms">
-                    <h3 class="card-title">${game.name}</h3>
-                </div>
-                <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="m9 18 6-6-6-6"/>
-                </svg>
-            `;
-            cardTop.appendChild(cardNameAndArrow);
-            cardContent.appendChild(cardTop);
-
-            const allTags = new Set();
-            game.versions.forEach(version => {
-                if (version.tags) {
-                    version.tags.forEach(tag => allTags.add(tag));
-                }
-            });
-
-            if (allTags.size > 0) {
-                const tagsContainer = document.createElement('div');
-                tagsContainer.className = 'card-tags';
-                allTags.forEach(tagText => {
-                    const tag = document.createElement('span');
-                    tag.className = 'tag';
-                    tag.textContent = tagText;
-                    tagsContainer.appendChild(tag);
-                });
-                cardContent.appendChild(tagsContainer);
-            }
-
-            cardLink.appendChild(cardContent);
-            return cardLink;
-        }
-
-        showEmptyState(type, message) {
-            const emptyState = document.getElementById('emptyState');
-            const emptyTitle = document.getElementById('emptyTitle');
-            const emptyDescription = document.getElementById('emptyDescription');
-            const contentHeader = document.getElementById('contentHeader');
-
-            emptyState.classList.remove('hidden');
-            contentHeader.classList.add('hidden');
-            
-            if (type === 'error') {
-                emptyTitle.textContent = 'Something went wrong';
-                emptyDescription.textContent = message;
-            } else if (type === 'no-games') {
-                emptyTitle.textContent = 'No Games Available';
-                emptyDescription.textContent = 'There are currently no games available in the library.';
-            }
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        new AplineBayGames();
-    });
+        document.addEventListener('DOMContentLoaded', () => {
+            new VisionOSGamesLibrary();
+        });
     </script>
 </body>
 </html>
