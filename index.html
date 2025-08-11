@@ -970,7 +970,7 @@
         
         createGameCard(game, index) {
             const cardLink = document.createElement('a');
-            cardLink.href = `/game-details.html?slug=${game.slug}`; // Link to the game details page
+            cardLink.href = `game-details.html?slug=${game.slug}`;
             cardLink.className = 'game-card';
             cardLink.style.animationDelay = `${index * 0.1}s`;
 
@@ -1041,5 +1041,6 @@
     </script>
 </body>
 </html>
+
 
 
