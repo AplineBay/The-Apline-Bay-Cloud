@@ -1,27 +1,5 @@
 [
     {
-        "slug": "nfs-hot-pursuit",
-        "name": "Need For Speed Hot Pursuit",
-        "description": "High-speed racing action with stunning visual effects.",
-        "versions": [
-            {
-                "platform": "Windows",
-                "url": "https://mega.nz/file/JzoBzbLD#j2PWBzIwxlL8LAn309xGZI0XYNh-PA9CWqb2j6M326g",
-                "tags": ["Racing", "Multiplayer", "Simulation"]
-            },
-            {
-                "platform": "Android",
-                "url": "https://lzip.us/EYr",
-                "tags": ["Racing", "Mobile", "Touch-Controls"]
-            },
-            {
-                "platform": "IOS",
-                "url": "https://dl.iosvizor.net/need-for-speed-hot-pursuit/NFS-Hot-Pursuit-v1.3.33-iosvizor.ipa",
-                "tags": ["Racing", "Mobile", "Touch-Controls"]
-            }
-        ]
-    },
-    {
         "slug": "asphalt-8",
         "name": "Asphalt 8",
         "description": "High Speed racing action with stunts and stunning gameplay",
@@ -74,6 +52,28 @@
         ]
     },
     {
+        "slug": "nfs-hot-pursuit",
+        "name": "Need For Speed Hot Pursuit",
+        "description": "High-speed racing action with stunning visual effects.",
+        "versions": [
+            {
+                "platform": "Windows",
+                "url": "https://mega.nz/file/JzoBzbLD#j2PWBzIwxlL8LAn309xGZI0XYNh-PA9CWqb2j6M326g",
+                "tags": ["Racing", "Multiplayer", "Simulation"]
+            },
+            {
+                "platform": "Android",
+                "url": "https://lzip.us/EYr",
+                "tags": ["Racing", "Mobile", "Touch-Controls"]
+            },
+            {
+                "platform": "IOS",
+                "url": "https://dl.iosvizor.net/need-for-speed-hot-pursuit/NFS-Hot-Pursuit-v1.3.33-iosvizor.ipa",
+                "tags": ["Racing", "Mobile", "Touch-Controls"]
+            }
+        ]
+    },
+    {
         "slug": "nfs-most-wanted-2005",
         "name": "Need For Speed Most Wanted 2005",
         "description": "High-speed racing action with stunning visual effects.",
@@ -91,5 +91,3 @@
         ]
     }
 ]
-
-
