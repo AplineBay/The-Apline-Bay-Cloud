@@ -52,6 +52,18 @@
         ]
     },
     {
+        "slug": "assetto-corsa",
+        "name": "Assetto Corsa",
+        "description": "Realistic racing simulator focusing on authentic driving physics, detailed car and track modeling, and extensive modding support.",
+        "versions": [
+            {
+                "platform": "Windows",
+                "url": "https://www.filecrypt.cc/Container/B4F5089761",
+                "tags": ["Racing", "Singleplayer/Multiplayer", "Simulation"]
+            }
+        ]
+    },
+    {
         "slug": "nfs-hot-pursuit",
         "name": "Need For Speed Hot Pursuit",
         "description": "High-speed racing action with stunning visual effects.",
@@ -91,3 +103,5 @@
         ]
     }
 ]
+
+
