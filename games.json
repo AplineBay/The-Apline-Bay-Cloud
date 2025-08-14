@@ -77,7 +77,7 @@
   },
   {
     "slug": "call-of-duty-4-modern-warfare",
-    "name": "Call of Duty 4: Modern Warfare",
+    "name": "Call of Duty 4",
     "description": "Modern-era military FPS that redefined the series with intense combat and cinematic storytelling.",
     "versions": [
       {
@@ -412,7 +412,7 @@
   },
   {
     "slug": "nfs-most-wanted-2005",
-    "name": "Need For Speed Most Wanted 2005",
+    "name": "Need For Speed: Most Wanted 2005",
     "description": "High-speed racing action with stunning visual effects.",
     "release_date": "2005-11-11",
     "versions": [
@@ -469,7 +469,7 @@
   },
   {
     "slug": "nfs-hot-pursuit",
-    "name": "Need For Speed Hot Pursuit",
+    "name": "Need For Speed: Hot Pursuit",
     "description": "High-speed racing action with stunning visual effects.",
     "release_date": "2010-11-16",
     "versions": [
@@ -505,7 +505,7 @@
   },
   {
     "slug": "nfs-most-wanted-2012",
-    "name": "Need for Speed: Most Wanted (2012)",
+    "name": "Need for Speed: Most Wanted 2012",
     "description": "Outsmart cops and rivals, utilizing open-world freedom in this adrenaline-fueled racer.",
     "release_date": "2012-10-30",
     "versions": [
@@ -556,4 +556,5 @@
     ]
   }
 ]
+
 
