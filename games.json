@@ -1,107 +1,312 @@
 [
-    {
-        "slug": "asphalt-8",
-        "name": "Asphalt 8",
-        "description": "High Speed racing action with stunts and stunning gameplay",
-        "versions": [
-            {
-                "platform": "1.00j for Windows",
-                "url": "https://drive.usercontent.google.com/download?id=1QQBuIen3feZYINY1pEeY1_uxO23C9zAG&export=download&authuser=0",
-                "tags": ["Racing", "SinglePlayer", "Offline"]
-            },
-            {
-                "platform": "Remastered Edtiton for Android",
-                "url": "https://techboy1997mods.blogspot.com/p/download_10.html",
-                "tags": ["Racing", "SinglePlayer", "Offline"]
-            },
-            {
-                "platform": "1.90f for Android",
-                "url": "https://drive.usercontent.google.com/download?id=1xvJ4Lr6-651L8tPV1cgPgfF1f25RVuPZ&export=download&authuser=0",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            },
-            {
-                "platform": "1.70f for Android",
-                "url": "https://www.mediafire.com/file/up520zidxw6631n/Asphalt_8_Airborne_Samsung_Store-1.7.0-607459+%281%29.7z/file",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            },
-            {
-                "platform": "5.60if for Android",
-                "url": "https://disk.yandex.com/d/tkZT_OdMK6c6dg",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            },
-            {
-                "platform": "3.80m for Android",
-                "url": "https://www.mediafire.com/file/e2j2aopfc746sba/A8_3.8.0m.zip/file",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            },
-            {
-                "platform": "3.00L for Android",
-                "url": "https://www.mediafire.com/file/wji2xipbpk8kav6/Asphalt+8+3.0.0L+mod.apk/file",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Modded"]
-            },
-            {
-                "platform": "3.11c for Android",
-                "url": "https://www.mediafire.com/file/4pspo6e5qs2bn02/Airborne+3.1.1c.apk",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            },
-            {
-                "platform": "1.20 Premium Edition for Android",
-                "url": "https://www.mediafire.com/folder/khaxxvvstba7l/A8P_by_Techboy1997",
-                "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
-            }
-        ]
-    },
-    {
-        "slug": "assetto-corsa",
-        "name": "Assetto Corsa",
-        "description": "Realistic racing simulator focusing on authentic driving physics, detailed car and track modeling, and extensive modding support.",
-        "versions": [
-            {
-                "platform": "Windows",
-                "url": "https://www.filecrypt.cc/Container/B4F5089761",
-                "tags": ["Racing", "Singleplayer/Multiplayer", "Simulation"]
-            }
-        ]
-    },
-    {
-        "slug": "nfs-hot-pursuit",
-        "name": "Need For Speed Hot Pursuit",
-        "description": "High-speed racing action with stunning visual effects.",
-        "versions": [
-            {
-                "platform": "Windows",
-                "url": "https://mega.nz/file/JzoBzbLD#j2PWBzIwxlL8LAn309xGZI0XYNh-PA9CWqb2j6M326g",
-                "tags": ["Racing", "Multiplayer", "Simulation"]
-            },
-            {
-                "platform": "Android",
-                "url": "https://lzip.us/EYr",
-                "tags": ["Racing", "Mobile", "Touch-Controls"]
-            },
-            {
-                "platform": "IOS",
-                "url": "https://dl.iosvizor.net/need-for-speed-hot-pursuit/NFS-Hot-Pursuit-v1.3.33-iosvizor.ipa",
-                "tags": ["Racing", "Mobile", "Touch-Controls"]
-            }
-        ]
-    },
-    {
-        "slug": "nfs-most-wanted-2005",
-        "name": "Need For Speed Most Wanted 2005",
-        "description": "High-speed racing action with stunning visual effects.",
-        "versions": [
-            {
-                "platform": "Windows",
-                "url": "https://drive.google.com/drive/folders/1wtdYXvKdiyJsNv-deN4d8ski9j2xB86C",
-                "tags": ["Racing", "Singleplayer", "Arcade"]
-            },
-            {
-                "platform": "Mac",
-                "url": "https://www.paulthetall.com/need-for-speed-most-wanted-mac/",
-                "tags": ["Racing", "Singleplayer", "Arcade"]
-            }
-        ]
-    }
+  {
+    "slug": "asphalt-8",
+    "name": "Asphalt 8",
+    "description": "High Speed racing action with stunts and stunning gameplay",
+    "versions": [
+      {
+        "platform": "1.00j for Windows",
+        "url": "https://drive.usercontent.google.com/download?id=1QQBuIen3feZYINY1pEeY1_uxO23C9zAG&export=download&authuser=0",
+        "tags": ["Racing", "SinglePlayer", "Offline"]
+      },
+      {
+        "platform": "Remastered Edition for Android",
+        "url": "https://techboy1997mods.blogspot.com/p/download_10.html",
+        "tags": ["Racing", "SinglePlayer", "Offline"]
+      },
+      {
+        "platform": "1.90f for Android",
+        "url": "https://drive.usercontent.google.com/download?id=1xvJ4Lr6-651L8tPV1cgPgfF1f25RVuPZ&export=download&authuser=0",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      },
+      {
+        "platform": "1.70f for Android",
+        "url": "https://www.mediafire.com/file/up520zidxw6631n/Asphalt_8_Airborne_Samsung_Store-1.7.0-607459+%281%29.7z/file",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      },
+      {
+        "platform": "5.60if for Android",
+        "url": "https://disk.yandex.com/d/tkZT_OdMK6c6dg",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      },
+      {
+        "platform": "3.80m for Android",
+        "url": "https://www.mediafire.com/file/e2j2aopfc746sba/A8_3.8.0m.zip/file",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      },
+      {
+        "platform": "3.00L for Android",
+        "url": "https://www.mediafire.com/file/wji2xipbpk8kav6/Asphalt+8+3.0.0L+mod.apk/file",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Modded"]
+      },
+      {
+        "platform": "3.11c for Android",
+        "url": "https://www.mediafire.com/file/4pspo6e5qs2bn02/Airborne+3.1.1c.apk",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      },
+      {
+        "platform": "1.20 Premium Edition for Android",
+        "url": "https://www.mediafire.com/folder/khaxxvvstba7l/A8P_by_Techboy1997",
+        "tags": ["Racing", "SinglePlayer", "Offline", "Unmodded"]
+      }
+    ]
+  },
+  {
+    "slug": "assetto-corsa",
+    "name": "Assetto Corsa",
+    "description": "Realistic racing simulator focusing on authentic driving physics, detailed car and track modeling, and extensive modding support.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/B4F5089761",
+        "tags": ["Racing", "Singleplayer/Multiplayer", "Simulation"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-united-offensive",
+    "name": "Call of Duty: United Offensive",
+    "description": "Expansion to the original Call of Duty with new campaigns and maps.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/o78zdiymb7co",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-2",
+    "name": "Call of Duty 2",
+    "description": "WWII first-person shooter offering intense campaigns across multiple fronts.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/14C4C5AF80",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-4-modern-warfare",
+    "name": "Call of Duty 4: Modern Warfare",
+    "description": "Modern-era military FPS that redefined the series with intense combat and cinematic storytelling.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/BC05E6D027",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-world-at-war",
+    "name": "Call of Duty: World at War",
+    "description": "Return to WWII with brutal Pacific and Eastern Front battles.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/06AF804F12",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-2",
+    "name": "Call of Duty: Modern Warfare 2",
+    "description": "Sequel to Modern Warfare, delivering intense cinematic missions.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://megadb.net/dlwtjw7z7qze",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops",
+    "name": "Call of Duty: Black Ops",
+    "description": "Cold War-era shooter blending covert operations with explosive missions.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/94F59E8FBA",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-3",
+    "name": "Call of Duty: Modern Warfare 3",
+    "description": "Global conflict reaches its climax in the Modern Warfare trilogy.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/EE9BC56C25",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops-2",
+    "name": "Call of Duty: Black Ops II",
+    "description": "Branching storylines and futuristic tech in a Cold War sequel.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/b65jhpnucnac",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-ghosts",
+    "name": "Call of Duty: Ghosts",
+    "description": "Post-apocalyptic warfare with a new squad system.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/5F4E813808",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-advanced-warfare",
+    "name": "Call of Duty: Advanced Warfare",
+    "description": "Futuristic shooter introducing exosuits and high-tech weaponry.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/3C0C30BA8E",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops-3",
+    "name": "Call of Duty: Black Ops III",
+    "description": "Cybernetic soldiers and futuristic warfare in a high-tech world.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/38F140D44F",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-infinite-warfare",
+    "name": "Call of Duty: Infinite Warfare",
+    "description": "Interplanetary warfare with a cinematic singleplayer campaign.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://cdn1.koyso.to/COD.Infinite.Warfare.v6.23.rar?verify=1755209483-jZivzXol0BKauUuB3Q4INH82M2DjhHfGcuC8eI22K5c%3D",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-2019",
+    "name": "Call of Duty: Modern Warfare (2019)",
+    "description": "A gritty reboot of the Modern Warfare series with photorealistic visuals.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://gofile.io/d/KuPsVO",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops-cold-war",
+    "name": "Call of Duty: Black Ops Cold War",
+    "description": "Cold War espionage and covert missions with multiplayer and zombies modes.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/C8547E423A",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-vanguard",
+    "name": "Call of Duty: Vanguard",
+    "description": "WWII shooter exploring multiple theaters of war.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/8ep7hnsqw7hg",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-wwii",
+    "name": "Call of Duty: WWII",
+    "description": "Cinematic WWII campaign and classic multiplayer action.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/78EE18682F",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops-6",
+    "name": "Call of Duty: Black Ops 6",
+    "description": "The latest entry in the Black Ops series, featuring next-gen visuals and gripping action.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://gofile.io/d/W6wY7g",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-hot-pursuit",
+    "name": "Need For Speed Hot Pursuit",
+    "description": "High-speed racing action with stunning visual effects.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://mega.nz/file/JzoBzbLD#j2PWBzIwxlL8LAn309xGZI0XYNh-PA9CWqb2j6M326g",
+        "tags": ["Racing", "Multiplayer", "Simulation"]
+      },
+      {
+        "platform": "Android",
+        "url": "https://lzip.us/EYr",
+        "tags": ["Racing", "Mobile", "Touch-Controls"]
+      },
+      {
+        "platform": "IOS",
+        "url": "https://dl.iosvizor.net/need-for-speed-hot-pursuit/NFS-Hot-Pursuit-v1.3.33-iosvizor.ipa",
+        "tags": ["Racing", "Mobile", "Touch-Controls"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-most-wanted-2005",
+    "name": "Need For Speed Most Wanted 2005",
+    "description": "High-speed racing action with stunning visual effects.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://drive.google.com/drive/folders/1wtdYXvKdiyJsNv-deN4d8ski9j2xB86C",
+        "tags": ["Racing", "Singleplayer", "Arcade"]
+      },
+      {
+        "platform": "Mac",
+        "url": "https://www.paulthetall.com/need-for-speed-most-wanted-mac/",
+        "tags": ["Racing", "Singleplayer", "Arcade"]
+      }
+    ]
+  }
 ]
+
 
 
