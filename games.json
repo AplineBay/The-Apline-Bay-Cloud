@@ -268,6 +268,136 @@
     ]
   },
   {
+    "slug": "forza-motorsport-2",
+    "name": "Forza Motorsport 2",
+    "description": "The second installment in the highly acclaimed racing simulation series, now playable on PC via emulation.",
+    "release_date": "2007-05-29",
+    "versions": [
+      {
+        "platform": "Windows, XBOX 360 Emulated",
+        "url": "https://1fichier.com/?1dhd3mekh0837olx6yot",
+        "tags": ["Racing", "Simulation", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-motorsport-3",
+    "name": "Forza Motorsport 3",
+    "description": "Experience the thrill of over 400 cars and 100 tracks in stunning HD, now playable on PC via emulation.",
+    "release_date": "2009-10-23",
+    "versions": [
+      {
+        "platform": "Windows, XBOX 360 Emulated",
+        "url": "https://1fichier.com/?1viocrz3hdst8ly3owns",
+        "tags": ["Racing", "Simulation", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-motorsport-4",
+    "name": "Forza Motorsport 4 - All DLC",
+    "description": "The definitive racing simulation with a vast car roster and detailed tracks, including all DLC, now playable on PC via emulation.",
+    "release_date": "2011-10-11",
+    "versions": [
+      {
+        "platform": "Windows, XBOX 360 Emulated",
+        "url": "https://1fichier.com/?q5vvq6l5hs1pg82acj3g",
+        "tags": ["Racing", "Simulation", "All DLC", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-horizon-1-all-dlc",
+    "name": "Forza Horizon (1) - ALL DLC",
+    "description": "The first open-world Forza experience set during the fictional Horizon Festival, including all DLC, now playable on PC via emulation.",
+    "release_date": "2012-10-23",
+    "versions": [
+      {
+        "platform": "Windows, XBOX 360 Emulated",
+        "url": "https://1fichier.com/?jp9eb7dmfc0c0kdajec0",
+        "tags": ["Racing", "Open World", "Arcade", "All DLC", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-horizon-2",
+    "name": "Forza Horizon 2",
+    "description": "Explore a massive open world with dynamic weather and day-night cycles, available on PC.",
+    "release_date": "2014-09-30",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?9o8go8y8d0tv9vbibal3",
+        "tags": ["Racing", "Open World", "Arcade"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-horizon-2-presents-fast-and-furious",
+    "name": "Forza Horizon 2 Presents Fast And Furious",
+    "description": "A standalone expansion to Forza Horizon 2, featuring cars and themes from the Fast & Furious film series, for PC.",
+    "release_date": "2015-03-27",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?8w5n2wg4h902r260o6ek",
+        "tags": ["Racing", "Open World", "Arcade", "Expansion"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-motorsport-6-apex",
+    "name": "Forza Motorsport 6 Apex",
+    "description": "A free-to-play Forza Motorsport experience designed for Windows 10, featuring stunning graphics and a curated selection of cars and tracks.",
+    "release_date": "2016-05-05",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?tfnqerm9hscz8w4z05ie",
+        "tags": ["Racing", "Simulation", "Free-to-Play"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-horizon-3",
+    "name": "Forza Horizon 3",
+    "description": "Lead the Horizon Festival in Australia, expanding it with new events and locations, on PC.",
+    "release_date": "2016-09-27",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?mzlp40gh9oyna4h4dvd3",
+        "tags": ["Racing", "Open World", "Arcade"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-motorsport-7",
+    "name": "Forza Motorsport 7",
+    "description": "Experience the ultimate automotive playground with over 700 cars and 30 destinations, now on Windows.",
+    "release_date": "2017-10-03",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?g4qsvikj1n17hicmob9g",
+        "tags": ["Racing", "Simulation"]
+      }
+    ]
+  },
+  {
+    "slug": "forza-horizon-4",
+    "name": "Forza Horizon 4",
+    "description": "Race through a beautiful, historic Britain in a shared open world with dynamic seasons, for PC.",
+    "release_date": "2018-10-02",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?9hfqo87lckdacvn2nv44",
+        "tags": ["Racing", "Open World", "Arcade", "Seasons"]
+      }
+    ]
+  },
+  {
     "slug": "nfs-porsche-unleashed",
     "name": "Need for Speed: Porsche Unleashed",
     "description": "Experience the evolution of Porsche cars through different eras in this detailed racing simulator.",
@@ -426,3 +556,4 @@
     ]
   }
 ]
+
