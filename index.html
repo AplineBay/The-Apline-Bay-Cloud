@@ -69,7 +69,6 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            padding-top: calc(var(--spacing-2xl) + var(--spacing-lg)); /* Adjusted for fixed nav and filter bar */
         }
 
         /* Vision OS Background Effects */
@@ -140,74 +139,6 @@
             font-weight: 500;
             color: hsl(var(--foreground-secondary));
             letter-spacing: 0.5px;
-        }
-
-        /* Filter Bar */
-        .filter-bar {
-            position: fixed;
-            top: calc(var(--spacing-md) + 50px); /* Below nav-bar */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 35;
-            display: flex;
-            gap: var(--spacing-md);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            box-shadow: 0 8px 32px var(--glass-shadow);
-        }
-
-        .filter-btn {
-            background: none;
-            border: none;
-            color: hsl(var(--foreground-secondary));
-            font-size: 14px;
-            font-weight: 500;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover {
-            color: hsl(var(--purple-300));
-            background: hsl(var(--purple-500) / 0.1);
-        }
-
-        .filter-btn.active {
-            color: hsl(var(--purple-300));
-            background: hsl(var(--purple-500) / 0.2);
-            border: 1px solid hsl(var(--purple-400) / 0.3);
-        }
-
-        /* Back to All Games Button */
-        .back-to-all-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-md);
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            color: hsl(var(--foreground));
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            margin-top: var(--spacing-md);
-        }
-
-        .back-to-all-btn:hover {
-            background: var(--glass-bg);
-            border-color: hsl(var(--purple-400) / 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         /* Main Container */
@@ -510,9 +441,29 @@
         }
 
         .card-platforms {
-            font-size: 14px;
-            color: hsl(var(--foreground-secondary));
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: hsl(var(--background-tertiary));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 12px;
             font-weight: 500;
+            color: hsl(var(--purple-300));
+            transition: all 0.3s ease;
+        }
+
+        .platform-badge:hover {
+            background: hsl(var(--purple-500) / 0.1);
+            border-color: hsl(var(--purple-400) / 0.3);
         }
 
         .card-arrow {
@@ -548,113 +499,6 @@
             color: hsl(var(--purple-300));
             border-color: hsl(var(--purple-400) / 0.3);
         }
-
-        /* Series Section */
-        .series-section {
-            margin-top: var(--spacing-3xl);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .series-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--spacing-xl);
-            gap: var(--spacing-md);
-        }
-
-        .series-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            letter-spacing: -0.01em;
-        }
-
-        .series-grid {
-            display: grid;
-            gap: var(--spacing-lg);
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        }
-
-        .series-card {
-            position: relative;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-xl);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column; /* Changed to column for icon above text */
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            min-height: 120px;
-        }
-
-        .series-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-500) / 0.05) 0%, 
-                transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            border-radius: var(--radius-xl);
-        }
-
-        .series-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: hsl(var(--purple-400) / 0.3);
-            box-shadow: 
-                0 0 0 1px hsl(var(--purple-400) / 0.2),
-                0 16px 48px rgba(0, 0, 0, 0.3),
-                0 0 60px hsl(var(--purple-500) / 0.1);
-        }
-
-        .series-card:hover::before {
-            opacity: 1;
-        }
-
-        .series-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s ease;
-        }
-
-        .series-card:hover .series-name {
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .series-icon {
-            color: hsl(var(--foreground-secondary));
-            margin-bottom: var(--spacing-sm);
-            width: 36px;
-            height: 36px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .series-card:hover .series-icon {
-            color: hsl(var(--purple-400));
-            transform: translateY(-2px);
-        }
-
 
         /* Empty State */
         .empty-state {
@@ -821,32 +665,13 @@
                 right: var(--spacing-sm);
                 transform: none;
             }
-
-            .filter-bar {
-                top: calc(var(--spacing-sm) + 50px);
-                left: var(--spacing-sm);
-                right: var(--spacing-sm);
-                transform: none;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
             
             .games-grid {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-md);
             }
-
-            .series-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-md);
-            }
             
             .content-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .series-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -870,7 +695,7 @@
 
         /* Utility Classes */
         .hidden { display: none !important; }
-        .visible { display: block !important; } /* Re-added for clarity, though inline might override */
+        .visible { display: block !important; }
 
         /* Accessibility */
         @media (prefers-reduced-motion: reduce) {
@@ -882,12 +707,9 @@
         }
 
         /* Focus Styles */
-        .game-card:focus, 
-        .clear-btn:focus, 
-        .tag:focus,
-        .filter-btn:focus,
-        .series-card:focus,
-        .back-to-all-btn:focus {
+        .game-card:focus,
+        .clear-btn:focus,
+        .tag:focus {
             outline: 2px solid hsl(var(--purple-400));
             outline-offset: 2px;
         }
@@ -905,12 +727,7 @@
     </div>
 
     <div class="nav-bar">
-        <div class="nav-content" id="navTitle">The Apline Bay • Games Library</div>
-    </div>
-
-    <div id="filterBar" class="filter-bar hidden">
-        <button id="showGamesBtn" class="filter-btn active">Show All Games</button>
-        <button id="showSeriesBtn" class="filter-btn">Browse Series</button>
+        <div class="nav-content">The Apline Bay • Games Library</div>
     </div>
 
     <div id="loading" class="loading">
@@ -941,67 +758,56 @@
                 />
             </div>
             <h1 class="title">The Apline Bay</h1>
-            <p class="subtitle">A curated library of games and interactive experiences, bringing the best of gaming to your Vision OS device.</p>
+            <p class="subtitle">A curated library of games and interactive experiences</p>
             <div class="version-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
                 </svg>
-                Beta v1.0
+                Version 2.0 • Vision OS
             </div>
         </header>
 
-        <main>
-            <section id="seriesSection" class="series-section hidden">
-                <div class="series-header">
-                    <h2 class="series-title">Browse by Series</h2>
-                </div>
-                <div id="seriesGrid" class="series-grid">
-                    </div>
-                <button id="backToAllGamesBtn" class="back-to-all-btn hidden">
+        <div class="search-container">
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search for games, platforms, or tags..."
+                />
+                <button id="clearBtn" class="clear-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m12 19-7-7 7-7"/>
-                        <path d="M19 12H5"/>
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
                     </svg>
-                    Back to All Games
                 </button>
-            </section>
+            </div>
+        </div>
 
-            <section id="gamesSection" class="content">
-                <div class="search-container">
-                    <div class="search-wrapper">
-                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <input type="text" id="searchInput" class="search-input" placeholder="Search for games by name or tag...">
-                        <button id="clearBtn" class="clear-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
-                    </div>
+        <main class="content">
+            <div id="contentHeader" class="content-header hidden">
+                <h2 class="content-title">Available Games</h2>
+                <span id="gameCount" class="game-count">0 games</span>
+            </div>
+            
+            <div id="gamesGrid" class="games-grid"></div>
+            
+            <div id="emptyState" class="empty-state hidden">
+                <div class="empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                        <circle cx="9" cy="9" r="2"/>
+                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                    </svg>
                 </div>
-
-                <div class="content-header" id="contentHeader">
-                    <h2 class="content-title">Games Library</h2>
-                    <span id="gameCount" class="game-count">0 games</span>
-                </div>
-
-                <div id="gamesGrid" class="games-grid">
-                    </div>
-
-                <div id="emptyState" class="empty-state hidden">
-                    <div class="empty-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M14.5 10c-.8-.6-1.5-1-2.5-1-1.3 0-2.5.9-2.5 2 0 .7.3 1.3.7 1.8l-4.3 4.3c-1 1-1.4 2-1.4 2.5 0 .5.4 1 1 1h.5c.5 0 1-.3 1.4-.8l4.3-4.3c.6.4 1.2.7 1.8.7 1.1 0 2.1-.8 2.5-1.9L21 21l1-1-7.5-7.5z"/>
-                            <path d="M16 8V6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                        </svg>
-                    </div>
-                    <h3 id="emptyTitle" class="empty-title">No Games Available</h3>
-                    <p id="emptyDescription" class="empty-description">There are currently no games available in the library.</p>
-                </div>
-            </section>
+                <h3 id="emptyTitle" class="empty-title">No Games Available</h3>
+                <p id="emptyDescription" class="empty-description">There are currently no games available in the library.</p>
+            </div>
         </main>
     </div>
 
@@ -1011,9 +817,6 @@
                 this.games = [];
                 this.filteredGames = [];
                 this.searchQuery = '';
-                this.currentSeriesFilter = null; // New state for current series filter
-                this.series = []; // To store unique series names
-
                 this.init();
             }
 
@@ -1021,48 +824,37 @@
                 this.setupEventListeners();
                 this.loadGames();
             }
-
+            
             setupEventListeners() {
                 const searchInput = document.getElementById('searchInput');
                 const clearBtn = document.getElementById('clearBtn');
-                const showGamesBtn = document.getElementById('showGamesBtn');
-                const showSeriesBtn = document.getElementById('showSeriesBtn');
-                const backToAllGamesBtn = document.getElementById('backToAllGamesBtn');
-
+                
                 searchInput.addEventListener('input', (e) => {
                     this.searchQuery = e.target.value;
                     this.updateSearch();
-                    this.filterAndRenderGames();
+                    this.filterGames();
                 });
-
+                
                 clearBtn.addEventListener('click', () => {
                     searchInput.value = '';
                     this.searchQuery = '';
                     this.updateSearch();
-                    this.filterAndRenderGames();
+                    this.filterGames();
                     searchInput.focus();
                 });
-
+                
                 searchInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
                         if (this.searchQuery) {
                             searchInput.value = '';
                             this.searchQuery = '';
                             this.updateSearch();
-                            this.filterAndRenderGames();
+                            this.filterGames();
                         }
                     }
                 });
-
-                showGamesBtn.addEventListener('click', () => this.showSection('games'));
-                showSeriesBtn.addEventListener('click', () => this.showSection('series'));
-                backToAllGamesBtn.addEventListener('click', () => {
-                    this.currentSeriesFilter = null;
-                    this.filterAndRenderGames();
-                    this.showSection('games'); // Switch back to games view
-                });
             }
-
+            
             updateSearch() {
                 const clearBtn = document.getElementById('clearBtn');
                 if (this.searchQuery.trim()) {
@@ -1071,50 +863,40 @@
                     clearBtn.classList.remove('visible');
                 }
             }
-
+            
             async loadGames() {
                 const loadingEl = document.getElementById('loading');
                 const contentEl = document.getElementById('content');
-                const filterBarEl = document.getElementById('filterBar');
-
+                
                 try {
                     loadingEl.classList.remove('hidden');
                     contentEl.classList.add('hidden');
-                    filterBarEl.classList.add('hidden'); // Hide filter bar during load
-
+                    
                     await new Promise(resolve => setTimeout(resolve, 1200));
-
-                    let games = [];
                     
                     try {
                         const response = await fetch('games.json', { cache: 'no-store' });
                         if (response.ok) {
                             const data = await response.json();
                             if (Array.isArray(data) && data.length > 0) {
-                                games = this.addSlugsToGames(data);
+                                this.games = this.addSlugsToGames(data);
+                                this.filterGames();
+                                return;
                             }
                         }
                     } catch (fetchError) {
                         console.log('External games.json not found, using demo data');
                     }
                     
-                    if (games.length === 0) {
-                        games = this.getDemoGames(); // Fallback to demo games if fetch fails or returns empty
-                    }
-
-                    this.games = this.addSlugsToGames(games); // Ensure slugs are added even for demo data
-                    this.extractUniqueSeries(); // Extract series after loading games
-                    this.filterAndRenderGames();
-                    this.renderSeries(); // Render series cards
-
+                    this.games = this.getDemoGames();
+                    this.filterGames();
+                    
                 } catch (error) {
                     console.error('Failed to load games:', error);
                     this.showEmptyState('error', 'Failed to load games library. Please try refreshing the page.');
                 } finally {
                     loadingEl.classList.add('hidden');
                     contentEl.classList.remove('hidden');
-                    filterBarEl.classList.remove('hidden'); // Show filter bar after load
-                    this.showSection('games'); // Default to showing games
                 }
             }
 
@@ -1130,133 +912,83 @@
                     return game;
                 });
             }
-
-            extractSeriesName(gameName) {
-                // Heuristic for series extraction:
-                // 1. "Series: Subtitle" -> "Series"
-                // 2. "Series N" -> "Series"
-                // 3. Otherwise, the full game name (or a simplified version) is the series.
-
-                // Handle "Call of Duty: Subtitle"
-                if (gameName.startsWith("Call of Duty:")) {
-                    return "Call of Duty";
-                }
-                // Handle "Forza Motorsport N"
-                if (gameName.startsWith("Forza Motorsport")) {
-                    return "Forza Motorsport";
-                }
-                // Handle "Forza Horizon (N)"
-                if (gameName.startsWith("Forza Horizon")) {
-                    return "Forza Horizon";
-                }
-                // Handle "Need for Speed: Subtitle"
-                if (gameName.startsWith("Need for Speed:")) {
-                    return "Need for Speed";
-                }
-                // Handle games like "Asphalt 8" - treat "Asphalt" as the series
-                if (gameName.startsWith("Asphalt")) {
-                    return "Asphalt";
-                }
-                // Handle games like "Assetto Corsa" - treat as its own series
-                if (gameName.startsWith("Assetto Corsa")) {
-                    return "Assetto Corsa";
-                }
-
-
-                // Fallback: If no specific pattern, use the entire name as series, or simplify numbers
-                const matchNumericSuffix = gameName.match(/^(.*?)\s*(\(?\d+\)?(?:\s*-\s*\w+)?(?:\s+\[.*\])?)\s*$/);
-                if (matchNumericSuffix && matchNumericSuffix[1]) {
-                    // "Game Name 2", "Game Name (3)", "Game Name 4 - Edition"
-                    return matchNumericSuffix[1].trim();
-                }
-
-                return gameName; // Default to full name
+            
+            getDemoGames() {
+                return [
+                    {
+                        "name": "NFS Hot Pursuit",
+                        "slug": "nfs-hot-pursuit",
+                        "description": "High-speed racing action with stunning visual effects and intense police chases.",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
+                            { "platform": "Android", "url": "https://example.com/nfs-hot-pursuit-android", "tags": ["Racing", "Mobile", "Touch-Controls"] },
+                            { "platform": "iOS", "url": "https://example.com/nfs-hot-pursuit-ios", "tags": ["Racing", "Mobile", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Asphalt 8",
+                        "slug": "asphalt-8",
+                        "description": "High Speed racing action with stunts and stunning gameplay across multiple versions.",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://example.com/asphalt-8-windows", "tags": ["Racing", "SinglePlayer", "Offline"] },
+                            { "platform": "Android", "url": "https://example.com/asphalt-8-android", "tags": ["Racing", "SinglePlayer", "Offline", "Modded"] }
+                        ]
+                    },
+                    {
+                        "name": "Cyberpunk Runner",
+                        "slug": "cyberpunk-runner",
+                        "description": "Fast-paced endless runner set in a neon-lit cyberpunk world.",
+                        "versions": [
+                            { "platform": "Web", "url": "#", "tags": ["Action", "Endless Runner", "Cyberpunk"] },
+                            { "platform": "Mobile", "url": "#", "tags": ["Action", "Endless Runner", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Space Odyssey",
+                        "slug": "space-odyssey", 
+                        "description": "Epic space exploration adventure with stunning visuals and immersive gameplay.",
+                        "versions": [
+                            { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
+                            { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
+                        ]
+                    }
+                ];
             }
-
-            extractUniqueSeries() {
-                const seriesSet = new Set();
-                this.games.forEach(game => {
-                    const seriesName = this.extractSeriesName(game.name);
-                    seriesSet.add(seriesName);
-                });
-                this.series = Array.from(seriesSet).sort();
-            }
-
-            renderSeries() {
-                const seriesGrid = document.getElementById('seriesGrid');
-                seriesGrid.innerHTML = ''; // Clear previous series cards
-
-                this.series.forEach(seriesName => {
-                    const card = document.createElement('div');
-                    card.className = 'series-card';
-                    card.innerHTML = `
-                        <svg class="series-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 0 0 5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 1 0 5H18"></path>
-                            <path d="M10 2c-.5 0-1 .5-1 1v2c0 .5.5 1 1 1h4c.5 0 1-.5 1-1V3c0-.5-.5-1-1-1Z"></path>
-                            <path d="M12 10v4"></path>
-                            <path d="M14 12h-4"></path>
-                            <path d="M12 15V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3"></path>
-                            <path d="M18 15V8a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3"></path>
-                        </svg>
-                        <span class="series-name">${this.escapeHtml(seriesName)}</span>
-                    `;
-                    card.addEventListener('click', () => this.filterGamesBySeries(seriesName));
-                    seriesGrid.appendChild(card);
-                });
-            }
-
-            filterGamesBySeries(seriesName) {
-                this.currentSeriesFilter = seriesName;
-                this.searchQuery = ''; // Clear search when filtering by series
-                document.getElementById('searchInput').value = '';
-                this.updateSearch();
-                this.filterAndRenderGames();
-                this.showSection('games'); // Switch to games view after filtering
-                document.getElementById('backToAllGamesBtn').classList.remove('hidden');
-                document.getElementById('navTitle').textContent = `The Apline Bay • ${seriesName} Series`;
-                document.getElementById('gamesSection').querySelector('.content-title').textContent = `${seriesName} Games`;
-            }
-
-            filterAndRenderGames() {
+            
+            filterGames() {
                 const query = this.searchQuery.toLowerCase().trim();
 
                 this.filteredGames = this.games.filter(game => {
-                    // Apply series filter first if active
-                    if (this.currentSeriesFilter && this.extractSeriesName(game.name) !== this.currentSeriesFilter) {
-                        return false;
+                    const gameName = game.name.toLowerCase();
+                    const gameSlug = (game.slug || '').toLowerCase();
+                    const gameDescription = (game.description || '').toLowerCase();
+                    
+                    if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
+                        return true;
                     }
 
-                    // Apply search query filter
-                    if (query) {
-                        const gameName = game.name.toLowerCase();
-                        const gameSlug = (game.slug || '').toLowerCase();
-                        const gameDescription = (game.description || '').toLowerCase();
-
-                        if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
-                            return true;
-                        }
-
-                        const versionMatches = game.versions.some(version => {
-                            const platform = (version.platform || '').toLowerCase();
-                            const tags = (version.tags || []).map(tag => tag.toLowerCase());
-                            const url = (version.url || '').toLowerCase();
-                            return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
-                        });
-                        return versionMatches;
-                    }
-                    return true; // If no series filter and no search query, show all
+                    const versionMatches = game.versions.some(version => {
+                        const platform = (version.platform || '').toLowerCase();
+                        const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                        const url = (version.url || '').toLowerCase();
+                        
+                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                    });
+                    
+                    return versionMatches;
                 });
-                this.renderGames();
+                
+                this.render();
             }
-
-            renderGames() {
+            
+            render() {
                 const gamesGrid = document.getElementById('gamesGrid');
                 const emptyState = document.getElementById('emptyState');
                 const gameCount = document.getElementById('gameCount');
                 const contentHeader = document.getElementById('contentHeader');
 
                 gamesGrid.innerHTML = '';
+                
                 if (this.filteredGames.length > 0) {
                     this.filteredGames.forEach((game, index) => {
                         const card = this.createGameCard(game, index);
@@ -1268,31 +1000,84 @@
                 } else {
                     emptyState.classList.remove('hidden');
                     contentHeader.classList.add('hidden');
+                    
                     const emptyTitle = document.getElementById('emptyTitle');
                     const emptyDescription = document.getElementById('emptyDescription');
+                    
                     if (this.searchQuery.trim()) {
                         emptyTitle.textContent = 'No results found';
                         emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms or browse all available games.`;
-                    } else if (this.currentSeriesFilter) {
-                         emptyTitle.textContent = `No Games in ${this.currentSeriesFilter} Series`;
-                         emptyDescription.textContent = `There are currently no games listed for the ${this.currentSeriesFilter} series.`;
-                    }
-                    else {
+                    } else {
                         emptyTitle.textContent = 'No Games Available';
-                        emptyDescription.textContent = 'There are currently no games available in the library.';
+                        emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
                     }
                 }
             }
-
+            
             createGameCard(game, index) {
-                const card = document.createElement('a');
-                card.href = `game-details.html?slug=${this.escapeHtml(game.slug)}`;
-                card.className = 'game-card';
-                card.style.animationDelay = `${index * 0.05}s`;
+                const cardLink = document.createElement('a');
+                cardLink.href = `game-details.html?slug=${game.slug}`;
+                cardLink.className = 'game-card';
+                cardLink.style.animationDelay = `${index * 0.1}s`;
 
-                const uniquePlatforms = new Set();
-                game.versions.forEach(version => uniquePlatforms.add(version.platform.split(' for ')[0])); // Get base platform e.g. "Windows"
-                const platformsText = Array.from(uniquePlatforms).join(', ');
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+
+                const cardHeader = document.createElement('div');
+                cardHeader.className = 'card-header';
+
+                const cardInfo = document.createElement('div');
+                cardInfo.className = 'card-info';
+
+                const title = document.createElement('h3');
+                title.className = 'card-title';
+                title.textContent = game.name;
+
+                const platforms = document.createElement('div');
+                platforms.className = 'card-platforms';
+                
+                const uniquePlatforms = [...new Set(game.versions.map(v => v.platform))];
+                uniquePlatforms.slice(0, 3).forEach(platform => {
+                    const badge = document.createElement('div');
+                    badge.className = 'platform-badge';
+                    badge.innerHTML = `
+                        ${this.getPlatformIcon(platform)}
+                        <span>${platform}</span>
+                    `;
+                    platforms.appendChild(badge);
+                });
+
+                if (uniquePlatforms.length > 3) {
+                    const moreBadge = document.createElement('div');
+                    moreBadge.className = 'platform-badge';
+                    moreBadge.textContent = `+${uniquePlatforms.length - 3} more`;
+                    platforms.appendChild(moreBadge);
+                }
+
+                cardInfo.appendChild(title);
+                cardInfo.appendChild(platforms);
+
+                const arrow = document.createElement('div');
+                arrow.className = 'card-arrow';
+                arrow.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                `;
+
+                cardHeader.appendChild(cardInfo);
+                cardHeader.appendChild(arrow);
+                cardContent.appendChild(cardHeader);
+
+                if (game.description) {
+                    const description = document.createElement('p');
+                    description.style.color = 'hsl(var(--foreground-secondary))';
+                    description.style.fontSize = '14px';
+                    description.style.lineHeight = '1.5';
+                    description.style.marginBottom = 'var(--spacing-md)';
+                    description.textContent = game.description;
+                    cardContent.appendChild(description);
+                }
 
                 const allTags = new Set();
                 game.versions.forEach(version => {
@@ -1301,148 +1086,105 @@
                     }
                 });
 
-                const tagsHTML = Array.from(allTags).map(tag => `<span class="tag">${this.escapeHtml(tag)}</span>`).join('');
-
-                card.innerHTML = `
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-info">
-                                <h3 class="card-title">${this.escapeHtml(game.name)}</h3>
-                                <p class="card-platforms">${this.escapeHtml(platformsText)}</p>
-                            </div>
-                            <div class="card-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m9 18 6-6-6-6"/>
-                                </svg>
-                            </div>
-                        </div>
-                        ${game.description ? `<p style="color:hsl(var(--foreground-secondary));font-size:14px;line-height:1.5;margin-bottom:var(--spacing-md);">${this.escapeHtml(game.description)}</p>` : ''}
-                        ${allTags.size > 0 ? `<div class="card-tags">${tagsHTML}</div>` : ''}
-                    </div>
-                `;
-                return card;
-            }
-
-            showSection(section) {
-                const gamesSection = document.getElementById('gamesSection');
-                const seriesSection = document.getElementById('seriesSection');
-                const showGamesBtn = document.getElementById('showGamesBtn');
-                const showSeriesBtn = document.getElementById('showSeriesBtn');
-                const backToAllGamesBtn = document.getElementById('backToAllGamesBtn');
-                const navTitle = document.getElementById('navTitle');
-                const contentTitle = document.getElementById('gamesSection').querySelector('.content-title');
-
-                if (section === 'games') {
-                    gamesSection.classList.remove('hidden');
-                    seriesSection.classList.add('hidden');
-                    showGamesBtn.classList.add('active');
-                    showSeriesBtn.classList.remove('active');
-                    backToAllGamesBtn.classList.add('hidden'); // Hide when in main games view
-
-                    if (this.currentSeriesFilter) {
-                         navTitle.textContent = `The Apline Bay • ${this.currentSeriesFilter} Series`;
-                         contentTitle.textContent = `${this.currentSeriesFilter} Games`;
-                         backToAllGamesBtn.classList.remove('hidden'); // Show if series filter is active
-                    } else {
-                        navTitle.textContent = 'The Apline Bay • Games Library';
-                        contentTitle.textContent = 'Games Library';
-                    }
-                } else if (section === 'series') {
-                    gamesSection.classList.add('hidden');
-                    seriesSection.classList.remove('hidden');
-                    showGamesBtn.classList.remove('active');
-                    showSeriesBtn.classList.add('active');
-                    backToAllGamesBtn.classList.add('hidden'); // Hide when browsing series
-                    this.currentSeriesFilter = null; // Clear series filter when browsing all series
-                    document.getElementById('searchInput').value = ''; // Clear search too
-                    this.updateSearch();
-                    this.filterAndRenderGames(); // Re-render games if filtered by series earlier
-                    navTitle.textContent = 'The Apline Bay • Browse Series';
-                    contentTitle.textContent = 'Games Library'; // This title isn't shown in series view, but reset it.
+                if (allTags.size > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.className = 'card-tags';
+                    Array.from(allTags).slice(0, 6).forEach(tagText => {
+                        const tag = document.createElement('span');
+                        tag.className = 'tag';
+                        tag.textContent = tagText;
+                        tagsContainer.appendChild(tag);
+                    });
+                    cardContent.appendChild(tagsContainer);
                 }
+
+                cardLink.appendChild(cardContent);
+                return cardLink;
             }
 
-            getDemoGames() {
-                return [
-                    {
-                        "slug": "nfs-hot-pursuit",
-                        "name": "Need for Speed: Hot Pursuit",
-                        "description": "High-speed racing action with stunning visual effects and intense police chases. Experience the thrill of both sides of the law in this adrenaline-pumping racing game.",
-                        "versions": [
-                            { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
-                            { "platform": "Android", "url": "#", "tags": ["Racing", "Mobile", "Touch-Controls"] },
-                            { "platform": "iOS", "url": "#", "tags": ["Racing", "Mobile", "Touch-Controls"] }
-                        ]
-                    },
-                    {
-                        "slug": "asphalt-8",
-                        "name": "Asphalt 8",
-                        "description": "High Speed racing action with stunts and stunning gameplay across multiple versions. Perform gravity-defying stunts and race through beautiful locations.",
-                        "versions": [
-                            { "platform": "Windows", "url": "#", "tags": ["Racing", "SinglePlayer", "Offline"] },
-                            { "platform": "Android", "url": "#", "tags": ["Racing", "SinglePlayer", "Offline", "Modded"] }
-                        ]
-                    },
-                     {
-                        "slug": "call-of-duty-2",
-                        "name": "Call of Duty 2",
-                        "description": "WWII first-person shooter offering intense campaigns across multiple fronts.",
-                        "versions": [
-                        { "platform": "Windows", "url": "#", "tags": ["Shooter", "Singleplayer/Multiplayer"] }
-                        ]
-                    },
-                    {
-                        "slug": "call-of-duty-4-modern-warfare",
-                        "name": "Call of Duty 4: Modern Warfare",
-                        "description": "Modern-era military FPS that redefined the series with intense combat and cinematic storytelling.",
-                        "versions": [
-                        { "platform": "Windows", "url": "#", "tags": ["Shooter", "Singleplayer/Multiplayer"] }
-                        ]
-                    },
-                    {
-                        "slug": "forza-motorsport-2",
-                        "name": "Forza Motorsport 2",
-                        "description": "The second installment in the highly acclaimed racing simulation series, now playable on PC via emulation.",
-                        "versions": [
-                        { "platform": "Windows, XBOX 360 Emulated", "url": "#", "tags": ["Racing", "Simulation", "Emulated"] }
-                        ]
-                    },
-                    {
-                        "slug": "forza-horizon-1-all-dlc",
-                        "name": "Forza Horizon (1) - ALL DLC",
-                        "description": "The first open-world Forza experience set during the fictional Horizon Festival, including all DLC, now playable on PC via emulation.",
-                        "versions": [
-                        { "platform": "Windows, XBOX 360 Emulated", "url": "#", "tags": ["Racing", "Open World", "All DLC", "Emulated"] }
-                        ]
-                    }
+            getPlatformIcon(platform) {
+                const platformLower = platform.toLowerCase();
+                if (platformLower.includes('windows') || platformLower.includes('mac')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                        <line x1="8" x2="16" y1="21" y2="21"/>
+                        <line x1="12" x2="12" y1="17" y2="21"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('android') || platformLower.includes('ios') || platformLower.includes('mobile')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                        <line x1="12" x2="12.01" y1="18" y2="18"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('web')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" x2="22" y1="12" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>`;
+                }
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="6" x2="10" y1="12" y2="12"/>
+                    <line x1="8" x2="8" y1="10" y2="14"/>
+                    <line x1="15" x2="15.01" y1="13" y2="13"/>
+                    <line x1="18" x2="18.01" y1="11" y2="11"/>
+                    <rect width="20" height="12" x="2" y="6" rx="2"/>
+                </svg>`;
+            }
+
+            extractSeriesName(gameName) {
+                // Common series patterns and their base names
+                const seriesPatterns = [
+                    { pattern: /^Call of Duty:\s*(Modern Warfare\s*\(\d{4}\)|\w+\s*\d+|\w+)?/i, base: "Call of Duty" },
+                    { pattern: /^Need for Speed:\s*(Most Wanted\s*\d{4}|\w+)?/i, base: "Need for Speed" },
+                    { pattern: /^Forza Motorsport\s*\d+/i, base: "Forza Motorsport" },
+                    { pattern: /^Forza Horizon\s*(\(\d+\))?/i, base: "Forza Horizon" },
+                    { pattern: /^Grand Theft Auto\s*(\d+)?/i, base: "Grand Theft Auto" },
+                    { pattern: /^The Elder Scrolls\s*(\w+)?/i, base: "The Elder Scrolls" },
+                    { pattern: /^Halo\s*(\d+)?/i, base: "Halo" },
+                    { pattern: /^Battlefield\s*(\d+)?/i, base: "Battlefield" },
+                    { pattern: /^Asphalt\s*\d+/i, base: "Asphalt" } // For "Asphalt 8", "Asphalt 9" etc.
                 ];
-            }
 
-            escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
+                for (const series of seriesPatterns) {
+                    const match = gameName.match(series.pattern);
+                    if (match) {
+                        return series.base;
+                    }
+                }
+
+                // Specific game names that are considered their own series or have no obvious numeric suffix to remove
+                if (gameName.includes("Assetto Corsa")) {
+                    return "Assetto Corsa";
+                }
+
+                // Fallback for names like "Game Name 2", "Game Name (3)", "Game Name 4 - Edition"
+                // This captures common patterns for numbered titles and removes the number/subtitle to get the base series name.
+                const matchNumericSuffix = gameName.match(/^(.*?)\s*(?:(\d+|ROM|R3|\(.*\)|\[.*\]|\s*(?:Remastered|Definitive|Ultimate|Gold)\s*Edition|\s*-\s*All\s*DLC))*\s*$/i);
+                if (matchNumericSuffix && matchNumericSuffix[1]) {
+                    // Clean up common edition/subtitle phrases that aren't part of the core series name
+                    let cleanedName = matchNumericSuffix[1].trim();
+                    cleanedName = cleanedName.replace(/(:\s*| –\s*| - \s*)([^\d]+)$/i, ''); // Remove subtitles like ": Subtitle"
+                    return cleanedName;
+                }
+
+                return gameName.trim(); // Default to full name if no pattern matches
             }
 
             showEmptyState(type, message) {
                 const emptyState = document.getElementById('emptyState');
                 const emptyTitle = document.getElementById('emptyTitle');
                 const emptyDescription = document.getElementById('emptyDescription');
-                const gamesGrid = document.getElementById('gamesGrid');
                 const contentHeader = document.getElementById('contentHeader');
 
-                gamesGrid.innerHTML = '';
-                gamesGrid.classList.add('hidden');
-                contentHeader.classList.add('hidden');
                 emptyState.classList.remove('hidden');
-
+                contentHeader.classList.add('hidden');
+                
                 if (type === 'error') {
                     emptyTitle.textContent = 'Something went wrong';
                     emptyDescription.textContent = message;
-                } else if (type === 'no-results') {
-                    emptyTitle.textContent = 'No results found';
-                    emptyDescription.textContent = message;
-                } else {
+                } else if (type === 'no-games') {
                     emptyTitle.textContent = 'No Games Available';
                     emptyDescription.textContent = 'There are currently no games available in the library.';
                 }
