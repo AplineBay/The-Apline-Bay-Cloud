@@ -64,18 +64,6 @@
     ]
   },
   {
-    "slug": "call-of-duty-united-offensive",
-    "name": "Call of Duty: United Offensive",
-    "description": "Expansion to the original Call of Duty with new campaigns and maps.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://buzzheavier.com/o78zdiymb7co",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
     "slug": "call-of-duty-2",
     "name": "Call of Duty 2",
     "description": "WWII first-person shooter offering intense campaigns across multiple fronts.",
@@ -100,25 +88,13 @@
     ]
   },
   {
-    "slug": "call-of-duty-world-at-war",
-    "name": "Call of Duty: World at War",
-    "description": "Return to WWII with brutal Pacific and Eastern Front battles.",
+    "slug": "call-of-duty-advanced-warfare",
+    "name": "Call of Duty: Advanced Warfare",
+    "description": "Futuristic shooter introducing exosuits and high-tech weaponry.",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/06AF804F12",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-modern-warfare-2",
-    "name": "Call of Duty: Modern Warfare 2",
-    "description": "Sequel to Modern Warfare, delivering intense cinematic missions.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://megadb.net/dlwtjw7z7qze",
+        "url": "https://filecrypt.co/Container/3C0C30BA8E",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -136,18 +112,6 @@
     ]
   },
   {
-    "slug": "call-of-duty-modern-warfare-3",
-    "name": "Call of Duty: Modern Warfare 3",
-    "description": "Global conflict reaches its climax in the Modern Warfare trilogy.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/EE9BC56C25",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
     "slug": "call-of-duty-black-ops-2",
     "name": "Call of Duty: Black Ops II",
     "description": "Branching storylines and futuristic tech in a Cold War sequel.",
@@ -155,30 +119,6 @@
       {
         "platform": "Windows",
         "url": "https://buzzheavier.com/b65jhpnucnac",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-ghosts",
-    "name": "Call of Duty: Ghosts",
-    "description": "Post-apocalyptic warfare with a new squad system.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/5F4E813808",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-advanced-warfare",
-    "name": "Call of Duty: Advanced Warfare",
-    "description": "Futuristic shooter introducing exosuits and high-tech weaponry.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://filecrypt.co/Container/3C0C30BA8E",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -196,25 +136,13 @@
     ]
   },
   {
-    "slug": "call-of-duty-infinite-warfare",
-    "name": "Call of Duty: Infinite Warfare",
-    "description": "Interplanetary warfare with a cinematic singleplayer campaign.",
+    "slug": "call-of-duty-black-ops-6",
+    "name": "Call of Duty: Black Ops 6",
+    "description": "The latest entry in the Black Ops series, featuring next-gen visuals and gripping action.",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://cdn1.koyso.to/COD.Infinite.Warfare.v6.23.rar?verify=1755209483-jZivzXol0BKauUuB3Q4INH82M2DjhHfGcuC8eI22K5c%3D",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-modern-warfare-2019",
-    "name": "Call of Duty: Modern Warfare (2019)",
-    "description": "A gritty reboot of the Modern Warfare series with photorealistic visuals.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://gofile.io/d/KuPsVO",
+        "url": "https://gofile.io/d/W6wY7g",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -232,6 +160,78 @@
     ]
   },
   {
+    "slug": "call-of-duty-ghosts",
+    "name": "Call of Duty: Ghosts",
+    "description": "Post-apocalyptic warfare with a new squad system.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/5F4E813808",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-infinite-warfare",
+    "name": "Call of Duty: Infinite Warfare",
+    "description": "Interplanetary warfare with a cinematic singleplayer campaign.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://cdn1.koyso.to/COD.Infinite.Warfare.v6.23.rar?verify=1755209483-jZivzXol0BKauUuB3Q4INH82M2DjhHfGcuC8eI22K5c%3D",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-2",
+    "name": "Call of Duty: Modern Warfare 2",
+    "description": "Sequel to Modern Warfare, delivering intense cinematic missions.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://megadb.net/dlwtjw7z7qze",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-3",
+    "name": "Call of Duty: Modern Warfare 3",
+    "description": "Global conflict reaches its climax in the Modern Warfare trilogy.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/EE9BC56C25",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-modern-warfare-2019",
+    "name": "Call of Duty: Modern Warfare (2019)",
+    "description": "A gritty reboot of the Modern Warfare series with photorealistic visuals.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://gofile.io/d/KuPsVO",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-united-offensive",
+    "name": "Call of Duty: United Offensive",
+    "description": "Expansion to the original Call of Duty with new campaigns and maps.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/o78zdiymb7co",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
     "slug": "call-of-duty-vanguard",
     "name": "Call of Duty: Vanguard",
     "description": "WWII shooter exploring multiple theaters of war.",
@@ -239,6 +239,18 @@
       {
         "platform": "Windows",
         "url": "https://buzzheavier.com/8ep7hnsqw7hg",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-world-at-war",
+    "name": "Call of Duty: World at War",
+    "description": "Return to WWII with brutal Pacific and Eastern Front battles.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/06AF804F12",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -256,14 +268,72 @@
     ]
   },
   {
-    "slug": "call-of-duty-black-ops-6",
-    "name": "Call of Duty: Black Ops 6",
-    "description": "The latest entry in the Black Ops series, featuring next-gen visuals and gripping action.",
+    "slug": "nfs-porsche-unleashed",
+    "name": "Need for Speed: Porsche Unleashed",
+    "description": "Experience the evolution of Porsche cars through different eras in this detailed racing simulator.",
+    "release_date": "2000-03-29",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://gofile.io/d/W6wY7g",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+        "url": "https://megadb.net/oask1xvmqyhg",
+        "tags": ["Racing", "Simulation", "Classic"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-most-wanted-2005",
+    "name": "Need For Speed Most Wanted 2005",
+    "description": "High-speed racing action with stunning visual effects.",
+    "release_date": "2005-11-11",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://drive.google.com/drive/folders/1wtdYXvKdiyJsNv-deN4d8ski9j2xB86C",
+        "tags": ["Racing", "Singleplayer", "Arcade"]
+      },
+      {
+        "platform": "Mac",
+        "url": "https://www.paulthetall.com/need-for-speed-most-wanted-mac/",
+        "tags": ["Racing", "Singleplayer", "Arcade"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-carbon",
+    "name": "Need for Speed: Carbon",
+    "description": "Race for control of the city's districts with your crew, facing off against rivals in canyon duels.",
+    "release_date": "2006-10-31",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/373391F48A",
+        "tags": ["Racing", "Street Racing", "Singleplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-undercover",
+    "name": "Need for Speed: Undercover",
+    "description": "Go deep undercover to take down an international crime syndicate in high-stakes chases.",
+    "release_date": "2008-11-18",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/B2B35ACB2C",
+        "tags": ["Racing", "Action", "Singleplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-shift",
+    "name": "Need for Speed: Shift",
+    "description": "A simulation-focused Need for Speed title offering a realistic racing experience with intense cockpit views.",
+    "release_date": "2009-09-15",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://megadb.net/abxqhqffwzmn",
+        "tags": ["Racing", "Simulation", "Track Racing"]
       }
     ]
   },
@@ -271,6 +341,7 @@
     "slug": "nfs-hot-pursuit",
     "name": "Need For Speed Hot Pursuit",
     "description": "High-speed racing action with stunning visual effects.",
+    "release_date": "2010-11-16",
     "versions": [
       {
         "platform": "Windows",
@@ -290,23 +361,68 @@
     ]
   },
   {
-    "slug": "nfs-most-wanted-2005",
-    "name": "Need For Speed Most Wanted 2005",
-    "description": "High-speed racing action with stunning visual effects.",
+    "slug": "nfs-the-run",
+    "name": "Need for Speed: The Run",
+    "description": "Embark on a high-stakes, cross-country race from San Francisco to New York.",
+    "release_date": "2011-11-15",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://drive.google.com/drive/folders/1wtdYXvKdiyJsNv-deN4d8ski9j2xB86C",
-        "tags": ["Racing", "Singleplayer", "Arcade"]
-      },
+        "url": "https://buzzheavier.com/a47tccs70f51",
+        "tags": ["Racing", "Story-driven", "Singleplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-most-wanted-2012",
+    "name": "Need for Speed: Most Wanted (2012)",
+    "description": "Outsmart cops and rivals, utilizing open-world freedom in this adrenaline-fueled racer.",
+    "release_date": "2012-10-30",
+    "versions": [
       {
-        "platform": "Mac",
-        "url": "https://www.paulthetall.com/need-for-speed-most-wanted-mac/",
-        "tags": ["Racing", "Singleplayer", "Arcade"]
+        "platform": "Windows",
+        "url": "https://1fichier.com/?3p13zunhf9ie0is8iaeu",
+        "tags": ["Racing", "Open World", "Police Chase"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-rivals-complete-edition",
+    "name": "Need for Speed: Rivals Complete Edition",
+    "description": "Play as either a cop or a racer in a vast open-world, using various pursuits tech.",
+    "release_date": "2013-11-19",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/0835B9CFF5",
+        "tags": ["Racing", "Open World", "Police Chase", "Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-payback",
+    "name": "Need for Speed: Payback",
+    "description": "Seek revenge against The House, a cartel controlling the city's casinos, criminals, and cops.",
+    "release_date": "2017-11-10",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/24638FFD73.html",
+        "tags": ["Racing", "Action", "Story-driven"]
+      }
+    ]
+  },
+  {
+    "slug": "nfs-heat",
+    "name": "Need for Speed: Heat",
+    "description": "Master the art of street racing by day and risk it all by night in high-stakes races against rogue cops.",
+    "release_date": "2019-11-08",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://1fichier.com/?bqs5aiwh3jt4twj3168u",
+        "tags": ["Racing", "Open World", "Street Racing"]
       }
     ]
   }
 ]
-
-
-
