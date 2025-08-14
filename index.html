@@ -318,6 +318,56 @@
             opacity: 1;
         }
 
+        /* Series Filter */
+        .series-filter {
+            margin-bottom: var(--spacing-2xl);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .series-filter-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(var(--foreground));
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.01em;
+            text-align: center;
+        }
+
+        .series-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .series-button {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 14px;
+            font-weight: 500;
+            color: hsl(var(--foreground-secondary));
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .series-button:hover {
+            background: hsl(var(--purple-500) / 0.1);
+            border-color: hsl(var(--purple-400) / 0.3);
+            color: hsl(var(--purple-300));
+        }
+
+        .series-button.active {
+            background: hsl(var(--purple-500));
+            border-color: hsl(var(--purple-500));
+            color: hsl(var(--foreground));
+            box-shadow: 0 6px 20px hsl(var(--purple-500) / 0.3);
+            transform: translateY(-2px);
+        }
+
         /* Content Section */
         .content {
             animation: fadeInUp 1s ease-out 0.4s both;
@@ -709,7 +759,8 @@
         /* Focus Styles */
         .game-card:focus,
         .clear-btn:focus,
-        .tag:focus {
+        .tag:focus,
+        .series-button:focus {
             outline: 2px solid hsl(var(--purple-400));
             outline-offset: 2px;
         }
@@ -789,9 +840,15 @@
             </div>
         </div>
 
+        <div id="seriesFilter" class="series-filter">
+            <h2 class="series-filter-title">Browse Series</h2>
+            <div id="seriesButtons" class="series-buttons">
+                </div>
+        </div>
+
         <main class="content">
             <div id="contentHeader" class="content-header hidden">
-                <h2 class="content-title">Available Games</h2>
+                <h2 id="currentViewTitle" class="content-title">All Games</h2>
                 <span id="gameCount" class="game-count">0 games</span>
             </div>
             
@@ -817,6 +874,7 @@
                 this.games = [];
                 this.filteredGames = [];
                 this.searchQuery = '';
+                this.activeSeries = 'All Games'; // New state for active series
                 this.init();
             }
 
@@ -828,9 +886,11 @@
             setupEventListeners() {
                 const searchInput = document.getElementById('searchInput');
                 const clearBtn = document.getElementById('clearBtn');
+                const seriesButtonsContainer = document.getElementById('seriesButtons'); // New element
                 
                 searchInput.addEventListener('input', (e) => {
                     this.searchQuery = e.target.value;
+                    this.activeSeries = 'All Games'; // Reset series filter on search
                     this.updateSearch();
                     this.filterGames();
                 });
@@ -851,6 +911,17 @@
                             this.updateSearch();
                             this.filterGames();
                         }
+                    }
+                });
+
+                seriesButtonsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('series-button')) {
+                        const seriesName = e.target.dataset.series;
+                        this.activeSeries = seriesName;
+                        this.searchQuery = ''; // Clear search on series filter
+                        document.getElementById('searchInput').value = '';
+                        this.updateSearch(); // Update clear button visibility
+                        this.filterGames();
                     }
                 });
             }
@@ -880,6 +951,7 @@
                             const data = await response.json();
                             if (Array.isArray(data) && data.length > 0) {
                                 this.games = this.addSlugsToGames(data);
+                                this.populateSeriesFilter(); // New call
                                 this.filterGames();
                                 return;
                             }
@@ -889,6 +961,7 @@
                     }
                     
                     this.games = this.getDemoGames();
+                    this.populateSeriesFilter(); // New call
                     this.filterGames();
                     
                 } catch (error) {
@@ -909,6 +982,7 @@
                     if (!game.slug) {
                         game.slug = this.createSlug(game.name);
                     }
+                    game.series = this.extractSeriesName(game.name); // Add series to game object
                     return game;
                 });
             }
@@ -951,33 +1025,102 @@
                             { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
                             { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
                         ]
+                    },
+                    {
+                        "name": "Call of Duty 4",
+                        "slug": "call-of-duty-4",
+                        "description": "Modern warfare shooter.",
+                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Shooter"] }]
+                    },
+                    {
+                        "name": "Call of Duty: Black Ops",
+                        "slug": "call-of-duty-black-ops",
+                        "description": "Cold war era shooter.",
+                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Shooter"] }]
+                    },
+                    {
+                        "name": "Forza Horizon 4",
+                        "slug": "forza-horizon-4",
+                        "description": "Open-world racing in Britain.",
+                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Racing"] }]
+                    },
+                    {
+                        "name": "Forza Motorsport 7",
+                        "slug": "forza-motorsport-7",
+                        "description": "Realistic track racing.",
+                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Racing"] }]
                     }
                 ];
+            }
+
+            populateSeriesFilter() {
+                const seriesButtonsContainer = document.getElementById('seriesButtons');
+                seriesButtonsContainer.innerHTML = ''; // Clear existing buttons
+
+                const seriesNames = new Set();
+                this.games.forEach(game => {
+                    seriesNames.add(game.series);
+                });
+
+                const sortedSeries = Array.from(seriesNames).sort();
+
+                // Add "All Games" button
+                const allGamesButton = document.createElement('button');
+                allGamesButton.className = 'series-button';
+                allGamesButton.dataset.series = 'All Games';
+                allGamesButton.textContent = 'All Games';
+                if (this.activeSeries === 'All Games') {
+                    allGamesButton.classList.add('active');
+                }
+                seriesButtonsContainer.appendChild(allGamesButton);
+
+                sortedSeries.forEach(seriesName => {
+                    if (seriesName && seriesName !== 'All Games') { // Ensure seriesName is not empty/null
+                        const button = document.createElement('button');
+                        button.className = 'series-button';
+                        button.dataset.series = seriesName;
+                        button.textContent = seriesName;
+                        if (this.activeSeries === seriesName) {
+                            button.classList.add('active');
+                        }
+                        seriesButtonsContainer.appendChild(button);
+                    }
+                });
             }
             
             filterGames() {
                 const query = this.searchQuery.toLowerCase().trim();
-
+                const currentViewTitle = document.getElementById('currentViewTitle');
+                
                 this.filteredGames = this.games.filter(game => {
                     const gameName = game.name.toLowerCase();
                     const gameSlug = (game.slug || '').toLowerCase();
                     const gameDescription = (game.description || '').toLowerCase();
+                    const gameSeries = (game.series || '').toLowerCase();
                     
-                    if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
-                        return true;
-                    }
+                    const matchesSearch = gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query) ||
+                                         game.versions.some(version => {
+                                             const platform = (version.platform || '').toLowerCase();
+                                             const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                                             const url = (version.url || '').toLowerCase();
+                                             return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                                         });
 
-                    const versionMatches = game.versions.some(version => {
-                        const platform = (version.platform || '').toLowerCase();
-                        const tags = (version.tags || []).map(tag => tag.toLowerCase());
-                        const url = (version.url || '').toLowerCase();
-                        
-                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
-                    });
-                    
-                    return versionMatches;
+                    const matchesSeries = (this.activeSeries === 'All Games' || gameSeries === this.activeSeries.toLowerCase());
+
+                    return matchesSearch && matchesSeries;
                 });
                 
+                // Update active series button styling
+                document.querySelectorAll('.series-button').forEach(button => {
+                    if (button.dataset.series === this.activeSeries) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+
+                currentViewTitle.textContent = this.activeSeries; // Update title based on active series
                 this.render();
             }
             
@@ -1006,7 +1149,10 @@
                     
                     if (this.searchQuery.trim()) {
                         emptyTitle.textContent = 'No results found';
-                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms or browse all available games.`;
+                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms.`;
+                    } else if (this.activeSeries !== 'All Games') {
+                        emptyTitle.textContent = `No games in "${this.activeSeries}" series`;
+                        emptyDescription.textContent = `There are currently no games available in the "${this.activeSeries}" series. Try selecting another series or browsing all games.`;
                     } else {
                         emptyTitle.textContent = 'No Games Available';
                         emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
@@ -1197,6 +1343,7 @@
     </script>
 </body>
 </html>
+
 
 
 
