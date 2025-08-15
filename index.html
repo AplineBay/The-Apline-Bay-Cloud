@@ -132,14 +132,65 @@
             border-radius: var(--radius-2xl);
             padding: var(--spacing-sm) var(--spacing-lg);
             box-shadow: 0 8px 32px var(--glass-shadow);
+            display: flex; /* Added for horizontal alignment of nav items */
+            gap: var(--spacing-lg); /* Added for spacing between nav items */
         }
 
-        .nav-content {
+        .nav-link {
             font-size: 14px;
             font-weight: 500;
             color: hsl(var(--foreground-secondary));
             letter-spacing: 0.5px;
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-sm); /* Added padding for clickable area */
+            border-radius: var(--radius-sm);
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
+
+        .nav-link:hover {
+            color: hsl(var(--foreground));
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* AI Floating Action Button */
+        .ai-fab {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            z-index: 50; /* Higher than nav-bar */
+            text-decoration: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-md) var(--spacing-lg);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+            font-size: 16px;
+            font-weight: 600;
+            color: hsl(var(--purple-300));
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ai-fab:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: hsl(var(--purple-400) / 0.3);
+            box-shadow: 
+                0 0 0 1px hsl(var(--purple-400) / 0.2),
+                0 12px 48px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-fab svg {
+            width: 20px;
+            height: 20px;
+            color: hsl(var(--purple-400));
+        }
+
 
         /* Main Container */
         .container {
@@ -316,56 +367,6 @@
 
         .clear-btn.visible {
             opacity: 1;
-        }
-
-        /* Series Filter */
-        .series-filter {
-            margin-bottom: var(--spacing-2xl);
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .series-filter-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-            margin-bottom: var(--spacing-md);
-            letter-spacing: -0.01em;
-            text-align: center;
-        }
-
-        .series-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--spacing-sm);
-        }
-
-        .series-button {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-sm) var(--spacing-md);
-            font-size: 14px;
-            font-weight: 500;
-            color: hsl(var(--foreground-secondary));
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .series-button:hover {
-            background: hsl(var(--purple-500) / 0.1);
-            border-color: hsl(var(--purple-400) / 0.3);
-            color: hsl(var(--purple-300));
-        }
-
-        .series-button.active {
-            background: hsl(var(--purple-500));
-            border-color: hsl(var(--purple-500));
-            color: hsl(var(--foreground));
-            box-shadow: 0 6px 20px hsl(var(--purple-500) / 0.3);
-            transform: translateY(-2px);
         }
 
         /* Content Section */
@@ -714,6 +715,8 @@
                 left: var(--spacing-sm);
                 right: var(--spacing-sm);
                 transform: none;
+                flex-direction: column; /* Stack nav items on small screens */
+                align-items: flex-start;
             }
             
             .games-grid {
@@ -729,6 +732,18 @@
             .card-header {
                 flex-direction: column;
                 gap: var(--spacing-sm);
+            }
+
+            .ai-fab {
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 14px;
+            }
+
+            .ai-fab svg {
+                width: 16px;
+                height: 16px;
             }
         }
 
@@ -760,7 +775,8 @@
         .game-card:focus,
         .clear-btn:focus,
         .tag:focus,
-        .series-button:focus {
+        .nav-link:focus,
+        .ai-fab:focus { /* Added focus style for FAB */
             outline: 2px solid hsl(var(--purple-400));
             outline-offset: 2px;
         }
@@ -778,8 +794,17 @@
     </div>
 
     <div class="nav-bar">
-        <div class="nav-content">The Apline Bay • Games Library</div>
+        <a href="index.html" class="nav-link">The Apline Bay • Games Library</a>
     </div>
+
+    <a href="ai.html" class="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot">
+            <path d="M12 8V4H8"/>
+            <path d="M22 13a6 6 0 0 1-5 5 6 6 0 0 1-5-5V4h-2a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h2v4Z"/>
+            <path d="M2 13a6 6 0 0 0 5 5 6 6 0 0 0 5-5"/>
+        </svg>
+        AI Chat
+    </a>
 
     <div id="loading" class="loading">
         <div class="loading-content">
@@ -840,15 +865,9 @@
             </div>
         </div>
 
-        <div id="seriesFilter" class="series-filter">
-            <h2 class="series-filter-title">Browse Series</h2>
-            <div id="seriesButtons" class="series-buttons">
-                </div>
-        </div>
-
         <main class="content">
             <div id="contentHeader" class="content-header hidden">
-                <h2 id="currentViewTitle" class="content-title">All Games</h2>
+                <h2 class="content-title">Available Games</h2>
                 <span id="gameCount" class="game-count">0 games</span>
             </div>
             
@@ -862,8 +881,8 @@
                         <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
                     </svg>
                 </div>
-                <h3 id="emptyTitle" class="empty-title">No Games Available</h3>
-                <p id="emptyDescription" class="empty-description">There are currently no games available in the library.</p>
+                <h3 id="emptyTitle" class="empty-title">No results found</h3>
+                <p id="emptyDescription" class="empty-description">We couldn't find any games matching your search terms. Try adjusting your search or explore all available games.</p>
             </div>
         </main>
     </div>
@@ -874,7 +893,6 @@
                 this.games = [];
                 this.filteredGames = [];
                 this.searchQuery = '';
-                this.activeSeries = 'All Games'; // New state for active series
                 this.init();
             }
 
@@ -886,11 +904,9 @@
             setupEventListeners() {
                 const searchInput = document.getElementById('searchInput');
                 const clearBtn = document.getElementById('clearBtn');
-                const seriesButtonsContainer = document.getElementById('seriesButtons'); // New element
                 
                 searchInput.addEventListener('input', (e) => {
                     this.searchQuery = e.target.value;
-                    this.activeSeries = 'All Games'; // Reset series filter on search
                     this.updateSearch();
                     this.filterGames();
                 });
@@ -911,17 +927,6 @@
                             this.updateSearch();
                             this.filterGames();
                         }
-                    }
-                });
-
-                seriesButtonsContainer.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('series-button')) {
-                        const seriesName = e.target.dataset.series;
-                        this.activeSeries = seriesName;
-                        this.searchQuery = ''; // Clear search on series filter
-                        document.getElementById('searchInput').value = '';
-                        this.updateSearch(); // Update clear button visibility
-                        this.filterGames();
                     }
                 });
             }
@@ -951,7 +956,6 @@
                             const data = await response.json();
                             if (Array.isArray(data) && data.length > 0) {
                                 this.games = this.addSlugsToGames(data);
-                                this.populateSeriesFilter(); // New call
                                 this.filterGames();
                                 return;
                             }
@@ -961,7 +965,6 @@
                     }
                     
                     this.games = this.getDemoGames();
-                    this.populateSeriesFilter(); // New call
                     this.filterGames();
                     
                 } catch (error) {
@@ -982,7 +985,6 @@
                     if (!game.slug) {
                         game.slug = this.createSlug(game.name);
                     }
-                    game.series = this.extractSeriesName(game.name); // Add series to game object
                     return game;
                 });
             }
@@ -1025,102 +1027,33 @@
                             { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
                             { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
                         ]
-                    },
-                    {
-                        "name": "Call of Duty 4",
-                        "slug": "call-of-duty-4",
-                        "description": "Modern warfare shooter.",
-                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Shooter"] }]
-                    },
-                    {
-                        "name": "Call of Duty: Black Ops",
-                        "slug": "call-of-duty-black-ops",
-                        "description": "Cold war era shooter.",
-                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Shooter"] }]
-                    },
-                    {
-                        "name": "Forza Horizon 4",
-                        "slug": "forza-horizon-4",
-                        "description": "Open-world racing in Britain.",
-                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Racing"] }]
-                    },
-                    {
-                        "name": "Forza Motorsport 7",
-                        "slug": "forza-motorsport-7",
-                        "description": "Realistic track racing.",
-                        "versions": [{ "platform": "Windows", "url": "#", "tags": ["Racing"] }]
                     }
                 ];
-            }
-
-            populateSeriesFilter() {
-                const seriesButtonsContainer = document.getElementById('seriesButtons');
-                seriesButtonsContainer.innerHTML = ''; // Clear existing buttons
-
-                const seriesNames = new Set();
-                this.games.forEach(game => {
-                    seriesNames.add(game.series);
-                });
-
-                const sortedSeries = Array.from(seriesNames).sort();
-
-                // Add "All Games" button
-                const allGamesButton = document.createElement('button');
-                allGamesButton.className = 'series-button';
-                allGamesButton.dataset.series = 'All Games';
-                allGamesButton.textContent = 'All Games';
-                if (this.activeSeries === 'All Games') {
-                    allGamesButton.classList.add('active');
-                }
-                seriesButtonsContainer.appendChild(allGamesButton);
-
-                sortedSeries.forEach(seriesName => {
-                    if (seriesName && seriesName !== 'All Games') { // Ensure seriesName is not empty/null
-                        const button = document.createElement('button');
-                        button.className = 'series-button';
-                        button.dataset.series = seriesName;
-                        button.textContent = seriesName;
-                        if (this.activeSeries === seriesName) {
-                            button.classList.add('active');
-                        }
-                        seriesButtonsContainer.appendChild(button);
-                    }
-                });
             }
             
             filterGames() {
                 const query = this.searchQuery.toLowerCase().trim();
-                const currentViewTitle = document.getElementById('currentViewTitle');
-                
+
                 this.filteredGames = this.games.filter(game => {
                     const gameName = game.name.toLowerCase();
                     const gameSlug = (game.slug || '').toLowerCase();
                     const gameDescription = (game.description || '').toLowerCase();
-                    const gameSeries = (game.series || '').toLowerCase();
                     
-                    const matchesSearch = gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query) ||
-                                         game.versions.some(version => {
-                                             const platform = (version.platform || '').toLowerCase();
-                                             const tags = (version.tags || []).map(tag => tag.toLowerCase());
-                                             const url = (version.url || '').toLowerCase();
-                                             return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
-                                         });
+                    if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
+                        return true;
+                    }
 
-                    const matchesSeries = (this.activeSeries === 'All Games' || gameSeries === this.activeSeries.toLowerCase());
-
-                    return matchesSearch && matchesSeries;
+                    const versionMatches = game.versions.some(version => {
+                        const platform = (version.platform || '').toLowerCase();
+                        const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                        const url = (version.url || '').toLowerCase();
+                        
+                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                    });
+                    
+                    return versionMatches;
                 });
                 
-                // Update active series button styling
-                document.querySelectorAll('.series-button').forEach(button => {
-                    if (button.dataset.series === this.activeSeries) {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                });
-
-                currentViewTitle.textContent = this.activeSeries; // Update title based on active series
                 this.render();
             }
             
@@ -1149,10 +1082,7 @@
                     
                     if (this.searchQuery.trim()) {
                         emptyTitle.textContent = 'No results found';
-                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms.`;
-                    } else if (this.activeSeries !== 'All Games') {
-                        emptyTitle.textContent = `No games in "${this.activeSeries}" series`;
-                        emptyDescription.textContent = `There are currently no games available in the "${this.activeSeries}" series. Try selecting another series or browsing all games.`;
+                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms or browse all available games.`;
                     } else {
                         emptyTitle.textContent = 'No Games Available';
                         emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
@@ -1279,45 +1209,6 @@
                 </svg>`;
             }
 
-            extractSeriesName(gameName) {
-                // Common series patterns and their base names
-                const seriesPatterns = [
-                    { pattern: /^Call of Duty:\s*(Modern Warfare\s*\(\d{4}\)|\w+\s*\d+|\w+)?/i, base: "Call of Duty" },
-                    { pattern: /^Need for Speed:\s*(Most Wanted\s*\d{4}|\w+)?/i, base: "Need for Speed" },
-                    { pattern: /^Forza Motorsport\s*\d+/i, base: "Forza Motorsport" },
-                    { pattern: /^Forza Horizon\s*(\(\d+\))?/i, base: "Forza Horizon" },
-                    { pattern: /^Grand Theft Auto\s*(\d+)?/i, base: "Grand Theft Auto" },
-                    { pattern: /^The Elder Scrolls\s*(\w+)?/i, base: "The Elder Scrolls" },
-                    { pattern: /^Halo\s*(\d+)?/i, base: "Halo" },
-                    { pattern: /^Battlefield\s*(\d+)?/i, base: "Battlefield" },
-                    { pattern: /^Asphalt\s*\d+/i, base: "Asphalt" } // For "Asphalt 8", "Asphalt 9" etc.
-                ];
-
-                for (const series of seriesPatterns) {
-                    const match = gameName.match(series.pattern);
-                    if (match) {
-                        return series.base;
-                    }
-                }
-
-                // Specific game names that are considered their own series or have no obvious numeric suffix to remove
-                if (gameName.includes("Assetto Corsa")) {
-                    return "Assetto Corsa";
-                }
-
-                // Fallback for names like "Game Name 2", "Game Name (3)", "Game Name 4 - Edition"
-                // This captures common patterns for numbered titles and removes the number/subtitle to get the base series name.
-                const matchNumericSuffix = gameName.match(/^(.*?)\s*(?:(\d+|ROM|R3|\(.*\)|\[.*\]|\s*(?:Remastered|Definitive|Ultimate|Gold)\s*Edition|\s*-\s*All\s*DLC))*\s*$/i);
-                if (matchNumericSuffix && matchNumericSuffix[1]) {
-                    // Clean up common edition/subtitle phrases that aren't part of the core series name
-                    let cleanedName = matchNumericSuffix[1].trim();
-                    cleanedName = cleanedName.replace(/(:\s*| –\s*| - \s*)([^\d]+)$/i, ''); // Remove subtitles like ": Subtitle"
-                    return cleanedName;
-                }
-
-                return gameName.trim(); // Default to full name if no pattern matches
-            }
-
             showEmptyState(type, message) {
                 const emptyState = document.getElementById('emptyState');
                 const emptyTitle = document.getElementById('emptyTitle');
@@ -1343,6 +1234,7 @@
     </script>
 </body>
 </html>
+
 
 
 
