@@ -402,6 +402,116 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
+        /* CUSTOM DROPDOWN STYLES */
+        .custom-select-wrapper {
+            position: relative;
+            min-width: 150px;
+            z-index: 20; /* Ensure it's above other elements if necessary */
+            height: 40px; /* Match typical button height */
+            font-size: 14px;
+            font-weight: 500;
+            color: hsl(var(--foreground-secondary));
+        }
+
+        /* Visually hide the original select, keep it for accessibility */
+        .series-filter-select {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .custom-select-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            color: hsl(var(--foreground)); /* Default text color */
+        }
+
+        .custom-select-trigger:hover {
+            border-color: hsl(var(--purple-400) / 0.5);
+            background: rgba(255, 255, 255, 0.08); /* Slightly lighter on hover */
+        }
+
+        .custom-select-trigger.active {
+            border-color: hsl(var(--purple-400));
+            box-shadow: 0 0 0 2px hsl(var(--purple-400) / 0.5);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .custom-select-trigger .arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .custom-select-trigger.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .custom-options {
+            position: absolute;
+            top: 100%; /* Position right below the trigger */
+            left: 0;
+            right: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-top: none; /* No top border, blends with trigger */
+            border-bottom-left-radius: var(--radius-md);
+            border-bottom-right-radius: var(--radius-md);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            max-height: 200px; /* Limit height for scrollability */
+            z-index: 25; /* Higher than wrapper */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+            transform-origin: top;
+        }
+
+        .custom-options.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .custom-option {
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            color: hsl(var(--foreground-secondary));
+        }
+
+        .custom-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: hsl(var(--foreground));
+        }
+
+        .custom-option.selected {
+            background-color: hsl(var(--purple-700) / 0.2);
+            color: hsl(var(--purple-300));
+            font-weight: 600;
+        }
+        /* END CUSTOM DROPDOWN STYLES */
+
+
         /* Vision OS Game Cards */
         .games-grid {
             display: grid;
@@ -745,6 +855,10 @@
                 width: 16px;
                 height: 16px;
             }
+
+            .custom-select-wrapper {
+                width: 100%; /* Make custom select full width on small screens */
+            }
         }
 
         @media (max-width: 480px) {
@@ -776,7 +890,7 @@
         .clear-btn:focus,
         .tag:focus,
         .nav-link:focus,
-        .ai-fab:focus { /* Added focus style for FAB */
+        .ai-fab:focus { 
             outline: 2px solid hsl(var(--purple-400));
             outline-offset: 2px;
         }
@@ -797,7 +911,7 @@
         <a href="index.html" class="nav-link">The Apline Bay • Games Library</a>
     </div>
 
-    <a href="ai.html" class="ai-fab">
+    <a href="https://talk.shapes.inc/aplinegg/dm" target="_blank" rel="noopener noreferrer" class="ai-fab">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot">
             <path d="M12 8V4H8"/>
             <path d="M22 13a6 6 0 0 1-5 5 6 6 0 0 1-5-5V4h-2a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h2v4Z"/>
@@ -869,6 +983,22 @@
             <div id="contentHeader" class="content-header hidden">
                 <h2 class="content-title">Available Games</h2>
                 <span id="gameCount" class="game-count">0 games</span>
+                
+                <div class="custom-select-wrapper" id="seriesFilterWrapper">
+                    <select id="seriesFilter" class="series-filter-select" aria-hidden="true" tabindex="-1">
+                        <option value="">All Series</option>
+                    </select>
+
+                    <div class="custom-select-trigger">
+                        <span id="selectedSeriesText">All Series</span>
+                        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+
+                    <div class="custom-options">
+                        </div>
+                </div>
             </div>
             
             <div id="gamesGrid" class="games-grid"></div>
@@ -893,6 +1023,7 @@
                 this.games = [];
                 this.filteredGames = [];
                 this.searchQuery = '';
+                this.currentSeriesFilter = '';
                 this.init();
             }
 
@@ -904,6 +1035,10 @@
             setupEventListeners() {
                 const searchInput = document.getElementById('searchInput');
                 const clearBtn = document.getElementById('clearBtn');
+                
+                // Custom select elements
+                const customSelectTrigger = document.querySelector('.custom-select-trigger');
+                const customOptionsContainer = document.querySelector('.custom-options');
                 
                 searchInput.addEventListener('input', (e) => {
                     this.searchQuery = e.target.value;
@@ -929,6 +1064,56 @@
                         }
                     }
                 });
+
+                // Event listener for custom select trigger
+                customSelectTrigger.addEventListener('click', () => {
+                    this.handleCustomSelectClick(customSelectTrigger, customOptionsContainer);
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.custom-select-wrapper')) {
+                        this.closeAllCustomSelects();
+                    }
+                });
+            }
+
+            handleCustomSelectClick(trigger, optionsContainer) {
+                const isOpen = optionsContainer.classList.contains('open');
+                this.closeAllCustomSelects(); // Close other dropdowns first
+                if (!isOpen) {
+                    optionsContainer.classList.add('open');
+                    trigger.classList.add('active');
+                }
+            }
+
+            closeAllCustomSelects() {
+                document.querySelectorAll('.custom-options.open').forEach(container => {
+                    container.classList.remove('open');
+                });
+                document.querySelectorAll('.custom-select-trigger.active').forEach(trigger => {
+                    trigger.classList.remove('active');
+                });
+            }
+
+            handleCustomOptionClick(optionElement, value) {
+                const nativeSelect = document.getElementById('seriesFilter');
+                const selectedTextSpan = document.getElementById('selectedSeriesText');
+                const customOptionsContainer = document.querySelector('.custom-options');
+
+                this.currentSeriesFilter = value;
+                nativeSelect.value = value; // Update hidden native select
+
+                selectedTextSpan.textContent = optionElement.textContent; // Update visible text
+
+                // Remove 'selected' class from all options, then add to the clicked one
+                customOptionsContainer.querySelectorAll('.custom-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                optionElement.classList.add('selected');
+
+                this.filterGames();
+                this.closeAllCustomSelects();
             }
             
             updateSearch() {
@@ -956,6 +1141,7 @@
                             const data = await response.json();
                             if (Array.isArray(data) && data.length > 0) {
                                 this.games = this.addSlugsToGames(data);
+                                this.populateSeriesFilter();
                                 this.filterGames();
                                 return;
                             }
@@ -964,7 +1150,8 @@
                         console.log('External games.json not found, using demo data');
                     }
                     
-                    this.games = this.getDemoGames();
+                    this.games = this.addSlugsToGames(this.getDemoGames()); // Ensure slugs for demo data
+                    this.populateSeriesFilter();
                     this.filterGames();
                     
                 } catch (error) {
@@ -988,6 +1175,60 @@
                     return game;
                 });
             }
+
+            populateSeriesFilter() {
+                const customOptionsContainer = document.querySelector('.custom-options');
+                const selectedSeriesText = document.getElementById('selectedSeriesText');
+                const nativeSelect = document.getElementById('seriesFilter');
+
+                customOptionsContainer.innerHTML = ''; // Clear custom options
+                nativeSelect.innerHTML = ''; // Clear native select options
+
+                // Add "All Series" option first
+                const allSeriesOptionNative = document.createElement('option');
+                allSeriesOptionNative.value = '';
+                allSeriesOptionNative.textContent = 'All Series';
+                nativeSelect.appendChild(allSeriesOptionNative);
+
+                const allSeriesOptionCustom = document.createElement('div');
+                allSeriesOptionCustom.className = 'custom-option selected'; // Start with "All Series" selected
+                allSeriesOptionCustom.setAttribute('data-value', '');
+                allSeriesOptionCustom.textContent = 'All Series';
+                allSeriesOptionCustom.addEventListener('click', () => this.handleCustomOptionClick(allSeriesOptionCustom, ''));
+                customOptionsContainer.appendChild(allSeriesOptionCustom);
+                selectedSeriesText.textContent = 'All Series'; // Set initial visible text
+
+                const uniqueSeries = new Set();
+                this.games.forEach(game => {
+                    if (game.series) {
+                        uniqueSeries.add(game.series);
+                    }
+                });
+
+                Array.from(uniqueSeries).sort().forEach(series => {
+                    // Add to native select for accessibility/fallback
+                    const optionNative = document.createElement('option');
+                    optionNative.value = series;
+                    optionNative.textContent = series;
+                    nativeSelect.appendChild(optionNative);
+
+                    // Add to custom dropdown
+                    const optionCustom = document.createElement('div');
+                    optionCustom.className = 'custom-option';
+                    optionCustom.setAttribute('data-value', series);
+                    optionCustom.textContent = series;
+                    optionCustom.addEventListener('click', () => this.handleCustomOptionClick(optionCustom, series));
+                    customOptionsContainer.appendChild(optionCustom);
+                });
+
+                // Ensure the selected text reflects the actual current filter on load
+                if (this.currentSeriesFilter) {
+                    const selectedOption = customOptionsContainer.querySelector(`.custom-option[data-value="${this.currentSeriesFilter}"]`);
+                    if (selectedOption) {
+                        this.handleCustomOptionClick(selectedOption, this.currentSeriesFilter);
+                    }
+                }
+            }
             
             getDemoGames() {
                 return [
@@ -995,6 +1236,7 @@
                         "name": "NFS Hot Pursuit",
                         "slug": "nfs-hot-pursuit",
                         "description": "High-speed racing action with stunning visual effects and intense police chases.",
+                        "series": "Need For Speed",
                         "versions": [
                             { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
                             { "platform": "Android", "url": "https://example.com/nfs-hot-pursuit-android", "tags": ["Racing", "Mobile", "Touch-Controls"] },
@@ -1005,6 +1247,7 @@
                         "name": "Asphalt 8",
                         "slug": "asphalt-8",
                         "description": "High Speed racing action with stunts and stunning gameplay across multiple versions.",
+                        "series": "Asphalt",
                         "versions": [
                             { "platform": "Windows", "url": "https://example.com/asphalt-8-windows", "tags": ["Racing", "SinglePlayer", "Offline"] },
                             { "platform": "Android", "url": "https://example.com/asphalt-8-android", "tags": ["Racing", "SinglePlayer", "Offline", "Modded"] }
@@ -1014,6 +1257,7 @@
                         "name": "Cyberpunk Runner",
                         "slug": "cyberpunk-runner",
                         "description": "Fast-paced endless runner set in a neon-lit cyberpunk world.",
+                        "series": "Cyberpunk",
                         "versions": [
                             { "platform": "Web", "url": "#", "tags": ["Action", "Endless Runner", "Cyberpunk"] },
                             { "platform": "Mobile", "url": "#", "tags": ["Action", "Endless Runner", "Touch-Controls"] }
@@ -1023,9 +1267,19 @@
                         "name": "Space Odyssey",
                         "slug": "space-odyssey", 
                         "description": "Epic space exploration adventure with stunning visuals and immersive gameplay.",
+                        "series": "Space Saga",
                         "versions": [
                             { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
                             { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
+                        ]
+                    },
+                    {
+                        "name": "NFS Most Wanted",
+                        "slug": "nfs-most-wanted",
+                        "description": "Intense open-world racing with police pursuits.",
+                        "series": "Need For Speed",
+                        "versions": [
+                            { "platform": "Windows", "url": "#", "tags": ["Racing", "Open World"] }
                         ]
                     }
                 ];
@@ -1033,25 +1287,28 @@
             
             filterGames() {
                 const query = this.searchQuery.toLowerCase().trim();
+                const selectedSeries = this.currentSeriesFilter.toLowerCase();
 
                 this.filteredGames = this.games.filter(game => {
                     const gameName = game.name.toLowerCase();
                     const gameSlug = (game.slug || '').toLowerCase();
                     const gameDescription = (game.description || '').toLowerCase();
-                    
-                    if (gameName.includes(query) || gameSlug.includes(query) || gameDescription.includes(query)) {
-                        return true;
-                    }
+                    const gameSeries = (game.series || '').toLowerCase();
 
-                    const versionMatches = game.versions.some(version => {
-                        const platform = (version.platform || '').toLowerCase();
-                        const tags = (version.tags || []).map(tag => tag.toLowerCase());
-                        const url = (version.url || '').toLowerCase();
-                        
-                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
-                    });
+                    const matchesSearch = 
+                        gameName.includes(query) || 
+                        gameSlug.includes(query) || 
+                        gameDescription.includes(query) ||
+                        game.versions.some(version => {
+                            const platform = (version.platform || '').toLowerCase();
+                            const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                            const url = (version.url || '').toLowerCase();
+                            return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                        });
                     
-                    return versionMatches;
+                    const matchesSeries = (selectedSeries === '' || gameSeries === selectedSeries);
+
+                    return matchesSearch && matchesSeries;
                 });
                 
                 this.render();
@@ -1080,9 +1337,9 @@
                     const emptyTitle = document.getElementById('emptyTitle');
                     const emptyDescription = document.getElementById('emptyDescription');
                     
-                    if (this.searchQuery.trim()) {
+                    if (this.searchQuery.trim() || this.currentSeriesFilter.trim()) {
                         emptyTitle.textContent = 'No results found';
-                        emptyDescription.textContent = `We couldn't find any games matching "${this.searchQuery}". Try adjusting your search terms or browse all available games.`;
+                        emptyDescription.textContent = `We couldn't find any games matching your current filters. Try adjusting your search or explore all available games.`;
                     } else {
                         emptyTitle.textContent = 'No Games Available';
                         emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
@@ -1197,7 +1454,7 @@
                     return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
                         <line x1="2" x2="22" y1="12" y2="12"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"/>
                     </svg>`;
                 }
                 return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1234,6 +1491,7 @@
     </script>
 </body>
 </html>
+
 
 
 
