@@ -118,46 +118,12 @@
             animation-delay: -2s;
         }
 
-        /* Glass Navigation Bar */
-        .nav-bar {
-            position: fixed;
-            top: var(--spacing-md);
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 40;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            box-shadow: 0 8px 32px var(--glass-shadow);
-            display: flex; /* Added for horizontal alignment of nav items */
-            gap: var(--spacing-lg); /* Added for spacing between nav items */
-        }
-
-        .nav-link {
-            font-size: 14px;
-            font-weight: 500;
-            color: hsl(var(--foreground-secondary));
-            letter-spacing: 0.5px;
-            text-decoration: none;
-            padding: var(--spacing-xs) var(--spacing-sm); /* Added padding for clickable area */
-            border-radius: var(--radius-sm);
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: hsl(var(--foreground));
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
         /* AI Floating Action Button */
         .ai-fab {
             position: fixed;
             bottom: var(--spacing-lg);
             right: var(--spacing-lg);
-            z-index: 50; /* Higher than nav-bar */
+            z-index: 50;
             text-decoration: none;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -468,7 +434,7 @@
             top: 100%; /* Position right below the trigger */
             left: 0;
             right: 0;
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.15); /* Less transparent */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
@@ -500,12 +466,12 @@
         }
 
         .custom-option:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly less transparent on hover */
             color: hsl(var(--foreground));
         }
 
         .custom-option.selected {
-            background-color: hsl(var(--purple-700) / 0.2);
+            background-color: hsl(var(--purple-700) / 0.3); /* Less transparent when selected */
             color: hsl(var(--purple-300));
             font-weight: 600;
         }
@@ -517,6 +483,8 @@
             display: grid;
             gap: var(--spacing-lg);
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            /* Ensure enough space above the grid so the dropdown doesn't overlap */
+            padding-top: var(--spacing-3xl); 
         }
 
         .game-card {
@@ -821,22 +789,6 @@
                 font-size: 1rem;
             }
 
-            .nav-bar {
-                top: auto;
-                bottom: var(--spacing-md);
-                flex-wrap: wrap;
-                justify-content: center;
-                width: calc(100% - var(--spacing-xl) * 2);
-                left: 50%;
-                transform: translateX(-50%);
-                padding: var(--spacing-sm) var(--spacing-md);
-            }
-
-            .nav-link {
-                font-size: 13px;
-                padding: var(--spacing-xs) var(--spacing-sm);
-            }
-
             .search-input {
                 padding: var(--spacing-md) var(--spacing-xl);
                 font-size: 16px;
@@ -876,7 +828,7 @@
             }
 
             .ai-fab {
-                bottom: calc(var(--spacing-lg) + 60px); /* Adjust for nav-bar */
+                bottom: var(--spacing-lg); 
             }
         }
     </style>
@@ -888,12 +840,6 @@
         <div class="vision-orb vision-orb-3"></div>
     </div>
 
-    <nav class="nav-bar">
-        <a href="https://techboy1997.github.io/alpine-bay" class="nav-link">Home</a>
-        <a href="https://techboy1997.github.io/alpine-bay/about" class="nav-link">About</a>
-        <a href="https://techboy1997.github.io/alpine-bay/contact" class="nav-link">Contact</a>
-    </nav>
-
     <a href="https://talk.shapes.inc/aplinegg/dm" class="ai-fab" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         <span>Ask Apline AI</span>
@@ -903,7 +849,7 @@
         <header class="header">
             <div class="logo-container">
                 <div class="logo-glow"></div>
-                <img src="https://techboy1997.github.io/alpine-bay/images/TechBoy1997.png" alt="The Apline Bay Logo" class="logo">
+                <img src="https://files.catbox.moe/mjmm60.png" alt="The Apline Bay Logo" class="logo">
             </div>
             <h1 class="title">The Apline Bay</h1>
             <p class="subtitle">A curated library of games and interactive experiences for various platforms.</p>
@@ -1047,7 +993,6 @@
             let matchNumericSequel = series.match(/^(.*?)(?:\s+(?:V|IV|III|II|I|\d+))(?:\s.*)?$/i);
             if (matchNumericSequel) {
                 // Check if the matched number is truly a version number and not part of the name (e.g., 'Project IGI 2')
-                // This makes sure 'Call of Duty: Black Ops II' doesn't become 'Call of Duty: Black Ops'
                 // For simplicity, we assume if a direct number/roman numeral follows the likely series, it's a version.
                 series = matchNumericSequel[1].trim();
             }
@@ -1231,7 +1176,6 @@
     </script>
 </body>
 </html>
-
 
 
 
