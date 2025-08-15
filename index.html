@@ -434,9 +434,9 @@
             top: 100%; /* Position right below the trigger */
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.15); /* Less transparent */
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background-color: hsl(0 0% 18%); /* Dark grey and opaque */
+            backdrop-filter: blur(0px); /* Remove blur for opacity */
+            -webkit-backdrop-filter: blur(0px);
             border: 1px solid var(--glass-border);
             border-top: none; /* No top border, blends with trigger */
             border-bottom-left-radius: var(--radius-md);
@@ -466,12 +466,12 @@
         }
 
         .custom-option:hover {
-            background-color: rgba(255, 255, 255, 0.2); /* Slightly less transparent on hover */
+            background-color: hsl(0 0% 25%); /* Darker grey on hover */
             color: hsl(var(--foreground));
         }
 
         .custom-option.selected {
-            background-color: hsl(var(--purple-700) / 0.3); /* Less transparent when selected */
+            background-color: hsl(var(--purple-700) / 0.5); /* Keep some purple tint but less transparent */
             color: hsl(var(--purple-300));
             font-weight: 600;
         }
