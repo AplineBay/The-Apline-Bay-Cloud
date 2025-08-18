@@ -25,17 +25,17 @@
             --foreground-secondary: 0 0% 80%;
             --foreground-tertiary: 0 0% 65%;
             
-            /* Purple Accent System */
-            --purple-50: 270 100% 98%;
-            --purple-100: 269 100% 95%;
-            --purple-200: 269 100% 92%;
-            --purple-300: 269 100% 86%;
-            --purple-400: 270 91% 65%;
-            --purple-500: 270 91% 55%;
-            --purple-600: 271 81% 56%;
-            --purple-700: 272 72% 47%;
-            --purple-800: 272 69% 38%;
-            --purple-900: 273 69% 32%;
+            /* Blue Accent System */
+            --blue-50: 210 100% 98%;
+            --blue-100: 210 100% 95%;
+            --blue-200: 210 100% 92%;
+            --blue-300: 210 100% 86%;
+            --blue-400: 210 91% 65%;
+            --blue-500: 210 91% 55%;
+            --blue-600: 210 81% 56%;
+            --blue-700: 210 72% 47%;
+            --blue-800: 210 69% 38%;
+            --blue-900: 210 69% 32%;
             
             /* Glass Effects */
             --glass-bg: rgba(255, 255, 255, 0.05);
@@ -78,9 +78,9 @@
             pointer-events: none;
             z-index: 0;
             background: 
-                radial-gradient(circle at 20% 20%, hsl(var(--purple-600) / 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, hsl(var(--purple-500) / 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, hsl(var(--purple-700) / 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, hsl(var(--blue-600) / 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, hsl(var(--blue-500) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, hsl(var(--blue-700) / 0.08) 0%, transparent 50%);
         }
 
         .vision-orb {
@@ -95,7 +95,7 @@
             left: 15%;
             width: 200px;
             height: 200px;
-            background: hsl(var(--purple-500) / 0.2);
+            background: hsl(var(--blue-500) / 0.2);
             animation-delay: 0s;
         }
 
@@ -104,7 +104,7 @@
             right: 20%;
             width: 300px;
             height: 300px;
-            background: hsl(var(--purple-600) / 0.15);
+            background: hsl(var(--blue-600) / 0.15);
             animation-delay: -4s;
         }
 
@@ -114,7 +114,7 @@
             transform: translate(-50%, -50%);
             width: 400px;
             height: 400px;
-            background: hsl(var(--purple-400) / 0.1);
+            background: hsl(var(--blue-400) / 0.1);
             animation-delay: -2s;
         }
 
@@ -134,7 +134,7 @@
             box-shadow: 0 8px 32px var(--glass-shadow);
             font-size: 16px;
             font-weight: 600;
-            color: hsl(var(--purple-300));
+            color: hsl(var(--blue-300));
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
@@ -144,9 +144,9 @@
 
         .ai-fab:hover {
             transform: translateY(-4px) scale(1.02);
-            border-color: hsl(var(--purple-400) / 0.3);
+            border-color: hsl(var(--blue-400) / 0.3);
             box-shadow: 
-                0 0 0 1px hsl(var(--purple-400) / 0.2),
+                0 0 0 1px hsl(var(--blue-400) / 0.2),
                 0 12px 48px rgba(0, 0, 0, 0.3);
             background-color: rgba(255, 255, 255, 0.1);
         }
@@ -154,7 +154,7 @@
         .ai-fab svg {
             width: 20px;
             height: 20px;
-            color: hsl(var(--purple-400));
+            color: hsl(var(--blue-400));
         }
 
 
@@ -184,7 +184,7 @@
         .logo-glow {
             position: absolute;
             inset: -20px;
-            background: radial-gradient(circle, hsl(var(--purple-500) / 0.4) 0%, transparent 70%);
+            background: radial-gradient(circle, hsl(var(--blue-500) / 0.4) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(30px);
             animation: pulse 3s ease-in-out infinite;
@@ -209,7 +209,7 @@
         .logo:hover {
             transform: scale(1.05);
             box-shadow: 
-                0 0 0 1px hsl(var(--purple-400) / 0.5),
+                0 0 0 1px hsl(var(--blue-400) / 0.5),
                 0 12px 48px rgba(0, 0, 0, 0.5),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
@@ -218,9 +218,9 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)), 
-                hsl(var(--purple-500)));
+                hsl(var(--blue-300)), 
+                hsl(var(--blue-400)), 
+                hsl(var(--blue-500)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -249,7 +249,7 @@
             padding: var(--spacing-sm) var(--spacing-md);
             font-size: 14px;
             font-weight: 500;
-            color: hsl(var(--purple-300));
+            color: hsl(var(--blue-300));
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
@@ -276,9 +276,9 @@
         }
 
         .search-wrapper:focus-within {
-            border-color: hsl(var(--purple-400) / 0.5);
+            border-color: hsl(var(--blue-400) / 0.5);
             box-shadow: 
-                0 0 0 4px hsl(var(--purple-400) / 0.1),
+                0 0 0 4px hsl(var(--blue-400) / 0.1),
                 0 12px 48px rgba(0, 0, 0, 0.3);
         }
 
@@ -364,7 +364,7 @@
             padding: var(--spacing-sm) var(--spacing-md);
             font-size: 14px;
             font-weight: 500;
-            color: hsl(var(--purple-300));
+            color: hsl(var(--blue-300));
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
@@ -409,13 +409,13 @@
         }
 
         .custom-select-trigger:hover {
-            border-color: hsl(var(--purple-400) / 0.5);
+            border-color: hsl(var(--blue-400) / 0.5);
             background: rgba(255, 255, 255, 0.08); /* Slightly lighter on hover */
         }
 
         .custom-select-trigger.active {
-            border-color: hsl(var(--purple-400));
-            box-shadow: 0 0 0 2px hsl(var(--purple-400) / 0.5);
+            border-color: hsl(var(--blue-400));
+            box-shadow: 0 0 0 2px hsl(var(--blue-400) / 0.5);
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             background: rgba(255, 255, 255, 0.08);
@@ -471,8 +471,8 @@
         }
 
         .custom-option.selected {
-            background-color: hsl(var(--purple-700) / 0.5); /* Keep some purple tint but less transparent */
-            color: hsl(var(--purple-300));
+            background-color: hsl(var(--blue-700) / 0.5); /* Keep some blue tint but less transparent */
+            color: hsl(var(--blue-300));
             font-weight: 600;
         }
         /* END CUSTOM DROPDOWN STYLES */
@@ -509,9 +509,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-500) / 0.05) 0%, 
-                transparent 50%);
+            background: linear-gradient(135deg, hsl(var(--blue-500) / 0.05) 0%, transparent 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
             border-radius: var(--radius-2xl);
@@ -519,11 +517,11 @@
 
         .game-card:hover {
             transform: translateY(-8px) scale(1.02);
-            border-color: hsl(var(--purple-400) / 0.3);
+            border-color: hsl(var(--blue-400) / 0.3);
             box-shadow: 
-                0 0 0 1px hsl(var(--purple-400) / 0.2),
+                0 0 0 1px hsl(var(--blue-400) / 0.2),
                 0 20px 64px rgba(0, 0, 0, 0.4),
-                0 0 80px hsl(var(--purple-500) / 0.1);
+                0 0 80px hsl(var(--blue-500) / 0.1);
         }
 
         .game-card:hover::before {
@@ -561,9 +559,7 @@
         }
 
         .game-card:hover .card-title {
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)));
+            background: linear-gradient(135deg, hsl(var(--blue-300)), hsl(var(--blue-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -586,13 +582,13 @@
             padding: var(--spacing-xs) var(--spacing-sm);
             font-size: 12px;
             font-weight: 500;
-            color: hsl(var(--purple-300));
+            color: hsl(var(--blue-300));
             transition: all 0.3s ease;
         }
 
         .platform-badge:hover {
-            background: hsl(var(--purple-500) / 0.1);
-            border-color: hsl(var(--purple-400) / 0.3);
+            background: hsl(var(--blue-500) / 0.1);
+            border-color: hsl(var(--blue-400) / 0.3);
         }
 
         .card-arrow {
@@ -602,7 +598,7 @@
         }
 
         .game-card:hover .card-arrow {
-            color: hsl(var(--purple-400));
+            color: hsl(var(--blue-400));
             transform: translateX(4px);
         }
 
@@ -624,9 +620,9 @@
         }
 
         .tag:hover {
-            background: hsl(var(--purple-500) / 0.1);
-            color: hsl(var(--purple-300));
-            border-color: hsl(var(--purple-400) / 0.3);
+            background: hsl(var(--blue-500) / 0.1);
+            color: hsl(var(--blue-300));
+            border-color: hsl(var(--blue-400) / 0.3);
         }
 
         /* Empty State */
@@ -702,7 +698,7 @@
             position: absolute;
             inset: 0;
             border: 3px solid transparent;
-            border-top: 3px solid hsl(var(--purple-400));
+            border-top: 3px solid hsl(var(--blue-400));
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -710,9 +706,7 @@
         .loading-text {
             font-size: 1.25rem;
             font-weight: 600;
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)));
+            background: linear-gradient(135deg, hsl(var(--blue-300)), hsl(var(--blue-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -726,20 +720,28 @@
         .loading-dot {
             width: 8px;
             height: 8px;
-            background: hsl(var(--purple-400));
+            background: hsl(var(--blue-400));
             border-radius: 50%;
             animation: bounce 1.4s ease-in-out infinite both;
         }
 
-        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
-        .loading-dot:nth-child(3) { animation-delay: 0s; }
+        .loading-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
 
-        /* Animations */
+        .loading-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        .loading-dot:nth-child(3) {
+            animation-delay: 0s;
+        }
+
+        /* Keyframes */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -748,87 +750,47 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.4; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-            100% { transform: scale(0.9); opacity: 0.4; }
+            0% {
+                transform: scale(0.95);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0.6;
+            }
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-10px, 15px); }
-            50% { transform: translate(0, 0); }
-            75% { transform: translate(10px, -15px); }
-            100% { transform: translate(0, 0); }
+            0% {
+                transform: translateY(0px) translateX(0px);
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @keyframes bounce {
-            0%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: var(--spacing-2xl) var(--spacing-md);
+            0%, 80%, 100% {
+                transform: scale(0);
             }
-
-            .header {
-                margin-bottom: var(--spacing-2xl);
-            }
-
-            .title {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .search-input {
-                padding: var(--spacing-md) var(--spacing-xl);
-                font-size: 16px;
-            }
-
-            .search-icon {
-                left: var(--spacing-sm);
-            }
-
-            .clear-btn {
-                right: var(--spacing-sm);
-            }
-
-            .content-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .game-card {
-                padding: var(--spacing-lg);
-            }
-
-            .card-title {
-                font-size: 1.25rem;
-            }
-
-            .empty-title {
-                font-size: 1.5rem;
-            }
-
-            .empty-description {
-                font-size: 1rem;
-            }
-
-            .ai-fab {
-                bottom: var(--spacing-lg); 
+            40% {
+                transform: scale(1.0);
             }
         }
     </style>
@@ -840,66 +802,88 @@
         <div class="vision-orb vision-orb-3"></div>
     </div>
 
-    <a href="https://talk.shapes.inc/aplinegg/dm" class="ai-fab" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        <span>Ask Apline AI</span>
-    </a>
-
     <main class="container">
         <header class="header">
             <div class="logo-container">
                 <div class="logo-glow"></div>
-                <img src="https://files.catbox.moe/mjmm60.png" alt="The Apline Bay Logo" class="logo">
+                <img src="./assets/apline-bay-logo.png" alt="The Apline Bay Logo" class="logo">
             </div>
             <h1 class="title">The Apline Bay</h1>
-            <p class="subtitle">A curated library of games and interactive experiences for various platforms.</p>
-            <span class="version-badge">Version 2.0 Indev</span>
+            <p class="subtitle">A curated library of games and interactive experiences for VisionOS and other XR platforms.</p>
+            <span class="version-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 8v4c0 1.1-.9 2-2 2s-2-.9-2-2v-4c0-1.1.9-2 2-2s2 .9 2 2zm8 0v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2s-2 .9-2 2z"></path>
+                </svg>
+                VisionOS Edition 1.0
+            </span>
         </header>
 
         <section class="search-container">
             <div class="search-wrapper">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search games...">
-                <button id="clearSearchBtn" class="clear-btn" aria-label="Clear search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for games...">
+                <button id="clearBtn" class="clear-btn" aria-label="Clear search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </button>
             </div>
         </section>
 
-        <section id="games" class="content">
+        <section class="content">
             <div class="content-header">
-                <h2 class="content-title">All Games</h2>
+                <h2 class="content-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 10h-6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V12a2 2 0 0 0-2-2zM6 10H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2"></path>
+                        <path d="M12 15h-2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h2"></path>
+                        <line x1="12" y1="22" x2="12" y2="10"></line>
+                        <line x1="12" y1="12" x2="12.01" y2="12"></line>
+                    </svg>
+                    All Games
+                </h2>
+                <span class="game-count"><span id="totalGameCount"></span> Games</span>
                 <div class="custom-select-wrapper">
-                    <select id="seriesFilter" class="series-filter-select" aria-label="Filter by series">
-                        <option value="All Series">All Series</option>
-                    </select>
-                    <div class="custom-select-trigger">
+                    <div class="custom-select-trigger" id="series-filter-trigger">
                         <span>All Series</span>
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </div>
-                    <div class="custom-options">
-                        </div>
+                    <div class="custom-options" id="series-filter-options">
+                        <span class="custom-option selected" data-value="all">All Series</span>
+                    </div>
+                    <select class="series-filter-select" id="seriesFilterSelect" aria-label="Filter games by series">
+                        <option value="all">All Series</option>
+                    </select>
                 </div>
-                <span class="game-count"><span id="displayedGameCount">0</span> of <span id="totalGameCount">0</span> games</span>
             </div>
             <div id="gamesGrid" class="games-grid">
                 </div>
-            <div id="emptyState" class="empty-state" style="display: none;">
-                <div class="empty-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                </div>
+            <div id="emptyState" class="empty-state hidden">
+                <span class="empty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                    </svg>
+                </span>
                 <h3 class="empty-title">No Games Found</h3>
-                <p class="empty-description">Try adjusting your search or filters. We might not have what you're looking for right now.</p>
+                <p class="empty-description">Try adjusting your search or filter to find what you're looking for.</p>
             </div>
         </section>
     </main>
 
-    <div id="loadingOverlay" class="loading" style="display: flex;">
+    <div class="loading" id="loading">
         <div class="loading-content">
             <div class="loading-spinner">
                 <div class="spinner-ring"></div>
             </div>
-            <p class="loading-text">Loading Games...</p>
+            <h3 class="loading-text">Loading Games</h3>
             <div class="loading-dots">
                 <div class="loading-dot"></div>
                 <div class="loading-dot"></div>
@@ -909,251 +893,128 @@
     </div>
 
     <script>
-        let allGames = [];
-        let games = [];
-        let currentSeriesFilter = 'All Series';
-        let currentSearchQuery = '';
+        const allGames = [
+            {
+                id: 'game-1',
+                title: 'Aethelred\'s Legacy',
+                logo: './assets/game-1.png',
+                description: 'A dark fantasy RPG set in a world teetering on the edge of collapse. Master forgotten magic and forge your own destiny.',
+                series: 'Aethelred',
+                platforms: ['VisionOS', 'PCVR', 'Meta Quest'],
+                tags: ['RPG', 'Fantasy', 'Single Player', 'Multiplayer']
+            },
+            {
+                id: 'game-2',
+                title: 'Starlight Symphony',
+                logo: './assets/game-2.png',
+                description: 'A whimsical rhythm game where you conduct a cosmic orchestra. Each note creates a star in the night sky.',
+                series: 'Starlight',
+                platforms: ['VisionOS', 'iOS/iPadOS'],
+                tags: ['Rhythm', 'Casual', 'Relaxing', 'Mobile']
+            },
+            {
+                id: 'game-3',
+                title: 'Quantum Drift',
+                logo: './assets/game-3.png',
+                description: 'A fast-paced futuristic racing game with gravity-defying tracks and a synthwave soundtrack.',
+                series: 'Quantum',
+                platforms: ['VisionOS', 'PCVR', 'PSVR 2'],
+                tags: ['Racing', 'Sci-Fi', 'Fast-paced']
+            },
+            {
+                id: 'game-4',
+                title: 'Chrono-Forge',
+                logo: './assets/game-4.png',
+                description: 'A time-bending puzzle game where you manipulate time to solve intricate levels and escape a temporal loop.',
+                series: 'Chrono-Forge',
+                platforms: ['VisionOS'],
+                tags: ['Puzzle', 'Strategy', 'Sci-Fi']
+            },
+            {
+                id: 'game-5',
+                title: 'The Great Alchemist',
+                logo: './assets/game-5.png',
+                description: 'A simulation game where you manage a magical potion shop, combining rare ingredients and mastering ancient recipes.',
+                series: 'Alchemist',
+                platforms: ['PCVR'],
+                tags: ['Simulation', 'Management']
+            },
+            {
+                id: 'game-6',
+                title: 'Arcane Ascendancy',
+                logo: './assets/game-6.png',
+                description: 'A competitive card game where you summon mythical creatures and cast powerful spells to outwit your opponents.',
+                series: 'Arcane',
+                platforms: ['VisionOS'],
+                tags: ['Card Game', 'Multiplayer', 'Strategy']
+            }
+        ];
 
-        const searchInput = document.getElementById('searchInput');
-        const clearSearchBtn = document.getElementById('clearSearchBtn');
         const gamesGrid = document.getElementById('gamesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
         const emptyState = document.getElementById('emptyState');
-        const loadingOverlay = document.getElementById('loadingOverlay');
-        const displayedGameCountSpan = document.getElementById('displayedGameCount');
+        const seriesFilterTrigger = document.getElementById('series-filter-trigger');
+        const seriesFilterOptions = document.getElementById('series-filter-options');
         const totalGameCountSpan = document.getElementById('totalGameCount');
-        
-        // Custom Dropdown Elements
-        const customSelectWrapper = document.querySelector('.custom-select-wrapper');
-        const customSelectTrigger = customSelectWrapper.querySelector('.custom-select-trigger');
-        const customOptionsContainer = customSelectWrapper.querySelector('.custom-options');
-        const customSelectDisplay = customSelectTrigger.querySelector('span');
+        const loadingScreen = document.getElementById('loading');
+        let filteredGames = allGames;
 
         document.addEventListener('DOMContentLoaded', () => {
-            fetchGames();
-            setupSearch();
-            setupSeriesFilter();
+            // Simulate loading delay
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                renderGames(allGames);
+                updateGameCounts();
+                populateSeriesFilter();
+            }, 1000);
         });
 
-        async function fetchGames() {
-            try {
-                const response = await fetch('games.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                allGames = await response.json();
-                games = [...allGames]; // Initialize games with all games
-                console.log('Games loaded:', allGames); // Debugging
-                populateSeriesFilter();
-                updateGameCounts();
-                filterAndDisplayGames();
-                loadingOverlay.style.display = 'none'; // Hide loading overlay
-            } catch (error) {
-                console.error('Error fetching games:', error);
-                loadingOverlay.style.display = 'none';
-                emptyState.style.display = 'flex'; // Show empty state if games fail to load
-                emptyState.querySelector('.empty-title').textContent = 'Error Loading Games';
-                emptyState.querySelector('.empty-description').textContent = 'Could not load game data. Please try again later.';
-            }
-        }
-
-        /**
-         * Extracts the primary series name from a game title.
-         * Handles various naming conventions like subtitles, numbered sequels, and editions.
-         * @param {string} gameName The full name of the game.
-         * @returns {string} The extracted series name.
-         */
-        function getGameSeries(gameName) {
-            let series = gameName.trim();
-
-            // Prioritize removing common subtitle/edition patterns using regex
-            const regexPatterns = [
-                // Matches "Series: Subtitle", "Series - Subtitle", "Series (Year)", "Series [Platform]"
-                /:(\s*.*)$/,
-                / - (\s*.*)$/,
-                /\s*\((Year|Platform)\)$/, // (Year), (Platform)
-                /\s*\[(Platform)\]$/, // [Platform]
-
-                // Matches common edition/version suffixes
-                /\s+(Remastered|Remaster|Ultimate|Definitive|Gold|GOTY|Game of the Year|Edition|Season|Chapter|Part)\s*.*$/i,
-                
-                // Matches words like 'Online' or 'Mobile' if they appear at the end and seem like a sub-identifier
-                /\s+(Online|Mobile)$/i,
-
-                // Matches simple numbers/roman numerals that often denote sequels, but *only if* they are followed by nothing or just spaces.
-                // This is to be handled more robustly by the numerical series logic below.
-            ];
-
-            for (const pattern of regexPatterns) {
-                series = series.replace(pattern, '').trim();
-            }
-
-            // Handle numerical sequels (e.g., Grand Theft Auto V, Call of Duty 4)
-            // This regex tries to capture the part *before* a space followed by a number or Roman numeral.
-            // It's designed to be non-greedy to capture the shortest possible series name first.
-            let matchNumericSequel = series.match(/^(.*?)(?:\s+(?:V|IV|III|II|I|\d+))(?:\s.*)?$/i);
-            if (matchNumericSequel) {
-                // Check if the matched number is truly a version number and not part of the name (e.g., 'Project IGI 2')
-                // For simplicity, we assume if a direct number/roman numeral follows the likely series, it's a version.
-                series = matchNumericSequel[1].trim();
-            }
-
-            // A final cleanup for any trailing numbers not caught by the sequel logic (e.g. 'FIFA 23')
-            series = series.replace(/\s+\d{2,4}$/, '').trim(); // Remove 2-4 digit years/numbers at the very end
-
-            // Special handling for cases where stripping might make it too short or incorrect
-            // These ensure consistency for well-known series if the regex is too aggressive.
-            const specificSeriesOverrides = {
-                'grand theft auto': 'Grand Theft Auto',
-                'call of duty': 'Call of Duty',
-                'need for speed': 'Need for Speed',
-                // Add more as needed if you notice specific series not being correctly grouped
-            };
-
-            for (const key in specificSeriesOverrides) {
-                if (series.toLowerCase().startsWith(key)) {
-                    series = specificSeriesOverrides[key];
-                    break; // Apply the first matching override and stop
-                }
-            }
-
-
-            // Capitalize the first letter of each word to ensure consistent display
-            series = series.split(' ').map(word => {
-                if (word.length === 0) return '';
-                // Handle common conjunctions/prepositions in lowercase for better aesthetics
-                const lowercaseWords = ['of', 'the', 'for', 'and', 'a', 'an'];
-                if (lowercaseWords.includes(word.toLowerCase()) && word.toLowerCase() !== series.toLowerCase().split(' ')[0].toLowerCase()) {
-                    return word.toLowerCase();
-                }
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            }).join(' ');
-
-            return series;
-        }
-
-        function populateSeriesFilter() {
-            const uniqueSeries = new Set();
-            allGames.forEach(game => {
-                const series = getGameSeries(game.name);
-                uniqueSeries.add(series);
-            });
-
-            const sortedSeries = Array.from(uniqueSeries).sort();
-            console.log('Unique series found:', sortedSeries); // Debugging
-
-            // Clear existing custom options, keeping "All Series"
-            customOptionsContainer.innerHTML = ''; 
-
-            // Add "All Series" option
-            const allSeriesOption = document.createElement('div');
-            allSeriesOption.classList.add('custom-option');
-            allSeriesOption.dataset.value = 'All Series';
-            allSeriesOption.textContent = 'All Series';
-            allSeriesOption.classList.add('selected'); // Default selected
-            customOptionsContainer.appendChild(allSeriesOption);
-
-            sortedSeries.forEach(series => {
-                const optionElement = document.createElement('div');
-                optionElement.classList.add('custom-option');
-                optionElement.dataset.value = series;
-                optionElement.textContent = series;
-                customOptionsContainer.appendChild(optionElement);
-            });
-
-            // Re-attach event listeners for custom options
-            customOptionsContainer.querySelectorAll('.custom-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    const value = option.dataset.value;
-                    customSelectDisplay.textContent = option.textContent;
-                    currentSeriesFilter = value;
-
-                    // Update selected class
-                    customOptionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
-                    option.classList.add('selected');
-
-                    customOptionsContainer.classList.remove('open');
-                    customSelectTrigger.classList.remove('active');
-                    filterAndDisplayGames();
-                });
-            });
-        }
-
-        function setupSeriesFilter() {
-            customSelectTrigger.addEventListener('click', () => {
-                customOptionsContainer.classList.toggle('open');
-                customSelectTrigger.classList.toggle('active');
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!customSelectWrapper.contains(e.target) && customOptionsContainer.classList.contains('open')) {
-                    customOptionsContainer.classList.remove('open');
-                    customSelectTrigger.classList.remove('active');
-                }
-            });
-        }
-
-        function setupSearch() {
-            searchInput.addEventListener('input', (e) => {
-                currentSearchQuery = e.target.value.toLowerCase();
-                clearSearchBtn.classList.toggle('visible', currentSearchQuery.length > 0);
-                filterAndDisplayGames();
-            });
-
-            clearSearchBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                currentSearchQuery = '';
-                clearSearchBtn.classList.remove('visible');
-                filterAndDisplayGames();
-            });
-        }
-
-        function filterAndDisplayGames() {
-            let filteredGames = allGames;
-
-            if (currentSeriesFilter !== 'All Series') {
-                filteredGames = filteredGames.filter(game => getGameSeries(game.name) === currentSeriesFilter);
-            }
-
-            if (currentSearchQuery) {
-                filteredGames = filteredGames.filter(game =>
-                    game.name.toLowerCase().includes(currentSearchQuery) ||
-                    game.description.toLowerCase().includes(currentSearchQuery) ||
-                    game.versions.some(version =>
-                        version.platform.toLowerCase().includes(currentSearchQuery) ||
-                        version.tags.some(tag => tag.toLowerCase().includes(currentSearchQuery))
-                    )
-                );
-            }
-
-            displayGames(filteredGames);
-            displayedGameCountSpan.textContent = filteredGames.length;
-            totalGameCountSpan.textContent = allGames.length;
-
-            if (filteredGames.length === 0) {
-                emptyState.style.display = 'flex';
-                emptyState.querySelector('.empty-title').textContent = 'No Games Found';
-                emptyState.querySelector('.empty-description').textContent = 'Try adjusting your search or filters. We might not have what you\'re looking for right now.';
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (query.length > 0) {
+                clearBtn.classList.add('visible');
             } else {
-                emptyState.style.display = 'none';
+                clearBtn.classList.remove('visible');
+            }
+            filterAndRenderGames(query);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.classList.remove('visible');
+            filterAndRenderGames('');
+        });
+
+        function filterAndRenderGames(query = '', series = 'all') {
+            gamesGrid.innerHTML = '';
+            filteredGames = allGames.filter(game => {
+                const matchesQuery = game.title.toLowerCase().includes(query) ||
+                                     game.description.toLowerCase().includes(query) ||
+                                     game.tags.some(tag => tag.toLowerCase().includes(query));
+                const matchesSeries = series === 'all' || game.series === series;
+                return matchesQuery && matchesSeries;
+            });
+
+            if (filteredGames.length > 0) {
+                renderGames(filteredGames);
+                emptyState.classList.add('hidden');
+            } else {
+                emptyState.classList.remove('hidden');
             }
         }
 
-        function displayGames(gamesToDisplay) {
-            gamesGrid.innerHTML = '';
-            if (gamesToDisplay.length === 0) {
-                return;
-            }
-        
-            gamesToDisplay.forEach(game => {
+        function renderGames(games) {
+            games.forEach((game, index) => {
                 const gameCard = document.createElement('a');
-                gameCard.href = `game-details.html?slug=${game.slug}`; // ✅ link to game details
-                gameCard.classList.add('game-card');
-        
+                gameCard.href = `./game-details.html?id=${game.id}`;
+                gameCard.className = 'game-card';
+                gameCard.style.animationDelay = `${index * 0.1}s`;
                 gameCard.innerHTML = `
                     <div class="card-content">
                         <div class="card-header">
                             <div class="card-info">
-                                <h3 class="card-title">${game.name}</h3>
+                                <h3 class="card-title">${game.title}</h3>
                                 <div class="card-platforms">
                                     ${game.versions
                                         .map(v => `<span class="platform-badge">${v.platform}</span>`)
@@ -1185,13 +1046,54 @@
         function updateGameCounts() {
             totalGameCountSpan.textContent = allGames.length;
         }
+
+        // Dropdown functionality
+        function populateSeriesFilter() {
+            const seriesList = ['all', ...new Set(allGames.map(game => game.series))];
+            const optionsHtml = seriesList.map(series => 
+                `<span class="custom-option" data-value="${series}">${series === 'all' ? 'All Series' : series}</span>`
+            ).join('');
+            seriesFilterOptions.innerHTML = optionsHtml;
+        }
+
+        seriesFilterTrigger.addEventListener('click', () => {
+            seriesFilterOptions.classList.toggle('open');
+            seriesFilterTrigger.classList.toggle('active');
+        });
+
+        seriesFilterOptions.addEventListener('click', (e) => {
+            const selectedOption = e.target.closest('.custom-option');
+            if (selectedOption) {
+                const value = selectedOption.dataset.value;
+                const text = selectedOption.textContent;
+
+                // Update trigger text and active state
+                seriesFilterTrigger.querySelector('span').textContent = text;
+                document.querySelectorAll('.custom-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                selectedOption.classList.add('selected');
+
+                // Close dropdown
+                seriesFilterOptions.classList.remove('open');
+                seriesFilterTrigger.classList.remove('active');
+
+                // Filter games
+                const currentQuery = searchInput.value.toLowerCase();
+                filterAndRenderGames(currentQuery, value);
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!seriesFilterWrapper.contains(e.target)) {
+                seriesFilterOptions.classList.remove('open');
+                seriesFilterTrigger.classList.remove('active');
+            }
+        });
    </script>
 </body>
 </html>
-
-
-
-
 
 
 
