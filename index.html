@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
+    <link rel="stylesheet" href="frutiger-aero-theme.css"> <style>
+        /* Your existing styles (from snippet_1) */
         * {
             margin: 0;
             padding: 0;
@@ -116,6 +116,40 @@
             height: 400px;
             background: hsl(var(--purple-400) / 0.1);
             animation-delay: -2s;
+        }
+
+        /* Glass Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: var(--spacing-md);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 40;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: hsl(var(--foreground-secondary));
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: hsl(var(--foreground));
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         /* AI Floating Action Button */
@@ -372,14 +406,13 @@
         .custom-select-wrapper {
             position: relative;
             min-width: 150px;
-            z-index: 20; /* Ensure it's above other elements if necessary */
-            height: 40px; /* Match typical button height */
+            z-index: 20;
+            height: 40px;
             font-size: 14px;
             font-weight: 500;
             color: hsl(var(--foreground-secondary));
         }
 
-        /* Visually hide the original select, keep it for accessibility */
         .series-filter-select {
             position: absolute;
             opacity: 0;
@@ -405,12 +438,12 @@
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
-            color: hsl(var(--foreground)); /* Default text color */
+            color: hsl(var(--foreground));
         }
 
         .custom-select-trigger:hover {
             border-color: hsl(var(--purple-400) / 0.5);
-            background: rgba(255, 255, 255, 0.08); /* Slightly lighter on hover */
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .custom-select-trigger.active {
@@ -431,20 +464,20 @@
 
         .custom-options {
             position: absolute;
-            top: 100%; /* Position right below the trigger */
+            top: 100%;
             left: 0;
             right: 0;
-            background-color: hsl(0 0% 18%); /* Dark grey and opaque */
-            backdrop-filter: blur(0px); /* Remove blur for opacity */
-            -webkit-backdrop-filter: blur(0px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-top: none; /* No top border, blends with trigger */
+            border-top: none;
             border-bottom-left-radius: var(--radius-md);
             border-bottom-right-radius: var(--radius-md);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
-            max-height: 200px; /* Limit height for scrollability */
-            z-index: 25; /* Higher than wrapper */
+            max-height: 200px;
+            z-index: 25;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -466,25 +499,22 @@
         }
 
         .custom-option:hover {
-            background-color: hsl(0 0% 25%); /* Darker grey on hover */
+            background-color: rgba(255, 255, 255, 0.1);
             color: hsl(var(--foreground));
         }
 
         .custom-option.selected {
-            background-color: hsl(var(--purple-700) / 0.5); /* Keep some purple tint but less transparent */
+            background-color: hsl(var(--purple-700) / 0.2);
             color: hsl(var(--purple-300));
             font-weight: 600;
         }
+
         /* END CUSTOM DROPDOWN STYLES */
-
-
         /* Vision OS Game Cards */
         .games-grid {
             display: grid;
             gap: var(--spacing-lg);
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            /* Ensure enough space above the grid so the dropdown doesn't overlap */
-            padding-top: var(--spacing-3xl); 
         }
 
         .game-card {
@@ -509,9 +539,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-500) / 0.05) 0%, 
-                transparent 50%);
+            background: linear-gradient(135deg, hsl(var(--purple-500) / 0.05) 0%, transparent 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
             border-radius: var(--radius-2xl);
@@ -520,10 +548,7 @@
         .game-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: hsl(var(--purple-400) / 0.3);
-            box-shadow: 
-                0 0 0 1px hsl(var(--purple-400) / 0.2),
-                0 20px 64px rgba(0, 0, 0, 0.4),
-                0 0 80px hsl(var(--purple-500) / 0.1);
+            box-shadow: 0 0 0 1px hsl(var(--purple-400) / 0.2), 0 20px 64px rgba(0, 0, 0, 0.4), 0 0 80px hsl(var(--purple-500) / 0.1);
         }
 
         .game-card:hover::before {
@@ -561,9 +586,7 @@
         }
 
         .game-card:hover .card-title {
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)));
+            background: linear-gradient(135deg, hsl(var(--purple-300)), hsl(var(--purple-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -602,144 +625,68 @@
         }
 
         .game-card:hover .card-arrow {
+            transform: translateX(8px);
             color: hsl(var(--purple-400));
-            transform: translateX(4px);
+        }
+
+        .card-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: hsl(var(--foreground-secondary));
+            line-height: 1.6;
+            flex-grow: 1; /* Allow description to take available space */
         }
 
         .card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
         }
 
-        .tag {
-            font-size: 12px;
-            font-weight: 500;
-            padding: var(--spacing-xs) var(--spacing-sm);
+        .tag-badge {
             background: hsl(var(--background-secondary));
-            color: hsl(var(--foreground-secondary));
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            transition: all 0.3s ease;
-        }
-
-        .tag:hover {
-            background: hsl(var(--purple-500) / 0.1);
-            color: hsl(var(--purple-300));
-            border-color: hsl(var(--purple-400) / 0.3);
-        }
-
-        /* Empty State */
-        .empty-state {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-3xl) var(--spacing-md);
-            text-align: center;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .empty-icon {
-            margin-bottom: var(--spacing-xl);
-            padding: var(--spacing-xl);
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
+            border-radius: var(--radius-sm);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
             color: hsl(var(--foreground-tertiary));
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
         }
 
-        .empty-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: hsl(var(--foreground));
-            margin-bottom: var(--spacing-md);
-            letter-spacing: -0.01em;
+        .tag-badge:hover {
+            background: hsl(var(--purple-500) / 0.1);
+            border-color: hsl(var(--purple-400) / 0.3);
+            color: hsl(var(--purple-300));
         }
 
-        .empty-description {
-            color: hsl(var(--foreground-secondary));
-            max-width: 480px;
-            line-height: 1.6;
-            font-size: 1.125rem;
+        /* Keyframe Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* Loading State */
-        .loading {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: hsl(var(--background) / 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 50;
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .loading-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-xl);
-            text-align: center;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--spacing-2xl);
-            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.4);
-        }
-
-        .loading-spinner {
-            position: relative;
-            width: 60px;
-            height: 60px;
-        }
-
-        .spinner-ring {
-            position: absolute;
-            inset: 0;
-            border: 3px solid transparent;
-            border-top: 3px solid hsl(var(--purple-400));
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        .loading-text {
-            font-size: 1.25rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, 
-                hsl(var(--purple-300)), 
-                hsl(var(--purple-400)));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .loading-dots {
-            display: flex;
-            gap: var(--spacing-sm);
-        }
-
-        .loading-dot {
-            width: 8px;
-            height: 8px;
-            background: hsl(var(--purple-400));
-            border-radius: 50%;
-            animation: bounce 1.4s ease-in-out infinite both;
-        }
-
-        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
-        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
-        .loading-dot:nth-child(3) { animation-delay: 0s; }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -747,68 +694,28 @@
             }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.4; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-            100% { transform: scale(0.9); opacity: 0.4; }
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(-10px, 15px); }
-            50% { transform: translate(0, 0); }
-            75% { transform: translate(10px, -15px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes bounce {
-            0%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: var(--spacing-2xl) var(--spacing-md);
+            .nav-bar {
+                width: calc(100% - var(--spacing-lg) * 2);
+                padding: var(--spacing-sm) var(--spacing-md);
+                gap: var(--spacing-md);
             }
 
-            .header {
-                margin-bottom: var(--spacing-2xl);
+            .container {
+                padding: calc(var(--spacing-2xl) + var(--spacing-lg)) var(--spacing-md) var(--spacing-xl);
             }
 
             .title {
-                font-size: clamp(2rem, 8vw, 3rem);
+                font-size: 2rem;
             }
 
             .subtitle {
                 font-size: 1rem;
             }
 
-            .search-input {
-                padding: var(--spacing-md) var(--spacing-xl);
-                font-size: 16px;
-            }
-
-            .search-icon {
-                left: var(--spacing-sm);
-            }
-
-            .clear-btn {
-                right: var(--spacing-sm);
-            }
-
-            .content-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
             .games-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
 
             .game-card {
@@ -819,16 +726,33 @@
                 font-size: 1.25rem;
             }
 
-            .empty-title {
-                font-size: 1.5rem;
-            }
-
-            .empty-description {
-                font-size: 1rem;
-            }
-
             .ai-fab {
-                bottom: var(--spacing-lg); 
+                bottom: var(--spacing-md);
+                right: var(--spacing-md);
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-bar {
+                top: var(--spacing-sm);
+                padding: var(--spacing-xs) var(--spacing-sm);
+                gap: var(--spacing-sm);
+            }
+            .nav-link {
+                font-size: 12px;
+            }
+            .search-input {
+                padding: var(--spacing-md) var(--spacing-xl);
+                font-size: 16px;
+            }
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .custom-select-wrapper {
+                width: 100%;
             }
         }
     </style>
@@ -840,343 +764,254 @@
         <div class="vision-orb vision-orb-3"></div>
     </div>
 
-    <a href="https://talk.shapes.inc/aplinegg/dm" class="ai-fab" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        <span>Ask Apline AI</span>
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="ai.html" class="nav-link">AI Chat</a>
+        <a href="dev200-1.html" class="nav-link">DEV200-1</a>
+        <button id="theme-toggle" class="nav-link" style="cursor: pointer;">Toggle Theme</button> </nav>
+
+    <a href="ai.html" class="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M5.558 15.659A8.964 8.964 0 0 1 12 2.25c4.41 0 8 3.59 8 8V12h.75c.026 0 .052.003.078.006A8.21 8.21 0 0 0 21.75 12H22a.75.75 0 0 0 .75-.75V10.5a.75.75 0 0 0-.75-.75h-.063a8.207 8.207 0 0 0-.432-1.996l-.396-.99a.75.75 0 0 0-.966-.317A9.453 9.453 0 0 1 12 3.75 9 9 0 0 0 3.75 12v.75c0 .026.003.052.006.078A8.21 8.21 0 0 0 3.75 13.5H3a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75h.063a8.209 8.209 0 0 0 .432 1.996l.396.99a.75.75 0 0 0 .966.317A9.454 9.454 0 0 1 12 20.25a9 9 0 0 0 8.25-8.25v-.75a.75.75 0 0 0-.75-.75h-.75V9.75a.75.75 0 0 0-.75-.75H12a.75.75 0 0 0-.75.75V12h-.063a8.209 8.209 0 0 0-.432 1.996l-.396.99a.75.75 0 0 0-.966.317A8.964 8.964 0 0 1 5.558 15.659Zm2.124 2.813a.75.75 0 0 0-.317-.966 7.456 7.456 0 0 0-1.996-.432H6.75a.75.75 0 0 0-.75.75v.75a.75.75 0 0 0 .75.75h.75c.026 0 .052.003.078.006a7.207 7.207 0 0 0 1.996-.432Zm10.19-.432a7.207 7.207 0 0 0 1.996.432c.026-.003.052-.006.078-.006h.75a.75.75 0 0 0 .75-.75v-.75a.75.75 0 0 0-.75-.75h-.75a7.456 7.456 0 0 0-1.996.432.75.75 0 0 0-.317.966ZM7.708 6.578a.75.75 0 0 0 .966.317 7.456 7.456 0 0 0 1.996.432H9.75a.75.75 0 0 0 .75-.75V8.25a.75.75 0 0 0-.75-.75h-.75a7.209 7.209 0 0 0-1.996-.432.75.75 0 0 0-.317.966ZM16.292 7.422a.75.75 0 0 0 .317-.966 7.209 7.209 0 0 0-1.996-.432H14.25a.75.75 0 0 0-.75.75v.75a.75.75 0 0 0 .75.75h.75a7.456 7.456 0 0 0 1.996-.432ZM12 4.5a.75.75 0 0 0-.75.75V6h1.5V5.25a.75.75 0 0 0-.75-.75Z" />
+        </svg>          
+        AI Chat
     </a>
 
-    <main class="container">
+    <div class="container">
         <header class="header">
             <div class="logo-container">
                 <div class="logo-glow"></div>
-                <img src="https://files.catbox.moe/mjmm60.png" alt="The Apline Bay Logo" class="logo">
+                <img src="https://assets-global.website-files.com/65320257c729ab5e4f51e04c/65321f47285a73e481b7a2d4_favicon-32x32.png" alt="Apline Bay Logo" class="logo">
             </div>
             <h1 class="title">The Apline Bay</h1>
-            <p class="subtitle">A curated library of games and interactive experiences for various platforms.</p>
-            <span class="version-badge">Version 2.0 Indev</span>
+            <p class="subtitle">A curated library of games and interactive experiences for the Apple Vision Pro</p>
+            <span class="version-badge">Version 1.0.0</span>
         </header>
 
         <section class="search-container">
             <div class="search-wrapper">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.694 4.693a.75.75 0 1 1-1.06 1.06l-4.693-4.694A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                </svg>              
                 <input type="text" id="searchInput" class="search-input" placeholder="Search games...">
-                <button id="clearSearchBtn" class="clear-btn" aria-label="Clear search">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <button id="clearSearch" class="clear-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-2.78 2.78a.75.75 0 1 0 1.06 1.06L12 13.06l2.78 2.78a.75.75 0 1 0 1.06-1.06L13.06 12l2.78-2.78a.75.75 0 0 0-1.06-1.06L12 10.94l-2.78-2.78Z" clip-rule="evenodd" />
+                    </svg>                      
                 </button>
             </div>
         </section>
 
-        <section id="games" class="content">
+        <section class="content">
             <div class="content-header">
                 <h2 class="content-title">All Games</h2>
                 <div class="custom-select-wrapper">
-                    <select id="seriesFilter" class="series-filter-select" aria-label="Filter by series">
-                        <option value="All Series">All Series</option>
+                    <select id="seriesFilter" class="series-filter-select">
+                        <option value="all">All Series</option>
                     </select>
                     <div class="custom-select-trigger">
                         <span>All Series</span>
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
                     </div>
-                    <div class="custom-options">
-                        </div>
+                    <div class="custom-options"></div>
                 </div>
-                <span class="game-count"><span id="displayedGameCount">0</span> of <span id="totalGameCount">0</span> games</span>
+                <span id="gameCount" class="game-count">0 Games</span>
             </div>
-            <div id="gamesGrid" class="games-grid">
+            <div class="games-grid" id="gamesGrid">
                 </div>
-            <div id="emptyState" class="empty-state" style="display: none;">
-                <div class="empty-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                </div>
-                <h3 class="empty-title">No Games Found</h3>
-                <p class="empty-description">Try adjusting your search or filters. We might not have what you're looking for right now.</p>
-            </div>
         </section>
-    </main>
-
-    <div id="loadingOverlay" class="loading" style="display: flex;">
-        <div class="loading-content">
-            <div class="loading-spinner">
-                <div class="spinner-ring"></div>
-            </div>
-            <p class="loading-text">Loading Games...</p>
-            <div class="loading-dots">
-                <div class="loading-dot"></div>
-                <div class="loading-dot"></div>
-                <div class="loading-dot"></div>
-            </div>
-        </div>
     </div>
 
     <script>
-        let allGames = [];
-        let games = [];
-        let currentSeriesFilter = 'All Series';
-        let currentSearchQuery = '';
-
-        const searchInput = document.getElementById('searchInput');
-        const clearSearchBtn = document.getElementById('clearSearchBtn');
-        const gamesGrid = document.getElementById('gamesGrid');
-        const emptyState = document.getElementById('emptyState');
-        const loadingOverlay = document.getElementById('loadingOverlay');
-        const displayedGameCountSpan = document.getElementById('displayedGameCount');
-        const totalGameCountSpan = document.getElementById('totalGameCount');
-        
-        // Custom Dropdown Elements
-        const customSelectWrapper = document.querySelector('.custom-select-wrapper');
-        const customSelectTrigger = customSelectWrapper.querySelector('.custom-select-trigger');
-        const customOptionsContainer = customSelectWrapper.querySelector('.custom-options');
-        const customSelectDisplay = customSelectTrigger.querySelector('span');
-
+        // Theme switching script (moved from previous response)
         document.addEventListener('DOMContentLoaded', () => {
-            fetchGames();
-            setupSearch();
-            setupSeriesFilter();
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const currentTheme = localStorage.getItem('theme');
+
+            // Apply saved theme on load
+            if (currentTheme) {
+                body.classList.add(currentTheme);
+            } else {
+                // Default to 'vision-os-theme' if no theme is saved
+                // For demonstration, let's assume 'vision-os-theme' is the default if no class is present
+                // If you want a specific default, add it here.
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (body.classList.contains('frutiger-aero-theme')) {
+                    body.classList.remove('frutiger-aero-theme');
+                    // If you have a specific class for Vision OS, add it back here
+                    localStorage.removeItem('theme'); // Or set to 'vision-os-theme'
+                } else {
+                    // If you have a specific class for Vision OS, remove it here first
+                    body.classList.add('frutiger-aero-theme');
+                    localStorage.setItem('theme', 'frutiger-aero-theme');
+                }
+            });
         });
 
-        async function fetchGames() {
-            try {
-                const response = await fetch('games.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                allGames = await response.json();
-                games = [...allGames]; // Initialize games with all games
-                console.log('Games loaded:', allGames); // Debugging
-                populateSeriesFilter();
-                updateGameCounts();
-                filterAndDisplayGames();
-                loadingOverlay.style.display = 'none'; // Hide loading overlay
-            } catch (error) {
-                console.error('Error fetching games:', error);
-                loadingOverlay.style.display = 'none';
-                emptyState.style.display = 'flex'; // Show empty state if games fail to load
-                emptyState.querySelector('.empty-title').textContent = 'Error Loading Games';
-                emptyState.querySelector('.empty-description').textContent = 'Could not load game data. Please try again later.';
-            }
-        }
 
-        /**
-         * Extracts the primary series name from a game title.
-         * Handles various naming conventions like subtitles, numbered sequels, and editions.
-         * @param {string} gameName The full name of the game.
-         * @returns {string} The extracted series name.
-         */
-        function getGameSeries(gameName) {
-            let series = gameName.trim();
+        // Existing game loading and search functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const searchInput = document.getElementById('searchInput');
+            const clearSearchBtn = document.getElementById('clearSearch');
+            const gameCountSpan = document.getElementById('gameCount');
+            const seriesFilterSelect = document.getElementById('seriesFilter');
+            const customSelectTrigger = document.querySelector('.custom-select-trigger');
+            const customOptions = document.querySelector('.custom-options');
 
-            // Prioritize removing common subtitle/edition patterns using regex
-            const regexPatterns = [
-                // Matches "Series: Subtitle", "Series - Subtitle", "Series (Year)", "Series [Platform]"
-                /:(\s*.*)$/,
-                / - (\s*.*)$/,
-                /\s*\((Year|Platform)\)$/, // (Year), (Platform)
-                /\s*\[(Platform)\]$/, // [Platform]
+            let allGames = [];
+            let uniqueSeries = new Set();
 
-                // Matches common edition/version suffixes
-                /\s+(Remastered|Remaster|Ultimate|Definitive|Gold|GOTY|Game of the Year|Edition|Season|Chapter|Part)\s*.*$/i,
-                
-                // Matches words like 'Online' or 'Mobile' if they appear at the end and seem like a sub-identifier
-                /\s+(Online|Mobile)$/i,
+            // Fetch games data
+            fetch('games.json')
+                .then(response => response.json())
+                .then(data => {
+                    allGames = data;
+                    populateSeriesFilter(allGames);
+                    displayGames(allGames);
+                })
+                .catch(error => console.error('Error fetching games:', error));
 
-                // Matches simple numbers/roman numerals that often denote sequels, but *only if* they are followed by nothing or just spaces.
-                // This is to be handled more robustly by the numerical series logic below.
-            ];
-
-            for (const pattern of regexPatterns) {
-                series = series.replace(pattern, '').trim();
-            }
-
-            // Handle numerical sequels (e.g., Grand Theft Auto V, Call of Duty 4)
-            // This regex tries to capture the part *before* a space followed by a number or Roman numeral.
-            // It's designed to be non-greedy to capture the shortest possible series name first.
-            let matchNumericSequel = series.match(/^(.*?)(?:\s+(?:V|IV|III|II|I|\d+))(?:\s.*)?$/i);
-            if (matchNumericSequel) {
-                // Check if the matched number is truly a version number and not part of the name (e.g., 'Project IGI 2')
-                // For simplicity, we assume if a direct number/roman numeral follows the likely series, it's a version.
-                series = matchNumericSequel[1].trim();
-            }
-
-            // A final cleanup for any trailing numbers not caught by the sequel logic (e.g. 'FIFA 23')
-            series = series.replace(/\s+\d{2,4}$/, '').trim(); // Remove 2-4 digit years/numbers at the very end
-
-            // Special handling for cases where stripping might make it too short or incorrect
-            // These ensure consistency for well-known series if the regex is too aggressive.
-            const specificSeriesOverrides = {
-                'grand theft auto': 'Grand Theft Auto',
-                'call of duty': 'Call of Duty',
-                'need for speed': 'Need for Speed',
-                // Add more as needed if you notice specific series not being correctly grouped
-            };
-
-            for (const key in specificSeriesOverrides) {
-                if (series.toLowerCase().startsWith(key)) {
-                    series = specificSeriesOverrides[key];
-                    break; // Apply the first matching override and stop
-                }
-            }
-
-
-            // Capitalize the first letter of each word to ensure consistent display
-            series = series.split(' ').map(word => {
-                if (word.length === 0) return '';
-                // Handle common conjunctions/prepositions in lowercase for better aesthetics
-                const lowercaseWords = ['of', 'the', 'for', 'and', 'a', 'an'];
-                if (lowercaseWords.includes(word.toLowerCase()) && word.toLowerCase() !== series.toLowerCase().split(' ')[0].toLowerCase()) {
-                    return word.toLowerCase();
-                }
-                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-            }).join(' ');
-
-            return series;
-        }
-
-        function populateSeriesFilter() {
-            const uniqueSeries = new Set();
-            allGames.forEach(game => {
-                const series = getGameSeries(game.name);
-                uniqueSeries.add(series);
-            });
-
-            const sortedSeries = Array.from(uniqueSeries).sort();
-            console.log('Unique series found:', sortedSeries); // Debugging
-
-            // Clear existing custom options, keeping "All Series"
-            customOptionsContainer.innerHTML = ''; 
-
-            // Add "All Series" option
-            const allSeriesOption = document.createElement('div');
-            allSeriesOption.classList.add('custom-option');
-            allSeriesOption.dataset.value = 'All Series';
-            allSeriesOption.textContent = 'All Series';
-            allSeriesOption.classList.add('selected'); // Default selected
-            customOptionsContainer.appendChild(allSeriesOption);
-
-            sortedSeries.forEach(series => {
-                const optionElement = document.createElement('div');
-                optionElement.classList.add('custom-option');
-                optionElement.dataset.value = series;
-                optionElement.textContent = series;
-                customOptionsContainer.appendChild(optionElement);
-            });
-
-            // Re-attach event listeners for custom options
-            customOptionsContainer.querySelectorAll('.custom-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    const value = option.dataset.value;
-                    customSelectDisplay.textContent = option.textContent;
-                    currentSeriesFilter = value;
-
-                    // Update selected class
-                    customOptionsContainer.querySelectorAll('.custom-option').forEach(opt => opt.classList.remove('selected'));
-                    option.classList.add('selected');
-
-                    customOptionsContainer.classList.remove('open');
-                    customSelectTrigger.classList.remove('active');
-                    filterAndDisplayGames();
+            function populateSeriesFilter(games) {
+                games.forEach(game => {
+                    if (game.series) {
+                        uniqueSeries.add(game.series);
+                    }
                 });
-            });
-        }
 
-        function setupSeriesFilter() {
-            customSelectTrigger.addEventListener('click', () => {
-                customOptionsContainer.classList.toggle('open');
-                customSelectTrigger.classList.toggle('active');
+                // Clear existing options except "All Series"
+                seriesFilterSelect.innerHTML = '<option value="all">All Series</option>';
+                customOptions.innerHTML = '<div class="custom-option" data-value="all">All Series</div>';
+
+
+                Array.from(uniqueSeries).sort().forEach(series => {
+                    const option = document.createElement('option');
+                    option.value = series;
+                    option.textContent = series;
+                    seriesFilterSelect.appendChild(option);
+
+                    const customOption = document.createElement('div');
+                    customOption.classList.add('custom-option');
+                    customOption.setAttribute('data-value', series);
+                    customOption.textContent = series;
+                    customOptions.appendChild(customOption);
+                });
+
+                updateCustomSelectDisplay();
+            }
+
+            function updateCustomSelectDisplay() {
+                const selectedOptionText = seriesFilterSelect.options[seriesFilterSelect.selectedIndex].textContent;
+                customSelectTrigger.querySelector('span').textContent = selectedOptionText;
+
+                // Mark the selected custom option
+                Array.from(customOptions.children).forEach(option => {
+                    if (option.dataset.value === seriesFilterSelect.value) {
+                        option.classList.add('selected');
+                    } else {
+                        option.classList.remove('selected');
+                    }
+                });
+            }
+
+            // Custom Select Dropdown Logic
+            customSelectTrigger.addEventListener('click', function() {
+                customOptions.classList.toggle('open');
+                this.classList.toggle('active');
             });
 
-            document.addEventListener('click', (e) => {
-                if (!customSelectWrapper.contains(e.target) && customOptionsContainer.classList.contains('open')) {
-                    customOptionsContainer.classList.remove('open');
+            customOptions.addEventListener('click', function(e) {
+                const targetOption = e.target.closest('.custom-option');
+                if (targetOption) {
+                    const value = targetOption.dataset.value;
+                    seriesFilterSelect.value = value;
+                    updateCustomSelectDisplay();
+                    filterAndDisplayGames();
+                    customOptions.classList.remove('open');
                     customSelectTrigger.classList.remove('active');
                 }
             });
-        }
 
-        function setupSearch() {
-            searchInput.addEventListener('input', (e) => {
-                currentSearchQuery = e.target.value.toLowerCase();
-                clearSearchBtn.classList.toggle('visible', currentSearchQuery.length > 0);
+            document.addEventListener('click', function(e) {
+                if (!customSelectTrigger.contains(e.target) && !customOptions.contains(e.target)) {
+                    customOptions.classList.remove('open');
+                    customSelectTrigger.classList.remove('active');
+                }
+            });
+
+
+            function displayGames(games) {
+                gamesGrid.innerHTML = '';
+                gameCountSpan.textContent = `${games.length} Games`;
+
+                games.forEach(game => {
+                    const gameCard = document.createElement('a');
+                    gameCard.href = `game-details.html?id=${game.id}`;
+                    gameCard.classList.add('game-card');
+                    gameCard.innerHTML = `
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="card-info">
+                                    <h3 class="card-title">${game.title}</h3>
+                                    <div class="card-platforms">
+                                        ${game.platforms.map(platform => `<span class="platform-badge">${platform}</span>`).join('')}
+                                    </div>
+                                </div>
+                                <img src="${game.thumbnail}" alt="${game.title} Thumbnail" class="card-thumbnail">
+                            </div>
+                            <p class="card-description">${game.description}</p>
+                            <div class="card-tags">
+                                ${game.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    `;
+                    gamesGrid.appendChild(gameCard);
+                });
+            }
+
+            function filterAndDisplayGames() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedSeries = seriesFilterSelect.value;
+
+                let filteredGames = allGames.filter(game => {
+                    const matchesSearch = game.title.toLowerCase().includes(searchTerm) ||
+                                          game.description.toLowerCase().includes(searchTerm) ||
+                                          game.platforms.some(p => p.toLowerCase().includes(searchTerm)) ||
+                                          game.tags.some(t => t.toLowerCase().includes(searchTerm));
+                    
+                    const matchesSeries = selectedSeries === 'all' || game.series === selectedSeries;
+
+                    return matchesSearch && matchesSeries;
+                });
+                displayGames(filteredGames);
+            }
+
+            searchInput.addEventListener('input', () => {
+                clearSearchBtn.classList.toggle('visible', searchInput.value.length > 0);
                 filterAndDisplayGames();
             });
 
             clearSearchBtn.addEventListener('click', () => {
                 searchInput.value = '';
-                currentSearchQuery = '';
                 clearSearchBtn.classList.remove('visible');
                 filterAndDisplayGames();
             });
-        }
 
-        function filterAndDisplayGames() {
-            let filteredGames = allGames;
-
-            if (currentSeriesFilter !== 'All Series') {
-                filteredGames = filteredGames.filter(game => getGameSeries(game.name) === currentSeriesFilter);
-            }
-
-            if (currentSearchQuery) {
-                filteredGames = filteredGames.filter(game =>
-                    game.name.toLowerCase().includes(currentSearchQuery) ||
-                    game.description.toLowerCase().includes(currentSearchQuery) ||
-                    game.versions.some(version =>
-                        version.platform.toLowerCase().includes(currentSearchQuery) ||
-                        version.tags.some(tag => tag.toLowerCase().includes(currentSearchQuery))
-                    )
-                );
-            }
-
-            displayGames(filteredGames);
-            displayedGameCountSpan.textContent = filteredGames.length;
-            totalGameCountSpan.textContent = allGames.length;
-
-            if (filteredGames.length === 0) {
-                emptyState.style.display = 'flex';
-                emptyState.querySelector('.empty-title').textContent = 'No Games Found';
-                emptyState.querySelector('.empty-description').textContent = 'Try adjusting your search or filters. We might not have what you\'re looking for right now.';
-            } else {
-                emptyState.style.display = 'none';
-            }
-        }
-
-        function displayGames(gamesToDisplay) {
-            gamesGrid.innerHTML = '';
-            if (gamesToDisplay.length === 0) {
-                return;
-            }
-
-            gamesToDisplay.forEach(game => {
-                const gameCard = document.createElement('a');
-                gameCard.href = `game-details.html?slug=${game.slug}`;
-                gameCard.setAttribute("data-slug", game.slug);
-                gameCard.classList.add('game-card');
-                gameCard.innerHTML = `
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-info">
-                                <h3 class="card-title">${game.name}</h3>
-                                <div class="card-platforms">
-                                    ${game.versions.map(v => `<span class="platform-badge">${v.platform}</span>`).join('')}
-                                </div>
-                            </div>
-                            <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </div>
-                        <p>${game.description}</p>
-                        <div class="card-tags">
-                            ${Array.from(new Set(game.versions.flatMap(v => v.tags))).map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-                gamesGrid.appendChild(gameCard);
-            });
-        }
-
-        function updateGameCounts() {
-            totalGameCountSpan.textContent = allGames.length;
-        }
-
+            // Initial display and event listeners for search and filter
+            // This part is handled by the initial fetch and filterAndDisplayGames
+        });
     </script>
 </body>
 </html>
+
 
 
 
