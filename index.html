@@ -950,151 +950,213 @@
             }
         ];
 
-        const gamesGrid = document.getElementById('gamesGrid');
-        const searchInput = document.getElementById('searchInput');
-        const clearBtn = document.getElementById('clearBtn');
-        const emptyState = document.getElementById('emptyState');
-        const seriesFilterTrigger = document.getElementById('series-filter-trigger');
-        const seriesFilterOptions = document.getElementById('series-filter-options');
-        const totalGameCountSpan = document.getElementById('totalGameCount');
-        const loadingScreen = document.getElementById('loading');
-        let filteredGames = allGames;
+      filterGames() {
+                const query = this.searchQuery.toLowerCase().trim();
+                const selectedSeries = this.currentSeriesFilter.toLowerCase();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Simulate loading delay
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                renderGames(allGames);
-                updateGameCounts();
-                populateSeriesFilter();
-            }, 1000);
-        });
+                this.filteredGames = this.games.filter(game => {
+                    const gameName = game.name.toLowerCase();
+                    const gameSlug = (game.slug || '').toLowerCase();
+                    const gameDescription = (game.description || '').toLowerCase();
+                    const gameSeries = (game.series || '').toLowerCase();
 
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            if (query.length > 0) {
-                clearBtn.classList.add('visible');
-            } else {
-                clearBtn.classList.remove('visible');
+                    const matchesSearch = 
+                        gameName.includes(query) || 
+                        gameSlug.includes(query) || 
+                        gameDescription.includes(query) ||
+                        game.versions.some(version => {
+                            const platform = (version.platform || '').toLowerCase();
+                            const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                            const url = (version.url || '').toLowerCase();
+                            return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                        });
+                    
+                    const matchesSeries = (selectedSeries === '' || gameSeries === selectedSeries);
+
+                    return matchesSearch && matchesSeries;
+                });
+                
+                this.render();
             }
-            filterAndRenderGames(query);
-        });
+            
+            render() {
+                const gamesGrid = document.getElementById('gamesGrid');
+                const emptyState = document.getElementById('emptyState');
+                const gameCount = document.getElementById('gameCount');
+                const contentHeader = document.getElementById('contentHeader');
 
-        clearBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            clearBtn.classList.remove('visible');
-            filterAndRenderGames('');
-        });
-
-        function filterAndRenderGames(query = '', series = 'all') {
-            gamesGrid.innerHTML = '';
-            filteredGames = allGames.filter(game => {
-                const matchesQuery = game.title.toLowerCase().includes(query) ||
-                                     game.description.toLowerCase().includes(query) ||
-                                     game.tags.some(tag => tag.toLowerCase().includes(query));
-                const matchesSeries = series === 'all' || game.series === series;
-                return matchesQuery && matchesSeries;
-            });
-
-            if (filteredGames.length > 0) {
-                renderGames(filteredGames);
-                emptyState.classList.add('hidden');
-            } else {
-                emptyState.classList.remove('hidden');
+                gamesGrid.innerHTML = '';
+                
+                if (this.filteredGames.length > 0) {
+                    this.filteredGames.forEach((game, index) => {
+                        const card = this.createGameCard(game, index);
+                        gamesGrid.appendChild(card);
+                    });
+                    emptyState.classList.add('hidden');
+                    contentHeader.classList.remove('hidden');
+                    gameCount.textContent = `${this.filteredGames.length} ${this.filteredGames.length === 1 ? 'game' : 'games'}`;
+                } else {
+                    emptyState.classList.remove('hidden');
+                    contentHeader.classList.add('hidden');
+                    
+                    const emptyTitle = document.getElementById('emptyTitle');
+                    const emptyDescription = document.getElementById('emptyDescription');
+                    
+                    if (this.searchQuery.trim() || this.currentSeriesFilter.trim()) {
+                        emptyTitle.textContent = 'No results found';
+                        emptyDescription.textContent = `We couldn't find any games matching your current filters. Try adjusting your search or explore all available games.`;
+                    } else {
+                        emptyTitle.textContent = 'No Games Available';
+                        emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
+                    }
+                }
             }
-        }
+            
+            createGameCard(game, index) {
+                const cardLink = document.createElement('a');
+                cardLink.href = `game-details.html?slug=${game.slug}`;
+                cardLink.className = 'game-card';
+                cardLink.style.animationDelay = `${index * 0.1}s`;
 
-        function displayGames(gamesToDisplay) {
-            gamesGrid.innerHTML = '';
-            if (gamesToDisplay.length === 0) {
-                return;
-            }
-        
-            gamesToDisplay.forEach(game => {
-                const gameCard = document.createElement('a');
-                gameCard.href = `game-details.html?slug=${game.slug}`; // ✅ link to game details
-                gameCard.classList.add('game-card');
-        
-                gameCard.innerHTML = `
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-info">
-                                <h3 class="card-title">${game.name}</h3>
-                                <div class="card-platforms">
-                                    ${game.versions
-                                        .map(v => `<span class="platform-badge">${v.platform}</span>`)
-                                        .join('')}
-                                </div>
-                            </div>
-                            <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" 
-                                 width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                 stroke="currentColor" stroke-width="2" 
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </div>
-                        <p>${game.description}</p>
-                        <div class="card-tags">
-                            ${Array.from(
-                                new Set(game.versions.flatMap(v => v.tags || []))
-                            )
-                                .map(tag => `<span class="tag">${tag}</span>`)
-                                .join('')}
-                        </div>
-                    </div>
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+
+                const cardHeader = document.createElement('div');
+                cardHeader.className = 'card-header';
+
+                const cardInfo = document.createElement('div');
+                cardInfo.className = 'card-info';
+
+                const title = document.createElement('h3');
+                title.className = 'card-title';
+                title.textContent = game.name;
+
+                const platforms = document.createElement('div');
+                platforms.className = 'card-platforms';
+                
+                const uniquePlatforms = [...new Set(game.versions.map(v => v.platform))];
+                uniquePlatforms.slice(0, 3).forEach(platform => {
+                    const badge = document.createElement('div');
+                    badge.className = 'platform-badge';
+                    badge.innerHTML = `
+                        ${this.getPlatformIcon(platform)}
+                        <span>${platform}</span>
+                    `;
+                    platforms.appendChild(badge);
+                });
+
+                if (uniquePlatforms.length > 3) {
+                    const moreBadge = document.createElement('div');
+                    moreBadge.className = 'platform-badge';
+                    moreBadge.textContent = `+${uniquePlatforms.length - 3} more`;
+                    platforms.appendChild(moreBadge);
+                }
+
+                cardInfo.appendChild(title);
+                cardInfo.appendChild(platforms);
+
+                const arrow = document.createElement('div');
+                arrow.className = 'card-arrow';
+                arrow.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
                 `;
 
-        function updateGameCounts() {
-            totalGameCountSpan.textContent = allGames.length;
-        }
+                cardHeader.appendChild(cardInfo);
+                cardHeader.appendChild(arrow);
+                cardContent.appendChild(cardHeader);
 
-        // Dropdown functionality
-        function populateSeriesFilter() {
-            const seriesList = ['all', ...new Set(allGames.map(game => game.series))];
-            const optionsHtml = seriesList.map(series => 
-                `<span class="custom-option" data-value="${series}">${series === 'all' ? 'All Series' : series}</span>`
-            ).join('');
-            seriesFilterOptions.innerHTML = optionsHtml;
-        }
+                if (game.description) {
+                    const description = document.createElement('p');
+                    description.style.color = 'hsl(var(--foreground-secondary))';
+                    description.style.fontSize = '14px';
+                    description.style.lineHeight = '1.5';
+                    description.style.marginBottom = 'var(--spacing-md)';
+                    description.textContent = game.description;
+                    cardContent.appendChild(description);
+                }
 
-        seriesFilterTrigger.addEventListener('click', () => {
-            seriesFilterOptions.classList.toggle('open');
-            seriesFilterTrigger.classList.toggle('active');
-        });
-
-        seriesFilterOptions.addEventListener('click', (e) => {
-            const selectedOption = e.target.closest('.custom-option');
-            if (selectedOption) {
-                const value = selectedOption.dataset.value;
-                const text = selectedOption.textContent;
-
-                // Update trigger text and active state
-                seriesFilterTrigger.querySelector('span').textContent = text;
-                document.querySelectorAll('.custom-option').forEach(option => {
-                    option.classList.remove('selected');
+                const allTags = new Set();
+                game.versions.forEach(version => {
+                    if (version.tags) {
+                        version.tags.forEach(tag => allTags.add(tag));
+                    }
                 });
-                selectedOption.classList.add('selected');
 
-                // Close dropdown
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
+                if (allTags.size > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.className = 'card-tags';
+                    Array.from(allTags).slice(0, 6).forEach(tagText => {
+                        const tag = document.createElement('span');
+                        tag.className = 'tag';
+                        tag.textContent = tagText;
+                        tagsContainer.appendChild(tag);
+                    });
+                    cardContent.appendChild(tagsContainer);
+                }
 
-                // Filter games
-                const currentQuery = searchInput.value.toLowerCase();
-                filterAndRenderGames(currentQuery, value);
+                cardLink.appendChild(cardContent);
+                return cardLink;
             }
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!seriesFilterWrapper.contains(e.target)) {
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
+
+            getPlatformIcon(platform) {
+                const platformLower = platform.toLowerCase();
+                if (platformLower.includes('windows') || platformLower.includes('mac')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                        <line x1="8" x2="16" y1="21" y2="21"/>
+                        <line x1="12" x2="12" y1="17" y2="21"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('android') || platformLower.includes('ios') || platformLower.includes('mobile')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                        <line x1="12" x2="12.01" y1="18" y2="18"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('web')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" x2="22" y1="12" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>`;
+                }
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="6" x2="10" y1="12" y2="12"/>
+                    <line x1="8" x2="8" y1="10" y2="14"/>
+                    <line x1="15" x2="15.01" y1="13" y2="13"/>
+                    <line x1="18" x2="18.01" y1="11" y2="11"/>
+                    <rect width="20" height="12" x="2" y="6" rx="2"/>
+                </svg>`;
             }
+
+            showEmptyState(type, message) {
+                const emptyState = document.getElementById('emptyState');
+                const emptyTitle = document.getElementById('emptyTitle');
+                const emptyDescription = document.getElementById('emptyDescription');
+                const contentHeader = document.getElementById('contentHeader');
+
+                emptyState.classList.remove('hidden');
+                contentHeader.classList.add('hidden');
+                
+                if (type === 'error') {
+                    emptyTitle.textContent = 'Something went wrong';
+                    emptyDescription.textContent = message;
+                } else if (type === 'no-games') {
+                    emptyTitle.textContent = 'No Games Available';
+                    emptyDescription.textContent = 'There are currently no games available in the library.';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new VisionOSGamesLibrary();
         });
-   </script>
+    </script>
 </body>
 </html>
+
 
 
 
