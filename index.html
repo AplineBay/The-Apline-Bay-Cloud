@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="frutiger-aero-theme.css"> <style>
-        /* Your existing styles (from snippet_1) */
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -132,8 +132,8 @@
             border-radius: var(--radius-2xl);
             padding: var(--spacing-sm) var(--spacing-lg);
             box-shadow: 0 8px 32px var(--glass-shadow);
-            display: flex;
-            gap: var(--spacing-lg);
+            display: flex; /* Added for horizontal alignment of nav items */
+            gap: var(--spacing-lg); /* Added for spacing between nav items */
         }
 
         .nav-link {
@@ -142,7 +142,7 @@
             color: hsl(var(--foreground-secondary));
             letter-spacing: 0.5px;
             text-decoration: none;
-            padding: var(--spacing-xs) var(--spacing-sm);
+            padding: var(--spacing-xs) var(--spacing-sm); /* Added padding for clickable area */
             border-radius: var(--radius-sm);
             transition: color 0.3s ease, background-color 0.3s ease;
         }
@@ -157,7 +157,7 @@
             position: fixed;
             bottom: var(--spacing-lg);
             right: var(--spacing-lg);
-            z-index: 50;
+            z-index: 50; /* Higher than nav-bar */
             text-decoration: none;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -406,13 +406,14 @@
         .custom-select-wrapper {
             position: relative;
             min-width: 150px;
-            z-index: 20;
-            height: 40px;
+            z-index: 20; /* Ensure it's above other elements if necessary */
+            height: 40px; /* Match typical button height */
             font-size: 14px;
             font-weight: 500;
             color: hsl(var(--foreground-secondary));
         }
 
+        /* Visually hide the original select, keep it for accessibility */
         .series-filter-select {
             position: absolute;
             opacity: 0;
@@ -438,12 +439,12 @@
             cursor: pointer;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             transition: all 0.2s ease;
-            color: hsl(var(--foreground));
+            color: hsl(var(--foreground)); /* Default text color */
         }
 
         .custom-select-trigger:hover {
             border-color: hsl(var(--purple-400) / 0.5);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.08); /* Slightly lighter on hover */
         }
 
         .custom-select-trigger.active {
@@ -464,20 +465,20 @@
 
         .custom-options {
             position: absolute;
-            top: 100%;
+            top: 100%; /* Position right below the trigger */
             left: 0;
             right: 0;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-top: none;
+            border-top: none; /* No top border, blends with trigger */
             border-bottom-left-radius: var(--radius-md);
             border-bottom-right-radius: var(--radius-md);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
-            max-height: 200px;
-            z-index: 25;
+            max-height: 200px; /* Limit height for scrollability */
+            z-index: 25; /* Higher than wrapper */
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
@@ -508,8 +509,9 @@
             color: hsl(var(--purple-300));
             font-weight: 600;
         }
-
         /* END CUSTOM DROPDOWN STYLES */
+
+
         /* Vision OS Game Cards */
         .games-grid {
             display: grid;
@@ -539,7 +541,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, hsl(var(--purple-500) / 0.05) 0%, transparent 50%);
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-500) / 0.05) 0%, 
+                transparent 50%);
             opacity: 0;
             transition: opacity 0.4s ease;
             border-radius: var(--radius-2xl);
@@ -548,7 +552,10 @@
         .game-card:hover {
             transform: translateY(-8px) scale(1.02);
             border-color: hsl(var(--purple-400) / 0.3);
-            box-shadow: 0 0 0 1px hsl(var(--purple-400) / 0.2), 0 20px 64px rgba(0, 0, 0, 0.4), 0 0 80px hsl(var(--purple-500) / 0.1);
+            box-shadow: 
+                0 0 0 1px hsl(var(--purple-400) / 0.2),
+                0 20px 64px rgba(0, 0, 0, 0.4),
+                0 0 80px hsl(var(--purple-500) / 0.1);
         }
 
         .game-card:hover::before {
@@ -586,7 +593,9 @@
         }
 
         .game-card:hover .card-title {
-            background: linear-gradient(135deg, hsl(var(--purple-300)), hsl(var(--purple-400)));
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-300)), 
+                hsl(var(--purple-400)));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -625,68 +634,144 @@
         }
 
         .game-card:hover .card-arrow {
-            transform: translateX(8px);
             color: hsl(var(--purple-400));
-        }
-
-        .card-thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: var(--radius-md);
-            object-fit: cover;
-            flex-shrink: 0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-        }
-
-        .card-description {
-            font-size: 0.95rem;
-            color: hsl(var(--foreground-secondary));
-            line-height: 1.6;
-            flex-grow: 1; /* Allow description to take available space */
+            transform: translateX(4px);
         }
 
         .card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
         }
 
-        .tag-badge {
-            background: hsl(var(--background-secondary));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-sm);
-            padding: 4px 10px;
-            font-size: 0.75rem;
+        .tag {
+            font-size: 12px;
             font-weight: 500;
-            color: hsl(var(--foreground-tertiary));
-            transition: all 0.2s ease;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: hsl(var(--background-secondary));
+            color: hsl(var(--foreground-secondary));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
         }
 
-        .tag-badge:hover {
+        .tag:hover {
             background: hsl(var(--purple-500) / 0.1);
-            border-color: hsl(var(--purple-400) / 0.3);
             color: hsl(var(--purple-300));
+            border-color: hsl(var(--purple-400) / 0.3);
         }
 
-        /* Keyframe Animations */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3xl) var(--spacing-md);
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-            100% { transform: scale(1); opacity: 1; }
+        .empty-icon {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-xl);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: hsl(var(--foreground-tertiary));
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
+        .empty-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: hsl(var(--foreground));
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.01em;
+        }
+
+        .empty-description {
+            color: hsl(var(--foreground-secondary));
+            max-width: 480px;
+            line-height: 1.6;
+            font-size: 1.125rem;
+        }
+
+        /* Loading State */
+        .loading {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: hsl(var(--background) / 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 50;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xl);
+            text-align: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            box-shadow: 0 20px 64px rgba(0, 0, 0, 0.4);
+        }
+
+        .loading-spinner {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+
+        .spinner-ring {
+            position: absolute;
+            inset: 0;
+            border: 3px solid transparent;
+            border-top: 3px solid hsl(var(--purple-400));
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, 
+                hsl(var(--purple-300)), 
+                hsl(var(--purple-400)));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background: hsl(var(--purple-400));
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite both;
+        }
+
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+        .loading-dot:nth-child(3) { animation-delay: 0s; }
+
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -694,36 +779,69 @@
             }
         }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-xl);
+            }
+            
             .nav-bar {
-                width: calc(100% - var(--spacing-lg) * 2);
-                padding: var(--spacing-sm) var(--spacing-md);
+                top: var(--spacing-sm);
+                left: var(--spacing-sm);
+                right: var(--spacing-sm);
+                transform: none;
+                flex-direction: column; /* Stack nav items on small screens */
+                align-items: flex-start;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
                 gap: var(--spacing-md);
             }
-
-            .container {
-                padding: calc(var(--spacing-2xl) + var(--spacing-lg)) var(--spacing-md) var(--spacing-xl);
+            
+            .content-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            .title {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-
-            .game-card {
-                padding: var(--spacing-lg);
-            }
-
-            .card-title {
-                font-size: 1.25rem;
+            
+            .card-header {
+                flex-direction: column;
+                gap: var(--spacing-sm);
             }
 
             .ai-fab {
@@ -732,28 +850,53 @@
                 padding: var(--spacing-sm) var(--spacing-md);
                 font-size: 14px;
             }
+
+            .ai-fab svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .custom-select-wrapper {
+                width: 100%; /* Make custom select full width on small screens */
+            }
         }
 
         @media (max-width: 480px) {
-            .nav-bar {
-                top: var(--spacing-sm);
-                padding: var(--spacing-xs) var(--spacing-sm);
-                gap: var(--spacing-sm);
+            .game-card {
+                padding: var(--spacing-lg);
             }
-            .nav-link {
-                font-size: 12px;
-            }
+            
             .search-input {
                 padding: var(--spacing-md) var(--spacing-xl);
                 font-size: 16px;
             }
-            .content-header {
-                flex-direction: column;
-                align-items: flex-start;
+        }
+
+        /* Utility Classes */
+        .hidden { display: none !important; }
+        .visible { display: block !important; }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
-            .custom-select-wrapper {
-                width: 100%;
-            }
+        }
+
+        /* Focus Styles */
+        .game-card:focus,
+        .clear-btn:focus,
+        .tag:focus,
+        .nav-link:focus,
+        .ai-fab:focus { 
+            outline: 2px solid hsl(var(--purple-400));
+            outline-offset: 2px;
+        }
+
+        .search-input:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -764,255 +907,590 @@
         <div class="vision-orb vision-orb-3"></div>
     </div>
 
-    <nav class="nav-bar">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="ai.html" class="nav-link">AI Chat</a>
-        <a href="dev200-1.html" class="nav-link">DEV200-1</a>
-        <button id="theme-toggle" class="nav-link" style="cursor: pointer;">Toggle Theme</button> </nav>
+    <div class="nav-bar">
+        <a href="index.html" class="nav-link">The Apline Bay • Games Library</a>
+    </div>
 
-    <a href="ai.html" class="ai-fab">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-            <path d="M5.558 15.659A8.964 8.964 0 0 1 12 2.25c4.41 0 8 3.59 8 8V12h.75c.026 0 .052.003.078.006A8.21 8.21 0 0 0 21.75 12H22a.75.75 0 0 0 .75-.75V10.5a.75.75 0 0 0-.75-.75h-.063a8.207 8.207 0 0 0-.432-1.996l-.396-.99a.75.75 0 0 0-.966-.317A9.453 9.453 0 0 1 12 3.75 9 9 0 0 0 3.75 12v.75c0 .026.003.052.006.078A8.21 8.21 0 0 0 3.75 13.5H3a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75h.063a8.209 8.209 0 0 0 .432 1.996l.396.99a.75.75 0 0 0 .966.317A9.454 9.454 0 0 1 12 20.25a9 9 0 0 0 8.25-8.25v-.75a.75.75 0 0 0-.75-.75h-.75V9.75a.75.75 0 0 0-.75-.75H12a.75.75 0 0 0-.75.75V12h-.063a8.209 8.209 0 0 0-.432 1.996l-.396.99a.75.75 0 0 0-.966.317A8.964 8.964 0 0 1 5.558 15.659Zm2.124 2.813a.75.75 0 0 0-.317-.966 7.456 7.456 0 0 0-1.996-.432H6.75a.75.75 0 0 0-.75.75v.75a.75.75 0 0 0 .75.75h.75c.026 0 .052.003.078.006a7.207 7.207 0 0 0 1.996-.432Zm10.19-.432a7.207 7.207 0 0 0 1.996.432c.026-.003.052-.006.078-.006h.75a.75.75 0 0 0 .75-.75v-.75a.75.75 0 0 0-.75-.75h-.75a7.456 7.456 0 0 0-1.996.432.75.75 0 0 0-.317.966ZM7.708 6.578a.75.75 0 0 0 .966.317 7.456 7.456 0 0 0 1.996.432H9.75a.75.75 0 0 0 .75-.75V8.25a.75.75 0 0 0-.75-.75h-.75a7.209 7.209 0 0 0-1.996-.432.75.75 0 0 0-.317.966ZM16.292 7.422a.75.75 0 0 0 .317-.966 7.209 7.209 0 0 0-1.996-.432H14.25a.75.75 0 0 0-.75.75v.75a.75.75 0 0 0 .75.75h.75a7.456 7.456 0 0 0 1.996-.432ZM12 4.5a.75.75 0 0 0-.75.75V6h1.5V5.25a.75.75 0 0 0-.75-.75Z" />
-        </svg>          
+    <a href="https://talk.shapes.inc/aplinegg/dm" target="_blank" rel="noopener noreferrer" class="ai-fab">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot">
+            <path d="M12 8V4H8"/>
+            <path d="M22 13a6 6 0 0 1-5 5 6 6 0 0 1-5-5V4h-2a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h2v4Z"/>
+            <path d="M2 13a6 6 0 0 0 5 5 6 6 0 0 0 5-5"/>
+        </svg>
         AI Chat
     </a>
 
-    <div class="container">
+    <div id="loading" class="loading">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+            </div>
+            <div>
+                <p class="loading-text">Loading games library...</p>
+                <div class="loading-dots">
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                    <div class="loading-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" class="container hidden">
         <header class="header">
             <div class="logo-container">
                 <div class="logo-glow"></div>
-                <img src="https://assets-global.website-files.com/65320257c729ab5e4f51e04c/65321f47285a73e481b7a2d4_favicon-32x32.png" alt="Apline Bay Logo" class="logo">
+                <img
+                    src="https://files.catbox.moe/mjmm60.png"
+                    alt="The Apline Bay Logo"
+                    class="logo"
+                    onerror="this.src='https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&dpr=2'"
+                />
             </div>
             <h1 class="title">The Apline Bay</h1>
-            <p class="subtitle">A curated library of games and interactive experiences for the Apple Vision Pro</p>
-            <span class="version-badge">Version 1.0.0</span>
+            <p class="subtitle">A curated library of games and interactive experiences</p>
+            <div class="version-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+                Version 2.0 • Vision OS
+            </div>
         </header>
 
-        <section class="search-container">
+        <div class="search-container">
             <div class="search-wrapper">
-                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.694 4.693a.75.75 0 1 1-1.06 1.06l-4.693-4.694A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
-                </svg>              
-                <input type="text" id="searchInput" class="search-input" placeholder="Search games...">
-                <button id="clearSearch" class="clear-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-2.78 2.78a.75.75 0 1 0 1.06 1.06L12 13.06l2.78 2.78a.75.75 0 1 0 1.06-1.06L13.06 12l2.78-2.78a.75.75 0 0 0-1.06-1.06L12 10.94l-2.78-2.78Z" clip-rule="evenodd" />
-                    </svg>                      
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search for games, platforms, or tags..."
+                />
+                <button id="clearBtn" class="clear-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
                 </button>
             </div>
-        </section>
+        </div>
 
-        <section class="content">
-            <div class="content-header">
-                <h2 class="content-title">All Games</h2>
-                <div class="custom-select-wrapper">
-                    <select id="seriesFilter" class="series-filter-select">
-                        <option value="all">All Series</option>
+        <main class="content">
+            <div id="contentHeader" class="content-header hidden">
+                <h2 class="content-title">Available Games</h2>
+                <span id="gameCount" class="game-count">0 games</span>
+                
+                <div class="custom-select-wrapper" id="seriesFilterWrapper">
+                    <select id="seriesFilter" class="series-filter-select" aria-hidden="true" tabindex="-1">
+                        <option value="">All Series</option>
                     </select>
+
                     <div class="custom-select-trigger">
-                        <span>All Series</span>
-                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        <span id="selectedSeriesText">All Series</span>
+                        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </div>
-                    <div class="custom-options"></div>
+
+                    <div class="custom-options">
+                        </div>
                 </div>
-                <span id="gameCount" class="game-count">0 Games</span>
             </div>
-            <div class="games-grid" id="gamesGrid">
+            
+            <div id="gamesGrid" class="games-grid"></div>
+            
+            <div id="emptyState" class="empty-state hidden">
+                <div class="empty-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                        <circle cx="9" cy="9" r="2"/>
+                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                    </svg>
                 </div>
-        </section>
+                <h3 id="emptyTitle" class="empty-title">No results found</h3>
+                <p id="emptyDescription" class="empty-description">We couldn't find any games matching your search terms. Try adjusting your search or explore all available games.</p>
+            </div>
+        </main>
     </div>
 
     <script>
-        // Theme switching script (moved from previous response)
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const body = document.body;
-            const currentTheme = localStorage.getItem('theme');
-
-            // Apply saved theme on load
-            if (currentTheme) {
-                body.classList.add(currentTheme);
-            } else {
-                // Default to 'vision-os-theme' if no theme is saved
-                // For demonstration, let's assume 'vision-os-theme' is the default if no class is present
-                // If you want a specific default, add it here.
+        class VisionOSGamesLibrary {
+            constructor() {
+                this.games = [];
+                this.filteredGames = [];
+                this.searchQuery = '';
+                this.currentSeriesFilter = '';
+                this.init();
             }
 
-            themeToggleBtn.addEventListener('click', () => {
-                if (body.classList.contains('frutiger-aero-theme')) {
-                    body.classList.remove('frutiger-aero-theme');
-                    // If you have a specific class for Vision OS, add it back here
-                    localStorage.removeItem('theme'); // Or set to 'vision-os-theme'
-                } else {
-                    // If you have a specific class for Vision OS, remove it here first
-                    body.classList.add('frutiger-aero-theme');
-                    localStorage.setItem('theme', 'frutiger-aero-theme');
+            init() {
+                this.setupEventListeners();
+                this.loadGames();
+            }
+            
+            setupEventListeners() {
+                const searchInput = document.getElementById('searchInput');
+                const clearBtn = document.getElementById('clearBtn');
+                
+                // Custom select elements
+                const customSelectTrigger = document.querySelector('.custom-select-trigger');
+                const customOptionsContainer = document.querySelector('.custom-options');
+                
+                searchInput.addEventListener('input', (e) => {
+                    this.searchQuery = e.target.value;
+                    this.updateSearch();
+                    this.filterGames();
+                });
+                
+                clearBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    this.searchQuery = '';
+                    this.updateSearch();
+                    this.filterGames();
+                    searchInput.focus();
+                });
+                
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        if (this.searchQuery) {
+                            searchInput.value = '';
+                            this.searchQuery = '';
+                            this.updateSearch();
+                            this.filterGames();
+                        }
+                    }
+                });
+
+                // Event listener for custom select trigger
+                customSelectTrigger.addEventListener('click', () => {
+                    this.handleCustomSelectClick(customSelectTrigger, customOptionsContainer);
+                });
+
+                // Close dropdown if clicked outside
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.custom-select-wrapper')) {
+                        this.closeAllCustomSelects();
+                    }
+                });
+            }
+
+            handleCustomSelectClick(trigger, optionsContainer) {
+                const isOpen = optionsContainer.classList.contains('open');
+                this.closeAllCustomSelects(); // Close other dropdowns first
+                if (!isOpen) {
+                    optionsContainer.classList.add('open');
+                    trigger.classList.add('active');
                 }
-            });
-        });
+            }
 
+            closeAllCustomSelects() {
+                document.querySelectorAll('.custom-options.open').forEach(container => {
+                    container.classList.remove('open');
+                });
+                document.querySelectorAll('.custom-select-trigger.active').forEach(trigger => {
+                    trigger.classList.remove('active');
+                });
+            }
 
-        // Existing game loading and search functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const gamesGrid = document.getElementById('gamesGrid');
-            const searchInput = document.getElementById('searchInput');
-            const clearSearchBtn = document.getElementById('clearSearch');
-            const gameCountSpan = document.getElementById('gameCount');
-            const seriesFilterSelect = document.getElementById('seriesFilter');
-            const customSelectTrigger = document.querySelector('.custom-select-trigger');
-            const customOptions = document.querySelector('.custom-options');
+            handleCustomOptionClick(optionElement, value) {
+                const nativeSelect = document.getElementById('seriesFilter');
+                const selectedTextSpan = document.getElementById('selectedSeriesText');
+                const customOptionsContainer = document.querySelector('.custom-options');
 
-            let allGames = [];
-            let uniqueSeries = new Set();
+                this.currentSeriesFilter = value;
+                nativeSelect.value = value; // Update hidden native select
 
-            // Fetch games data
-            fetch('games.json')
-                .then(response => response.json())
-                .then(data => {
-                    allGames = data;
-                    populateSeriesFilter(allGames);
-                    displayGames(allGames);
-                })
-                .catch(error => console.error('Error fetching games:', error));
+                selectedTextSpan.textContent = optionElement.textContent; // Update visible text
 
-            function populateSeriesFilter(games) {
-                games.forEach(game => {
+                // Remove 'selected' class from all options, then add to the clicked one
+                customOptionsContainer.querySelectorAll('.custom-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                optionElement.classList.add('selected');
+
+                this.filterGames();
+                this.closeAllCustomSelects();
+            }
+            
+            updateSearch() {
+                const clearBtn = document.getElementById('clearBtn');
+                if (this.searchQuery.trim()) {
+                    clearBtn.classList.add('visible');
+                } else {
+                    clearBtn.classList.remove('visible');
+                }
+            }
+            
+            async loadGames() {
+                const loadingEl = document.getElementById('loading');
+                const contentEl = document.getElementById('content');
+                
+                try {
+                    loadingEl.classList.remove('hidden');
+                    contentEl.classList.add('hidden');
+                    
+                    await new Promise(resolve => setTimeout(resolve, 1200));
+                    
+                    try {
+                        const response = await fetch('games.json', { cache: 'no-store' });
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (Array.isArray(data) && data.length > 0) {
+                                this.games = this.addSlugsToGames(data);
+                                this.populateSeriesFilter();
+                                this.filterGames();
+                                return;
+                            }
+                        }
+                    } catch (fetchError) {
+                        console.log('External games.json not found, using demo data');
+                    }
+                    
+                    this.games = this.addSlugsToGames(this.getDemoGames()); // Ensure slugs for demo data
+                    this.populateSeriesFilter();
+                    this.filterGames();
+                    
+                } catch (error) {
+                    console.error('Failed to load games:', error);
+                    this.showEmptyState('error', 'Failed to load games library. Please try refreshing the page.');
+                } finally {
+                    loadingEl.classList.add('hidden');
+                    contentEl.classList.remove('hidden');
+                }
+            }
+
+            createSlug(name) {
+                return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            }
+
+            addSlugsToGames(games) {
+                return games.map(game => {
+                    if (!game.slug) {
+                        game.slug = this.createSlug(game.name);
+                    }
+                    return game;
+                });
+            }
+
+            populateSeriesFilter() {
+                const customOptionsContainer = document.querySelector('.custom-options');
+                const selectedSeriesText = document.getElementById('selectedSeriesText');
+                const nativeSelect = document.getElementById('seriesFilter');
+
+                customOptionsContainer.innerHTML = ''; // Clear custom options
+                nativeSelect.innerHTML = ''; // Clear native select options
+
+                // Add "All Series" option first
+                const allSeriesOptionNative = document.createElement('option');
+                allSeriesOptionNative.value = '';
+                allSeriesOptionNative.textContent = 'All Series';
+                nativeSelect.appendChild(allSeriesOptionNative);
+
+                const allSeriesOptionCustom = document.createElement('div');
+                allSeriesOptionCustom.className = 'custom-option selected'; // Start with "All Series" selected
+                allSeriesOptionCustom.setAttribute('data-value', '');
+                allSeriesOptionCustom.textContent = 'All Series';
+                allSeriesOptionCustom.addEventListener('click', () => this.handleCustomOptionClick(allSeriesOptionCustom, ''));
+                customOptionsContainer.appendChild(allSeriesOptionCustom);
+                selectedSeriesText.textContent = 'All Series'; // Set initial visible text
+
+                const uniqueSeries = new Set();
+                this.games.forEach(game => {
                     if (game.series) {
                         uniqueSeries.add(game.series);
                     }
                 });
 
-                // Clear existing options except "All Series"
-                seriesFilterSelect.innerHTML = '<option value="all">All Series</option>';
-                customOptions.innerHTML = '<div class="custom-option" data-value="all">All Series</div>';
-
-
                 Array.from(uniqueSeries).sort().forEach(series => {
-                    const option = document.createElement('option');
-                    option.value = series;
-                    option.textContent = series;
-                    seriesFilterSelect.appendChild(option);
+                    // Add to native select for accessibility/fallback
+                    const optionNative = document.createElement('option');
+                    optionNative.value = series;
+                    optionNative.textContent = series;
+                    nativeSelect.appendChild(optionNative);
 
-                    const customOption = document.createElement('div');
-                    customOption.classList.add('custom-option');
-                    customOption.setAttribute('data-value', series);
-                    customOption.textContent = series;
-                    customOptions.appendChild(customOption);
+                    // Add to custom dropdown
+                    const optionCustom = document.createElement('div');
+                    optionCustom.className = 'custom-option';
+                    optionCustom.setAttribute('data-value', series);
+                    optionCustom.textContent = series;
+                    optionCustom.addEventListener('click', () => this.handleCustomOptionClick(optionCustom, series));
+                    customOptionsContainer.appendChild(optionCustom);
                 });
 
-                updateCustomSelectDisplay();
-            }
-
-            function updateCustomSelectDisplay() {
-                const selectedOptionText = seriesFilterSelect.options[seriesFilterSelect.selectedIndex].textContent;
-                customSelectTrigger.querySelector('span').textContent = selectedOptionText;
-
-                // Mark the selected custom option
-                Array.from(customOptions.children).forEach(option => {
-                    if (option.dataset.value === seriesFilterSelect.value) {
-                        option.classList.add('selected');
-                    } else {
-                        option.classList.remove('selected');
+                // Ensure the selected text reflects the actual current filter on load
+                if (this.currentSeriesFilter) {
+                    const selectedOption = customOptionsContainer.querySelector(`.custom-option[data-value="${this.currentSeriesFilter}"]`);
+                    if (selectedOption) {
+                        this.handleCustomOptionClick(selectedOption, this.currentSeriesFilter);
                     }
-                });
-            }
-
-            // Custom Select Dropdown Logic
-            customSelectTrigger.addEventListener('click', function() {
-                customOptions.classList.toggle('open');
-                this.classList.toggle('active');
-            });
-
-            customOptions.addEventListener('click', function(e) {
-                const targetOption = e.target.closest('.custom-option');
-                if (targetOption) {
-                    const value = targetOption.dataset.value;
-                    seriesFilterSelect.value = value;
-                    updateCustomSelectDisplay();
-                    filterAndDisplayGames();
-                    customOptions.classList.remove('open');
-                    customSelectTrigger.classList.remove('active');
                 }
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!customSelectTrigger.contains(e.target) && !customOptions.contains(e.target)) {
-                    customOptions.classList.remove('open');
-                    customSelectTrigger.classList.remove('active');
-                }
-            });
-
-
-            function displayGames(games) {
-                gamesGrid.innerHTML = '';
-                gameCountSpan.textContent = `${games.length} Games`;
-
-                games.forEach(game => {
-                    const gameCard = document.createElement('a');
-                    gameCard.href = `game-details.html?id=${game.id}`;
-                    gameCard.classList.add('game-card');
-                    gameCard.innerHTML = `
-                        <div class="card-content">
-                            <div class="card-header">
-                                <div class="card-info">
-                                    <h3 class="card-title">${game.title}</h3>
-                                    <div class="card-platforms">
-                                        ${game.platforms.map(platform => `<span class="platform-badge">${platform}</span>`).join('')}
-                                    </div>
-                                </div>
-                                <img src="${game.thumbnail}" alt="${game.title} Thumbnail" class="card-thumbnail">
-                            </div>
-                            <p class="card-description">${game.description}</p>
-                            <div class="card-tags">
-                                ${game.tags.map(tag => `<span class="tag-badge">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                        <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06Z" clip-rule="evenodd" />
-                        </svg>
-                    `;
-                    gamesGrid.appendChild(gameCard);
-                });
             }
+            
+            getDemoGames() {
+                return [
+                    {
+                        "name": "NFS Hot Pursuit",
+                        "slug": "nfs-hot-pursuit",
+                        "description": "High-speed racing action with stunning visual effects and intense police chases.",
+                        "series": "Need For Speed",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://mega.nz/file/v44DWSyI#K2oQ5n-k1q-wH02B6G4oYf4W-oK4oYd4G4oYf4-oYd4G", "tags": ["Racing", "Multiplayer", "Simulation"] },
+                            { "platform": "Android", "url": "https://example.com/nfs-hot-pursuit-android", "tags": ["Racing", "Mobile", "Touch-Controls"] },
+                            { "platform": "iOS", "url": "https://example.com/nfs-hot-pursuit-ios", "tags": ["Racing", "Mobile", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Asphalt 8",
+                        "slug": "asphalt-8",
+                        "description": "High Speed racing action with stunts and stunning gameplay across multiple versions.",
+                        "series": "Asphalt",
+                        "versions": [
+                            { "platform": "Windows", "url": "https://example.com/asphalt-8-windows", "tags": ["Racing", "SinglePlayer", "Offline"] },
+                            { "platform": "Android", "url": "https://example.com/asphalt-8-android", "tags": ["Racing", "SinglePlayer", "Offline", "Modded"] }
+                        ]
+                    },
+                    {
+                        "name": "Cyberpunk Runner",
+                        "slug": "cyberpunk-runner",
+                        "description": "Fast-paced endless runner set in a neon-lit cyberpunk world.",
+                        "series": "Cyberpunk",
+                        "versions": [
+                            { "platform": "Web", "url": "#", "tags": ["Action", "Endless Runner", "Cyberpunk"] },
+                            { "platform": "Mobile", "url": "#", "tags": ["Action", "Endless Runner", "Touch-Controls"] }
+                        ]
+                    },
+                    {
+                        "name": "Space Odyssey",
+                        "slug": "space-odyssey", 
+                        "description": "Epic space exploration adventure with stunning visuals and immersive gameplay.",
+                        "series": "Space Saga",
+                        "versions": [
+                            { "platform": "Windows", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] },
+                            { "platform": "Mac", "url": "#", "tags": ["Adventure", "Sci-Fi", "Exploration"] }
+                        ]
+                    },
+                    {
+                        "name": "NFS Most Wanted",
+                        "slug": "nfs-most-wanted",
+                        "description": "Intense open-world racing with police pursuits.",
+                        "series": "Need For Speed",
+                        "versions": [
+                            { "platform": "Windows", "url": "#", "tags": ["Racing", "Open World"] }
+                        ]
+                    }
+                ];
+            }
+            
+            filterGames() {
+                const query = this.searchQuery.toLowerCase().trim();
+                const selectedSeries = this.currentSeriesFilter.toLowerCase();
 
-            function filterAndDisplayGames() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const selectedSeries = seriesFilterSelect.value;
+                this.filteredGames = this.games.filter(game => {
+                    const gameName = game.name.toLowerCase();
+                    const gameSlug = (game.slug || '').toLowerCase();
+                    const gameDescription = (game.description || '').toLowerCase();
+                    const gameSeries = (game.series || '').toLowerCase();
 
-                let filteredGames = allGames.filter(game => {
-                    const matchesSearch = game.title.toLowerCase().includes(searchTerm) ||
-                                          game.description.toLowerCase().includes(searchTerm) ||
-                                          game.platforms.some(p => p.toLowerCase().includes(searchTerm)) ||
-                                          game.tags.some(t => t.toLowerCase().includes(searchTerm));
+                    const matchesSearch = 
+                        gameName.includes(query) || 
+                        gameSlug.includes(query) || 
+                        gameDescription.includes(query) ||
+                        game.versions.some(version => {
+                            const platform = (version.platform || '').toLowerCase();
+                            const tags = (version.tags || []).map(tag => tag.toLowerCase());
+                            const url = (version.url || '').toLowerCase();
+                            return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                        });
                     
-                    const matchesSeries = selectedSeries === 'all' || game.series === selectedSeries;
+                    const matchesSeries = (selectedSeries === '' || gameSeries === selectedSeries);
 
                     return matchesSearch && matchesSeries;
                 });
-                displayGames(filteredGames);
+                
+                this.render();
+            }
+            
+            render() {
+                const gamesGrid = document.getElementById('gamesGrid');
+                const emptyState = document.getElementById('emptyState');
+                const gameCount = document.getElementById('gameCount');
+                const contentHeader = document.getElementById('contentHeader');
+
+                gamesGrid.innerHTML = '';
+                
+                if (this.filteredGames.length > 0) {
+                    this.filteredGames.forEach((game, index) => {
+                        const card = this.createGameCard(game, index);
+                        gamesGrid.appendChild(card);
+                    });
+                    emptyState.classList.add('hidden');
+                    contentHeader.classList.remove('hidden');
+                    gameCount.textContent = `${this.filteredGames.length} ${this.filteredGames.length === 1 ? 'game' : 'games'}`;
+                } else {
+                    emptyState.classList.remove('hidden');
+                    contentHeader.classList.add('hidden');
+                    
+                    const emptyTitle = document.getElementById('emptyTitle');
+                    const emptyDescription = document.getElementById('emptyDescription');
+                    
+                    if (this.searchQuery.trim() || this.currentSeriesFilter.trim()) {
+                        emptyTitle.textContent = 'No results found';
+                        emptyDescription.textContent = `We couldn't find any games matching your current filters. Try adjusting your search or explore all available games.`;
+                    } else {
+                        emptyTitle.textContent = 'No Games Available';
+                        emptyDescription.textContent = 'There are currently no games available in the library. Check back soon for new additions!';
+                    }
+                }
+            }
+            
+            createGameCard(game, index) {
+                const cardLink = document.createElement('a');
+                cardLink.href = `game-details.html?slug=${game.slug}`;
+                cardLink.className = 'game-card';
+                cardLink.style.animationDelay = `${index * 0.1}s`;
+
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+
+                const cardHeader = document.createElement('div');
+                cardHeader.className = 'card-header';
+
+                const cardInfo = document.createElement('div');
+                cardInfo.className = 'card-info';
+
+                const title = document.createElement('h3');
+                title.className = 'card-title';
+                title.textContent = game.name;
+
+                const platforms = document.createElement('div');
+                platforms.className = 'card-platforms';
+                
+                const uniquePlatforms = [...new Set(game.versions.map(v => v.platform))];
+                uniquePlatforms.slice(0, 3).forEach(platform => {
+                    const badge = document.createElement('div');
+                    badge.className = 'platform-badge';
+                    badge.innerHTML = `
+                        ${this.getPlatformIcon(platform)}
+                        <span>${platform}</span>
+                    `;
+                    platforms.appendChild(badge);
+                });
+
+                if (uniquePlatforms.length > 3) {
+                    const moreBadge = document.createElement('div');
+                    moreBadge.className = 'platform-badge';
+                    moreBadge.textContent = `+${uniquePlatforms.length - 3} more`;
+                    platforms.appendChild(moreBadge);
+                }
+
+                cardInfo.appendChild(title);
+                cardInfo.appendChild(platforms);
+
+                const arrow = document.createElement('div');
+                arrow.className = 'card-arrow';
+                arrow.innerHTML = `
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                `;
+
+                cardHeader.appendChild(cardInfo);
+                cardHeader.appendChild(arrow);
+                cardContent.appendChild(cardHeader);
+
+                if (game.description) {
+                    const description = document.createElement('p');
+                    description.style.color = 'hsl(var(--foreground-secondary))';
+                    description.style.fontSize = '14px';
+                    description.style.lineHeight = '1.5';
+                    description.style.marginBottom = 'var(--spacing-md)';
+                    description.textContent = game.description;
+                    cardContent.appendChild(description);
+                }
+
+                const allTags = new Set();
+                game.versions.forEach(version => {
+                    if (version.tags) {
+                        version.tags.forEach(tag => allTags.add(tag));
+                    }
+                });
+
+                if (allTags.size > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.className = 'card-tags';
+                    Array.from(allTags).slice(0, 6).forEach(tagText => {
+                        const tag = document.createElement('span');
+                        tag.className = 'tag';
+                        tag.textContent = tagText;
+                        tagsContainer.appendChild(tag);
+                    });
+                    cardContent.appendChild(tagsContainer);
+                }
+
+                cardLink.appendChild(cardContent);
+                return cardLink;
             }
 
-            searchInput.addEventListener('input', () => {
-                clearSearchBtn.classList.toggle('visible', searchInput.value.length > 0);
-                filterAndDisplayGames();
-            });
+            getPlatformIcon(platform) {
+                const platformLower = platform.toLowerCase();
+                if (platformLower.includes('windows') || platformLower.includes('mac')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                        <line x1="8" x2="16" y1="21" y2="21"/>
+                        <line x1="12" x2="12" y1="17" y2="21"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('android') || platformLower.includes('ios') || platformLower.includes('mobile')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                        <line x1="12" x2="12.01" y1="18" y2="18"/>
+                    </svg>`;
+                }
+                if (platformLower.includes('web')) {
+                    return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" x2="22" y1="12" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>`;
+                }
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="6" x2="10" y1="12" y2="12"/>
+                    <line x1="8" x2="8" y1="10" y2="14"/>
+                    <line x1="15" x2="15.01" y1="13" y2="13"/>
+                    <line x1="18" x2="18.01" y1="11" y2="11"/>
+                    <rect width="20" height="12" x="2" y="6" rx="2"/>
+                </svg>`;
+            }
 
-            clearSearchBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                clearSearchBtn.classList.remove('visible');
-                filterAndDisplayGames();
-            });
+            showEmptyState(type, message) {
+                const emptyState = document.getElementById('emptyState');
+                const emptyTitle = document.getElementById('emptyTitle');
+                const emptyDescription = document.getElementById('emptyDescription');
+                const contentHeader = document.getElementById('contentHeader');
 
-            // Initial display and event listeners for search and filter
-            // This part is handled by the initial fetch and filterAndDisplayGames
+                emptyState.classList.remove('hidden');
+                contentHeader.classList.add('hidden');
+                
+                if (type === 'error') {
+                    emptyTitle.textContent = 'Something went wrong';
+                    emptyDescription.textContent = message;
+                } else if (type === 'no-games') {
+                    emptyTitle.textContent = 'No Games Available';
+                    emptyDescription.textContent = 'There are currently no games available in the library.';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new VisionOSGamesLibrary();
         });
     </script>
 </body>
 </html>
-
-
 
 
 
