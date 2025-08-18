@@ -64,6 +64,19 @@
     ]
   },
   {
+    "slug": "blur",
+    "name": "Blur",
+    "description": "Arcade-style racing vehicular combat video game incorporating real world cars and locales with power-ups.",
+    "release_date": "2010-05-25",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://drive.google.com/drive/folders/1-eVwx1P9gccezheCOYQLa21WmhcCmHR_?usp=drive_link",
+        "tags": ["Racing", "Arcade", "Vehicular Combat", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
     "slug": "call-of-duty-2",
     "name": "Call of Duty 2",
     "description": "WWII first-person shooter offering intense campaigns across multiple fronts.",
@@ -71,6 +84,18 @@
       {
         "platform": "Windows",
         "url": "https://filecrypt.co/Container/14C4C5AF80",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-united-offensive",
+    "name": "Call of Duty: United Offensive",
+    "description": "Expansion to the original Call of Duty with new campaigns and maps.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/o78zdiymb7co",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -88,13 +113,13 @@
     ]
   },
   {
-    "slug": "call-of-duty-advanced-warfare",
-    "name": "Call of Duty: Advanced Warfare",
-    "description": "Futuristic shooter introducing exosuits and high-tech weaponry.",
+    "slug": "call-of-duty-world-at-war",
+    "name": "Call of Duty: World at War",
+    "description": "Return to WWII with brutal Pacific and Eastern Front battles.",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://filecrypt.co/Container/3C0C30BA8E",
+        "url": "https://www.filecrypt.cc/Container/06AF804F12",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -107,78 +132,6 @@
       {
         "platform": "Windows",
         "url": "https://www.filecrypt.cc/Container/94F59E8FBA",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-black-ops-2",
-    "name": "Call of Duty: Black Ops II",
-    "description": "Branching storylines and futuristic tech in a Cold War sequel.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://buzzheavier.com/b65jhpnucnac",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-black-ops-3",
-    "name": "Call of Duty: Black Ops III",
-    "description": "Cybernetic soldiers and futuristic warfare in a high-tech world.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://filecrypt.co/Container/38F140D44F",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-black-ops-6",
-    "name": "Call of Duty: Black Ops 6",
-    "description": "The latest entry in the Black Ops series, featuring next-gen visuals and gripping action.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://gofile.io/d/W6wY7g",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-black-ops-cold-war",
-    "name": "Call of Duty: Black Ops Cold War",
-    "description": "Cold War espionage and covert missions with multiplayer and zombies modes.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/C8547E423A",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-ghosts",
-    "name": "Call of Duty: Ghosts",
-    "description": "Post-apocalyptic warfare with a new squad system.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/5F4E813808",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-infinite-warfare",
-    "name": "Call of Duty: Infinite Warfare",
-    "description": "Interplanetary warfare with a cinematic singleplayer campaign.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://cdn1.koyso.to/COD.Infinite.Warfare.v6.23.rar?verify=1755209483-jZivzXol0BKauUuB3Q4INH82M2DjhHfGcuC8eI22K5c%3D",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -208,6 +161,78 @@
     ]
   },
   {
+    "slug": "call-of-duty-black-ops-2",
+    "name": "Call of Duty: Black Ops II",
+    "description": "Branching storylines and futuristic tech in a Cold War sequel.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://buzzheavier.com/b65jhpnucnac",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-ghosts",
+    "name": "Call of Duty: Ghosts",
+    "description": "Post-apocalyptic warfare with a new squad system.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://www.filecrypt.cc/Container/5F4E813808",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-advanced-warfare",
+    "name": "Call of Duty: Advanced Warfare",
+    "description": "Futuristic shooter introducing exosuits and high-tech weaponry.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/3C0C30BA8E",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-black-ops-3",
+    "name": "Call of Duty: Black Ops III",
+    "description": "Cybernetic soldiers and futuristic warfare in a high-tech world.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/38F140D44F",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-infinite-warfare",
+    "name": "Call of Duty: Infinite Warfare",
+    "description": "Interplanetary warfare with a cinematic singleplayer campaign.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://cdn1.koyso.to/COD.Infinite.Warfare.v6.23.rar?verify=1755209483-jZivzXol0BKauUuB3Q4INH82M2DjhHfGcuC8eI22K5c%3D",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
+    "slug": "call-of-duty-wwii",
+    "name": "Call of Duty: WWII",
+    "description": "Cinematic WWII campaign and classic multiplayer action.",
+    "versions": [
+      {
+        "platform": "Windows",
+        "url": "https://filecrypt.co/Container/78EE18682F",
+        "tags": ["Shooter", "Singleplayer/Multiplayer"]
+      }
+    ]
+  },
+  {
     "slug": "call-of-duty-modern-warfare-2019",
     "name": "Call of Duty: Modern Warfare (2019)",
     "description": "A gritty reboot of the Modern Warfare series with photorealistic visuals.",
@@ -220,13 +245,13 @@
     ]
   },
   {
-    "slug": "call-of-duty-united-offensive",
-    "name": "Call of Duty: United Offensive",
-    "description": "Expansion to the original Call of Duty with new campaigns and maps.",
+    "slug": "call-of-duty-black-ops-cold-war",
+    "name": "Call of Duty: Black Ops Cold War",
+    "description": "Cold War espionage and covert missions with multiplayer and zombies modes.",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://buzzheavier.com/o78zdiymb7co",
+        "url": "https://www.filecrypt.cc/Container/C8547E423A",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -244,25 +269,13 @@
     ]
   },
   {
-    "slug": "call-of-duty-world-at-war",
-    "name": "Call of Duty: World at War",
-    "description": "Return to WWII with brutal Pacific and Eastern Front battles.",
+    "slug": "call-of-duty-black-ops-6",
+    "name": "Call of Duty: Black Ops 6",
+    "description": "The latest entry in the Black Ops series, featuring next-gen visuals and gripping action.",
     "versions": [
       {
         "platform": "Windows",
-        "url": "https://www.filecrypt.cc/Container/06AF804F12",
-        "tags": ["Shooter", "Singleplayer/Multiplayer"]
-      }
-    ]
-  },
-  {
-    "slug": "call-of-duty-wwii",
-    "name": "Call of Duty: WWII",
-    "description": "Cinematic WWII campaign and classic multiplayer action.",
-    "versions": [
-      {
-        "platform": "Windows",
-        "url": "https://filecrypt.co/Container/78EE18682F",
+        "url": "https://gofile.io/d/W6wY7g",
         "tags": ["Shooter", "Singleplayer/Multiplayer"]
       }
     ]
@@ -394,6 +407,97 @@
         "platform": "Windows",
         "url": "https://1fichier.com/?9hfqo87lckdacvn2nv44",
         "tags": ["Racing", "Open World", "Arcade", "Seasons"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-1",
+    "name": "Gran Turismo 1",
+    "description": "The groundbreaking racing simulation that set new standards for realism and depth on the PlayStation.",
+    "release_date": "1997-12-23",
+    "versions": [
+      {
+        "platform": "Windows, PS1 Emulated",
+        "url": "https://drive.google.com/drive/u/2/folders/1zyRQtYFqnho9DEtF4XDTinPdiUUDugbZ",
+        "tags": ["Racing", "Simulation", "Emulated", "Classic"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-2",
+    "name": "Gran Turismo 2",
+    "description": "Expanded on the original with more cars, tracks, and deeper customization, a must-play for racing enthusiasts.",
+    "release_date": "1999-12-11",
+    "versions": [
+      {
+        "platform": "Windows, PS1 Emulated",
+        "url": "https://drive.google.com/drive/u/4/folders/1M78_F5yWVvsGLAVUx-cYK1P4_NawBFcf",
+        "tags": ["Racing", "Simulation", "Emulated", "Classic"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-3-a-spec",
+    "name": "Gran Turismo 3 - A Spec",
+    "description": "A pivotal entry in the series, leveraging the power of PlayStation 2 for enhanced graphics and physics.",
+    "release_date": "2001-04-28",
+    "versions": [
+      {
+        "platform": "Windows, PS2 Emulated",
+        "url": "https://drive.google.com/drive/u/2/folders/1lGO8UChtVtfv5gNLMQV_zJi3_78UcOty",
+        "tags": ["Racing", "Simulation", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-4",
+    "name": "Gran Turismo 4",
+    "description": "Known for its massive car list, detailed physics, and iconic Photo Mode, pushing PS2 capabilities.",
+    "release_date": "2004-12-28",
+    "versions": [
+      {
+        "platform": "Windows, PS2 Emulated",
+        "url": "https://drive.google.com/drive/u/6/folders/1MlT7yPExgArdNi8o3-i4Uy_cwqZ7XCJf",
+        "tags": ["Racing", "Simulation", "Emulated"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-hd",
+    "name": "Gran Turismo HD Concept",
+    "description": "A tech demo for the PlayStation 3, showcasing the series' graphical potential in high definition.",
+    "release_date": "2006-12-24",
+    "versions": [
+      {
+        "platform": "Windows, PS3 Emulated",
+        "url": "https://1fichier.com/?mp8v85jkre1eqe99xmz5",
+        "tags": ["Racing", "Simulation", "Emulated", "Demo"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-5",
+    "name": "Gran Turismo 5",
+    "description": "The first main Gran Turismo title for PS3, featuring premium and standard cars, extensive online features, and stunning visuals.",
+    "release_date": "2010-11-24",
+    "versions": [
+      {
+        "platform": "Windows, PS3 Emulated",
+        "url": "https://1fichier.com/?q9zaaph99gzyyrl0zywa",
+        "tags": ["Racing", "Simulation", "Emulated", "Online Features"]
+      }
+    ]
+  },
+  {
+    "slug": "gran-turismo-6",
+    "name": "Gran Turismo 6",
+    "description": "Celebrating 15 years of Gran Turismo, this entry brought more cars, tracks, and a new physics engine to the PS3.",
+    "release_date": "2013-12-05",
+    "versions": [
+      {
+        "platform": "Windows, PS3 Emulated",
+        "url": "https://1fichier.com/?qvjwzn6a33smwbjr8yuj",
+        "tags": ["Racing", "Simulation", "Emulated"]
       }
     ]
   },
@@ -556,6 +660,7 @@
     ]
   }
 ]
+
 
 
 
