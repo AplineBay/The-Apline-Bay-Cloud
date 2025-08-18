@@ -1004,17 +1004,22 @@
             }
         }
 
-        function renderGames(games) {
-            games.forEach((game, index) => {
+        function displayGames(gamesToDisplay) {
+            gamesGrid.innerHTML = '';
+            if (gamesToDisplay.length === 0) {
+                return;
+            }
+        
+            gamesToDisplay.forEach(game => {
                 const gameCard = document.createElement('a');
-                gameCard.href = `./game-details.html?id=${game.id}`;
-                gameCard.className = 'game-card';
-                gameCard.style.animationDelay = `${index * 0.1}s`;
+                gameCard.href = `game-details.html?slug=${game.slug}`; // ✅ link to game details
+                gameCard.classList.add('game-card');
+        
                 gameCard.innerHTML = `
                     <div class="card-content">
                         <div class="card-header">
                             <div class="card-info">
-                                <h3 class="card-title">${game.title}</h3>
+                                <h3 class="card-title">${game.name}</h3>
                                 <div class="card-platforms">
                                     ${game.versions
                                         .map(v => `<span class="platform-badge">${v.platform}</span>`)
@@ -1038,11 +1043,7 @@
                         </div>
                     </div>
                 `;
-        
-                gamesGrid.appendChild(gameCard);
-            });
-        }
-        
+
         function updateGameCounts() {
             totalGameCountSpan.textContent = allGames.length;
         }
@@ -1094,6 +1095,7 @@
    </script>
 </body>
 </html>
+
 
 
 
