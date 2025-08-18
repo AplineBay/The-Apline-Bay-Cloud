@@ -950,217 +950,213 @@
             }
         ];
 
-
-        const gamesGrid = document.getElementById('gamesGrid');
-        const searchInput = document.getElementById('searchInput');
-        const clearBtn = document.getElementById('clearBtn');
-        const emptyState = document.getElementById('emptyState');
-        const seriesFilterTrigger = document.getElementById('series-filter-trigger');
-        const seriesFilterOptions = document.getElementById('series-filter-options');
-        const totalGameCountSpan = document.getElementById('totalGameCount');
-        const loadingScreen = document.getElementById('loading');
-        const seriesFilterWrapper = document.querySelector('.custom-select-wrapper');
-        let allGames = [];
-        let filteredGames = [];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchGames();
-        });
-
-        async function fetchGames() {
-            try {
-                const response = await fetch('./games.json');
-                const games = await response.json();
-                allGames = games;
-                filteredGames = allGames;
-                
-                loadingScreen.classList.add('hidden');
-                renderGames(filteredGames);
-                updateGameCounts();
-                populateSeriesFilter();
-            } catch (error) {
-                console.error('Error fetching games:', error);
-                loadingScreen.classList.add('hidden');
-                document.getElementById('emptyState').classList.remove('hidden');
-                document.querySelector('.empty-title').textContent = 'Failed to Load Games';
-                document.querySelector('.empty-description').textContent = 'Please check your connection and try again.';
-            }
+    <script>
+    class VisionOSGamesLibrary {
+        constructor() {
+            this.games = allGames; // ✅ make sure to load your games array here
+            this.filteredGames = [...this.games];
+            this.searchQuery = '';
+            this.currentSeriesFilter = '';
+    
+            this.render();
+            this.updateGameCount();
         }
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            if (query.length > 0) {
-                clearBtn.classList.add('visible');
-            } else {
-                clearBtn.classList.remove('visible');
-            }
-            filterAndRenderGames(query);
-        });
-
-        clearBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            clearBtn.classList.remove('visible');
-            filterAndRenderGames('');
-        });
-
-        function filterAndRenderGames(query = '', series = 'all') {
-            gamesGrid.innerHTML = '';
-            filteredGames = allGames.filter(game => {
-                const matchesQuery = game.title.toLowerCase().includes(query) ||
-                                     game.description.toLowerCase().includes(query) ||
-                                     game.versions.some(version => version.tags.some(tag => tag.toLowerCase().includes(query)));
-                const matchesSeries = series === 'all' || game.series === series;
-                return matchesQuery && matchesSeries;
+    
+        filterGames() {
+            const query = this.searchQuery.toLowerCase().trim();
+            const selectedSeries = this.currentSeriesFilter.toLowerCase();
+    
+            this.filteredGames = this.games.filter(game => {
+                const gameName = (game.name || game.title || '').toLowerCase();
+                const gameSlug = (game.slug || '').toLowerCase();
+                const gameDescription = (game.description || '').toLowerCase();
+                const gameSeries = (game.series || '').toLowerCase();
+    
+                // Support both versions[] and platforms[]
+                const versions = game.versions || [];
+                const platforms = game.platforms || [];
+    
+                const matchesSearch =
+                    gameName.includes(query) ||
+                    gameSlug.includes(query) ||
+                    gameDescription.includes(query) ||
+                    versions.some(v => {
+                        const platform = (v.platform || '').toLowerCase();
+                        const tags = (v.tags || []).map(tag => tag.toLowerCase());
+                        const url = (v.url || '').toLowerCase();
+                        return platform.includes(query) || tags.some(t => t.includes(query)) || url.includes(query);
+                    }) ||
+                    platforms.some(p => p.toLowerCase().includes(query)) ||
+                    (game.tags || []).some(tag => tag.toLowerCase().includes(query));
+    
+                const matchesSeries = (selectedSeries === '' || selectedSeries === 'all' || gameSeries === selectedSeries);
+    
+                return matchesSearch && matchesSeries;
             });
-
-            if (filteredGames.length > 0) {
-                renderGames(filteredGames);
+    
+            this.render();
+            this.updateGameCount();
+        }
+    
+        render() {
+            const gamesGrid = document.getElementById('gamesGrid');
+            const emptyState = document.getElementById('emptyState');
+            const gameCount = document.getElementById('totalGameCount');
+            const contentHeader = document.getElementById('contentHeader');
+    
+            gamesGrid.innerHTML = '';
+    
+            if (this.filteredGames.length > 0) {
+                this.filteredGames.forEach((game, index) => {
+                    const card = this.createGameCard(game, index);
+                    gamesGrid.appendChild(card);
+                });
                 emptyState.classList.add('hidden');
+                if (contentHeader) contentHeader.classList.remove('hidden');
+                if (gameCount) gameCount.textContent = this.filteredGames.length;
             } else {
                 emptyState.classList.remove('hidden');
+                if (contentHeader) contentHeader.classList.add('hidden');
             }
         }
-
-        function renderGames(games) {
-            games.forEach((game, index) => {
-                const gameCard = document.createElement('a');
-                gameCard.href = `./game-details.html?id=${game.id}`;
-                gameCard.className = 'game-card';
-                gameCard.style.animationDelay = `${index * 0.1}s`;
-                gameCard.innerHTML = `
-                    <div class="card-content">
-                        <div class="card-header">
-                            <img src="${game.logo}" alt="${game.title} Logo" class="card-logo">
-                            <div class="card-info">
-                                <h3 class="card-title">${game.title}</h3>
-                                <div class="card-platforms">
-                                    ${game.versions
-                                        .map(v => `<span class="platform-badge">${v.platform}</span>`)
-                                        .join('')}
-                                </div>
-                            </div>
-                            <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" 
-                                 width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                 stroke="currentColor" stroke-width="2" 
-                                 stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </div>
-                        <p>${game.description}</p>
-                        <div class="card-tags">
-                            ${Array.from(
-                                new Set(game.versions.flatMap(v => v.tags))
-                            )
-                                .map(tag => `<span class="tag">${tag}</span>`)
-                                .join('')}
-                        </div>
-                    </div>
+    
+        createGameCard(game, index) {
+            const cardLink = document.createElement('a');
+            cardLink.href = `game-details.html?slug=${game.slug || game.id}`;
+            cardLink.className = 'game-card';
+            cardLink.style.animationDelay = `${index * 0.1}s`;
+    
+            const cardContent = document.createElement('div');
+            cardContent.className = 'card-content';
+    
+            const cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header';
+    
+            const cardInfo = document.createElement('div');
+            cardInfo.className = 'card-info';
+    
+            const title = document.createElement('h3');
+            title.className = 'card-title';
+            title.textContent = game.name || game.title;
+    
+            const platforms = document.createElement('div');
+            platforms.className = 'card-platforms';
+    
+            // Support both versions[] and platforms[]
+            const uniquePlatforms = [...new Set(
+                (game.versions || []).map(v => v.platform).concat(game.platforms || [])
+            )];
+    
+            uniquePlatforms.slice(0, 3).forEach(platform => {
+                const badge = document.createElement('div');
+                badge.className = 'platform-badge';
+                badge.innerHTML = `
+                    ${this.getPlatformIcon(platform)}
+                    <span>${platform}</span>
                 `;
-                gamesGrid.appendChild(gameCard);
+                platforms.appendChild(badge);
             });
-        }
-        
-        function updateGameCounts() {
-            totalGameCountSpan.textContent = allGames.length;
-        }
-
-        // Dropdown functionality
-        function populateSeriesFilter() {
-            const seriesList = ['all', ...new Set(allGames.map(game => game.series))];
-            const optionsHtml = seriesList.map(series => 
-                `<span class="custom-option" data-value="${series}">${series === 'all' ? 'All Series' : series}</span>`
-            ).join('');
-            seriesFilterOptions.innerHTML = optionsHtml;
-        }
-
-        seriesFilterTrigger.addEventListener('click', () => {
-            seriesFilterOptions.classList.toggle('open');
-            seriesFilterTrigger.classList.toggle('active');
-        });
-
-        seriesFilterOptions.addEventListener('click', (e) => {
-            const selectedOption = e.target.closest('.custom-option');
-            if (selectedOption) {
-                const value = selectedOption.dataset.value;
-                const text = selectedOption.textContent;
-
-                // Update trigger text and active state
-                seriesFilterTrigger.querySelector('span').textContent = text;
-                document.querySelectorAll('.custom-option').forEach(option => {
-                    option.classList.remove('selected');
+    
+            if (uniquePlatforms.length > 3) {
+                const moreBadge = document.createElement('div');
+                moreBadge.className = 'platform-badge';
+                moreBadge.textContent = `+${uniquePlatforms.length - 3} more`;
+                platforms.appendChild(moreBadge);
+            }
+    
+            cardInfo.appendChild(title);
+            cardInfo.appendChild(platforms);
+    
+            const arrow = document.createElement('div');
+            arrow.className = 'card-arrow';
+            arrow.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m9 18 6-6-6-6"/>
+                </svg>
+            `;
+    
+            cardHeader.appendChild(cardInfo);
+            cardHeader.appendChild(arrow);
+            cardContent.appendChild(cardHeader);
+    
+            if (game.description) {
+                const description = document.createElement('p');
+                description.style.color = 'hsl(var(--foreground-secondary))';
+                description.style.fontSize = '14px';
+                description.style.lineHeight = '1.5';
+                description.style.marginBottom = 'var(--spacing-md)';
+                description.textContent = game.description;
+                cardContent.appendChild(description);
+            }
+    
+            const allTags = new Set();
+            (game.versions || []).forEach(version => {
+                (version.tags || []).forEach(tag => allTags.add(tag));
+            });
+            (game.tags || []).forEach(tag => allTags.add(tag));
+    
+            if (allTags.size > 0) {
+                const tagsContainer = document.createElement('div');
+                tagsContainer.className = 'card-tags';
+                Array.from(allTags).slice(0, 6).forEach(tagText => {
+                    const tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = tagText;
+                    tagsContainer.appendChild(tag);
                 });
-                selectedOption.classList.add('selected');
-
-                // Close dropdown
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
-
-                // Filter games
-                const currentQuery = searchInput.value.toLowerCase();
-                filterAndRenderGames(currentQuery, value);
+                cardContent.appendChild(tagsContainer);
             }
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!seriesFilterWrapper.contains(e.target)) {
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
-            }
-        });
- 
-        
-        function updateGameCounts() {
-            totalGameCountSpan.textContent = allGames.length;
+    
+            cardLink.appendChild(cardContent);
+            return cardLink;
         }
-
-        // Dropdown functionality
-        function populateSeriesFilter() {
-            const seriesList = ['all', ...new Set(allGames.map(game => game.series))];
-            const optionsHtml = seriesList.map(series => 
-                `<span class="custom-option" data-value="${series}">${series === 'all' ? 'All Series' : series}</span>`
-            ).join('');
-            seriesFilterOptions.innerHTML = optionsHtml;
+    
+        getPlatformIcon(platform = '') {
+            const platformLower = platform.toLowerCase();
+            if (platformLower.includes('windows') || platformLower.includes('mac')) {
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect width="20" height="14" x="2" y="3" rx="2" ry="2"/>
+                    <line x1="8" x2="16" y1="21" y2="21"/>
+                    <line x1="12" x2="12" y1="17" y2="21"/>
+                </svg>`;
+            }
+            if (platformLower.includes('android') || platformLower.includes('ios') || platformLower.includes('mobile')) {
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                    <line x1="12" x2="12.01" y1="18" y2="18"/>
+                </svg>`;
+            }
+            if (platformLower.includes('web')) {
+                return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" x2="22" y1="12" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>`;
+            }
+            return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="6" x2="10" y1="12" y2="12"/>
+                <line x1="8" x2="8" y1="10" y2="14"/>
+                <line x1="15" x2="15.01" y1="13" y2="13"/>
+                <line x1="18" x2="18.01" y1="11" y2="11"/>
+                <rect width="20" height="12" x="2" y="6" rx="2"/>
+            </svg>`;
         }
-
-        seriesFilterTrigger.addEventListener('click', () => {
-            seriesFilterOptions.classList.toggle('open');
-            seriesFilterTrigger.classList.toggle('active');
-        });
-
-        seriesFilterOptions.addEventListener('click', (e) => {
-            const selectedOption = e.target.closest('.custom-option');
-            if (selectedOption) {
-                const value = selectedOption.dataset.value;
-                const text = selectedOption.textContent;
-
-                // Update trigger text and active state
-                seriesFilterTrigger.querySelector('span').textContent = text;
-                document.querySelectorAll('.custom-option').forEach(option => {
-                    option.classList.remove('selected');
-                });
-                selectedOption.classList.add('selected');
-
-                // Close dropdown
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
-
-                // Filter games
-                const currentQuery = searchInput.value.toLowerCase();
-                filterAndRenderGames(currentQuery, value);
+    
+        updateGameCount() {
+            const totalGameCountSpan = document.getElementById('totalGameCount');
+            if (totalGameCountSpan) {
+                totalGameCountSpan.textContent = this.filteredGames.length;
             }
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!seriesFilterWrapper.contains(e.target)) {
-                seriesFilterOptions.classList.remove('open');
-                seriesFilterTrigger.classList.remove('active');
-            }
-        });
-   </script>
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        new VisionOSGamesLibrary();
+    });
+    </script>
 </body>
 </html>
+
 
 
 
