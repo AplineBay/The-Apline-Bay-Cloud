@@ -1,0 +1,154 @@
+body.frutiger-aero-theme {
+    /* Frutiger Aero Background Colors */
+    --background: 210 50% 90%; /* Light blue/grey base */
+    --background-secondary: 210 40% 95%;
+    --background-tertiary: 210 30% 98%;
+    --foreground: 210 80% 20%; /* Darker text for contrast */
+    --foreground-secondary: 210 60% 35%;
+    --foreground-tertiary: 210 40% 50%;
+
+    /* Frutiger Aero Vibrant Accent Colors (Example: Blue/Green) */
+    --accent-color-light: 170 80% 65%; /* Bright teal/aqua */
+    --accent-color-dark: 180 90% 40%; /* Deeper teal */
+    --accent-gradient: linear-gradient(135deg, hsl(var(--accent-color-light)), hsl(var(--accent-color-dark)));
+
+    /* Frutiger Aero Glass Effects - More pronounced */
+    --glass-bg: rgba(255, 255, 255, 0.4); /* More translucent background */
+    --glass-border: rgba(255, 255, 255, 0.6); /* Whiter, more prominent border */
+    --glass-shadow: rgba(0, 0, 0, 0.15); /* Lighter shadow */
+    --glass-inner-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.5); /* Inner highlight */
+    --glass-reflection: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%); /* Top reflection */
+
+    /* Override existing styles for Frutiger Aero look */
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+}
+
+body.frutiger-aero-theme .vision-bg {
+    /* More subtle or different background effect for Frutiger Aero */
+    background:
+        radial-gradient(circle at 10% 10%, hsl(var(--accent-color-light) / 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, hsl(var(--accent-color-dark) / 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+body.frutiger-aero-theme .vision-orb {
+    background: hsl(var(--accent-color-light) / 0.2);
+    filter: blur(80px); /* More blur for organic shapes */
+}
+body.frutiger-aero-theme .vision-orb-1 { background: hsl(var(--accent-color-dark) / 0.2); }
+body.frutiger-aero-theme .vision-orb-2 { background: hsl(var(--accent-color-light) / 0.15); }
+body.frutiger-aero-theme .vision-orb-3 { background: hsl(var(--accent-color-dark) / 0.1); }
+
+
+body.frutiger-aero-theme .nav-bar,
+body.frutiger-aero-theme .ai-fab,
+body.frutiger-aero-theme .search-wrapper,
+body.frutiger-aero-theme .game-count,
+body.frutiger-aero-theme .custom-select-trigger,
+body.frutiger-aero-theme .custom-options,
+body.frutiger-aero-theme .game-card,
+body.frutiger-aero-theme .version-badge, /* Add this for game details page */
+body.frutiger-aero-theme .back-btn, /* Add this for game details page */
+body.frutiger-aero-theme .game-details, /* Add this for game details page */
+body.frutiger-aero-theme .version-card /* Add this for game details page */
+{
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow), var(--glass-inner-shadow);
+    position: relative; /* Needed for pseudo-elements */
+    overflow: hidden; /* Ensure reflection stays within bounds */
+}
+
+body.frutiger-aero-theme .nav-bar::before,
+body.frutiger-aero-theme .ai-fab::before,
+body.frutiger-aero-theme .search-wrapper::before,
+body.frutiger-aero-theme .game-card::before,
+body.frutiger-aero-theme .version-badge::before,
+body.frutiger-aero-theme .back-btn::before,
+body.frutiger-aero-theme .game-details::before,
+body.frutiger-aero-theme .version-card::before,
+body.frutiger-aero-theme .custom-select-trigger::before,
+body.frutiger-aero-theme .custom-options::before
+ {
+    content: '';
+    position: absolute;
+    top: 1px; /* Adjust slightly for border */
+    left: 1px;
+    right: 1px;
+    height: 40%; /* Reflection height */
+    background: var(--glass-reflection);
+    border-radius: inherit; /* Inherit border-radius from parent */
+    pointer-events: none;
+    z-index: 3; /* Above content but below main glass */
+    opacity: 0.8; /* Make reflection visible */
+    transition: opacity 0.3s ease;
+}
+
+body.frutiger-aero-theme .game-card:hover::before,
+body.frutiger-aero-theme .ai-fab:hover::before,
+body.frutiger-aero-theme .back-btn:hover::before,
+body.frutiger-aero-theme .version-card:hover::before,
+body.frutiger-aero-theme .custom-select-trigger.active::before,
+body.frutiger-aero-theme .custom-select-trigger:hover::before {
+    opacity: 1; /* More prominent reflection on hover/active */
+}
+
+body.frutiger-aero-theme .logo {
+    box-shadow: 0 0 0 1px var(--glass-border), 0 8px 32px var(--glass-shadow), var(--glass-inner-shadow);
+    background: var(--glass-bg);
+}
+
+body.frutiger-aero-theme .title,
+body.frutiger-aero-theme .game-title {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.frutiger-aero-theme .game-card:hover .card-title,
+body.frutiger-aero-theme .version-card:hover .version-title {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.frutiger-aero-theme .platform-badge,
+body.frutiger-aero-theme .tag-badge {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: hsl(var(--foreground));
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+body.frutiger-aero-theme .platform-badge svg,
+body.frutiger-aero-theme .tag-badge svg {
+    color: hsl(var(--foreground-secondary));
+}
+
+body.frutiger-aero-theme .game-card:hover .platform-badge,
+body.frutiger-aero-theme .version-card:hover .platform-badge {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Specific button/interactive element enhancements */
+body.frutiger-aero-theme .nav-link:hover,
+body.frutiger-aero-theme .custom-option:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter hover for aero */
+}
+
+body.frutiger-aero-theme .custom-option.selected {
+    background-color: hsl(var(--accent-color-light) / 0.3);
+    color: hsl(var(--foreground));
+    font-weight: 600;
+}
+
+body.frutiger-aero-theme .search-wrapper:focus-within {
+    border-color: hsl(var(--accent-color-light));
+    box-shadow:
+        0 0 0 4px hsl(var(--accent-color-light) / 0.3),
+        0 12px 48px var(--glass-shadow);
+}
