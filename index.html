@@ -853,7 +853,7 @@
             </div>
             <h1 class="title">The Apline Bay</h1>
             <p class="subtitle">A curated library of games and interactive experiences for various platforms.</p>
-            <span class="version-badge">Version 1.0</span>
+            <span class="version-badge">Version 2.0 Indev</span>
         </header>
 
         <section class="search-container">
@@ -1146,7 +1146,8 @@
 
             gamesToDisplay.forEach(game => {
                 const gameCard = document.createElement('a');
-                gameCard.href = "#"; // Or a specific game detail page if you have one
+                gameCard.href = `game-details.html?slug=${game.slug}`;
+                gameCard.setAttribute("data-slug", game.slug);
                 gameCard.classList.add('game-card');
                 gameCard.innerHTML = `
                     <div class="card-content">
@@ -1176,6 +1177,7 @@
     </script>
 </body>
 </html>
+
 
 
 
