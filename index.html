@@ -1143,52 +1143,51 @@
             if (gamesToDisplay.length === 0) {
                 return;
             }
-
+        
             gamesToDisplay.forEach(game => {
                 const gameCard = document.createElement('a');
-               function displayGames(gamesToDisplay) {
-                gamesGrid.innerHTML = '';
-                if (gamesToDisplay.length === 0) {
-                    return;
-                }
-
-                gamesToDisplay.forEach(game => {
-                    const gameCard = document.createElement('a');
-                    gameCard.href = "#"; // <- THIS IS THE LINE
-                    gameCard.classList.add('game-card');
-                    gameCard.innerHTML = `
-
+                gameCard.href = `game-details.html?slug=${game.slug}`; // ✅ link to game details
                 gameCard.classList.add('game-card');
+        
                 gameCard.innerHTML = `
                     <div class="card-content">
                         <div class="card-header">
                             <div class="card-info">
                                 <h3 class="card-title">${game.name}</h3>
                                 <div class="card-platforms">
-                                    ${game.versions.map(v => `<span class="platform-badge">${v.platform}</span>`).join('')}
+                                    ${game.versions
+                                        .map(v => `<span class="platform-badge">${v.platform}</span>`)
+                                        .join('')}
                                 </div>
                             </div>
-                            <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" 
+                                 width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                                 stroke="currentColor" stroke-width="2" 
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
                         </div>
                         <p>${game.description}</p>
                         <div class="card-tags">
-                            ${Array.from(new Set(game.versions.flatMap(v => v.tags))).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                            ${Array.from(
+                                new Set(game.versions.flatMap(v => v.tags || []))
+                            )
+                                .map(tag => `<span class="tag">${tag}</span>`)
+                                .join('')}
                         </div>
                     </div>
                 `;
+        
                 gamesGrid.appendChild(gameCard);
             });
         }
-
+        
         function updateGameCounts() {
             totalGameCountSpan.textContent = allGames.length;
         }
-
-    </script>
+   </script>
 </body>
 </html>
-
-
 
 
 
