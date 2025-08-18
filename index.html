@@ -1146,7 +1146,18 @@
 
             gamesToDisplay.forEach(game => {
                 const gameCard = document.createElement('a');
-                gameCard.href = "#"; // Or a specific game detail page if you have one
+               function displayGames(gamesToDisplay) {
+                gamesGrid.innerHTML = '';
+                if (gamesToDisplay.length === 0) {
+                    return;
+                }
+
+                gamesToDisplay.forEach(game => {
+                    const gameCard = document.createElement('a');
+                    gameCard.href = "#"; // <- THIS IS THE LINE
+                    gameCard.classList.add('game-card');
+                    gameCard.innerHTML = `
+
                 gameCard.classList.add('game-card');
                 gameCard.innerHTML = `
                     <div class="card-content">
@@ -1176,6 +1187,7 @@
     </script>
 </body>
 </html>
+
 
 
 
