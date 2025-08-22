@@ -13,6 +13,16 @@
           "Offline",
           "Mobile"
         ]
+      },
+      {
+        "platform": "Symbian",
+        "url": "https://archive.org/download/asphalt-5-symbian3",
+        "tags": [
+          "Racing",
+          "Singleplayer",
+          "Offline",
+          "Mobile"
+        ]
       }
     ]
   },
@@ -49,6 +59,26 @@
           "Singleplayer",
           "Offline"
         ]
+      },
+      {
+        "platform": "Java",
+        "url": "https://archive.org/download/Asphalt6-JAR",
+        "tags": [
+          "Racing",
+          "Singleplayer",
+          "Offline",
+          "Mobile"
+        ]
+      },
+      {
+        "platform": "Symbian",
+        "url": "https://archive.org/download/asphalt-6-symbian3",
+        "tags": [
+          "Racing",
+          "Singleplayer",
+          "Offline",
+          "Mobile"
+        ]
       }
     ]
   },
@@ -71,7 +101,7 @@
   },
   {
     "slug": "asphalt-8-airborne",
-    "name": "Asphalt 8: Airborne",
+    "name": "Asphalt 8: Airborne+",
     "description": "High-speed racing action with stunts and stunning gameplay.",
     "versions": [
       {
@@ -160,6 +190,24 @@
           "SinglePlayer",
           "Offline",
           "Unmodded"
+        ]
+      },
+      {
+        "platform": "Asphalt 8+ Mac",
+        "url": "https://mega.nz/file/hcASVT6Z#6tFLzsYk9OqngePtFoNzbdWhmC8ExP11pDq8iPycRtI/?trmr=0e34b48e15ed9",
+        "tags": [
+          "Racing",
+          "Singleplayer/Multiplayer"
+        ]
+      },
+      {
+        "platform": "Asphalt 8+ iOS",
+        "url": "https://mobdisc.com/fdl/b86bdb8a-129b-43e3-9860-e59dd29d7b71/Asphalt-8-Airborne-plus-v2-2-0.ipa",
+        "tags": [
+          "Racing",
+          "Singleplayer/Multiplayer",
+          "Mobile",
+          "Apple Arcade"
         ]
       }
     ]
